@@ -1,47 +1,15 @@
-<html>
-<head>
-    <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+@extends('master')
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            color: #B0BEC5;
-            display: table;
-            font-weight: 100;
-            font-family: 'Lato';
-        }
+@section('content')
 
-        .container {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
+    @foreach($components as $component)
+        <div class="jumbotron">
+            <h1>{{$component['name']}}</h1>
 
-        .content {
-            text-align: center;
-            display: inline-block;
-        }
+            <p>{{$component['description']}}</p>
 
-        .title {
-            font-size: 96px;
-            margin-bottom: 40px;
-        }
+            <p><a class="btn btn-primary btn-lg" href="{{$component['href']}}" role="button">Click to enter</a></p>
+        </div>
+    @endforeach
 
-        .body {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-    <div class="content">
-        <div class="body"><a href="#">{{$component_one}}</a></div>
-        <div class="body"><a href="#">{{$component_two}}</a></div>
-    </div>
-</div>
-</body>
-</html>
+@endsection

@@ -34,8 +34,22 @@ class ComponentController  extends Controller
      */
     public function index()
     {
-        $data['component_one'] = 'Learning archive component';
-        $data['component_two'] = 'Random component';
+        $data['brand'] = 'Brand New Website';
+        $data['navsearch'] = 'Search Now!';
+
+        $data['components'][0]['name'] = 'Learning archive component';
+        $data['components'][1]['name'] = 'Random component';
+        $data['components'][2]['name'] = 'Random component2';
+
+        $data['components'][0]['description'] = 'Learning archive component description';
+        $data['components'][1]['description'] = 'Random component description';
+        $data['components'][2]['description'] = 'Random component2 description';
+
+        $data['components'][0]['href'] = '/learning';
+        $data['components'][1]['href'] = '#';
+        $data['components'][2]['href'] = '#';
+
+        $data['footer'] = 'Trademark, Copyright, and all that Jazz';
 
         return view('components')->with($data);
     }
