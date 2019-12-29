@@ -2,5 +2,7 @@
     <div class="panel-body">
         Wicked Awesome Website.
     </div>
-    <div class="panel-footer">{{ $footer }}</div>
+    <div class="panel-footer">
+{{--        {{ $footer }}--}}
+    </div>
 </div>
