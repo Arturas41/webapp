@@ -20,6 +20,7 @@ class CreateLearnTopicsTable extends Migration
             $table->boolean('done_theory')->default(0);
             $table->boolean('done_practice')->default(0);
             $table->integer('unknown_learn_topic_parent_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
