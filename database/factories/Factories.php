@@ -41,3 +41,11 @@ $factory->define( App\LearnTopic::class, function ( $faker ) {
         'title' => $faker->sentence
     ];
 } );
+
+$factory->define( App\Component::class, function ( $faker ) {
+    return [
+        'url' => '/test',
+        'title' => $faker->sentence,
+        'description' => $faker->sentence
+    ];
+} );

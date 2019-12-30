@@ -16,4 +16,13 @@ class ComponentsTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_a_user_can_browse_components()
+    {
+        $thread = factory('App\Component')->create();
+
+        $response = $this->get('/');
+        $response->assertSee($thread->title);
+        $response->assertStatus(200);
+    }
 }
