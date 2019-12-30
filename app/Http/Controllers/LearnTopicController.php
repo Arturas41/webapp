@@ -9,13 +9,15 @@ use App\LearnTopic;
 class LearnTopicController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     public function index(){
-        return view('learn_topic.index');
+        $learnTopics = LearnTopic::latest()->get();
+
+        return view('learn_topic.index', compact( 'learnTopics' ));
     }
 
     public function create(){
@@ -39,6 +41,26 @@ class LearnTopicController extends Controller
 //        $learnTopic->tags()->attach($tags);
 
         return view('learn_topic.create');
+    }
+
+    public function store( Request $request ) {
+        //
+    }
+
+    public function show( LearnTopic $learnTopic ) {
+        return view('learn_topic.show', compact( 'learnTopic' ));
+    }
+
+    public function edit( LearnTopic $learnTopic ) {
+        //
+    }
+
+    public function update( Request $request, LearnTopic $learnTopic ) {
+        //
+    }
+
+    public function destroy( LearnTopic $learnTopic ) {
+        //
     }
 }
 
