@@ -2,17 +2,18 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ExampleTest extends TestCase
+class LearnTopicsTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    use DatabaseMigrations;
+
+    public function test_it_has_an_owner()
     {
-        $this->assertTrue(true);
+        $learnTopic = factory('App\LearnTopic')->create();
+
+        $this->assertInstanceOf('App\User', $learnTopic->owner);
     }
 }
