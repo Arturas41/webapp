@@ -1,5 +1,5 @@
 <?php
-$vote = App\PostVote::where('user_id', Auth::id())->where('post_id', $post->id)->first();
+$vote = App\AngleslashPostVote::where('user_id', Auth::id())->where('post_id', $post->id)->first();
 $type = null;
 
 if (!is_null($vote)) {
@@ -22,16 +22,16 @@ if (!is_null($vote)) {
                   aria-hidden="true"></span>
         </div>
         <div class="col-xs-11">
-            <div class="votes">{{ $post->votes()->count() }} votes so far</div>
+{{--            <div class="votes">{{ $post->votes()->count() }} votes so far</div>--}}
         </div>
         <div class="col-xs-12">
             <span class="pull-right">
             submitted {{ Helper::timeAgo($post->created_at) }} ago by
-            <a href="/u/{{ $post->user->name }}">
+            <a href="/angleslash/u/{{ $post->user->name }}">
                 {{ $post->user->name }}
             </a>
             to
-            <a href="/r/{{ $post->sub->name }}">
+            <a href="/angleslash/r/{{ $post->sub->name }}">
                 {{ $post->sub->name }}
             </a>
             </span>

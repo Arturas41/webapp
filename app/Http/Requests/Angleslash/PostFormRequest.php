@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Angleslash;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,7 +26,7 @@ class PostFormRequest extends FormRequest
         return [
             'title' => 'required|max:100',
             'url' => 'required|max:2083|active_url',
-            'sub' => 'required|exists:subs,name'
+            'sub' => 'required|exists:angleslash_subs,name'
         ];
     }
 }

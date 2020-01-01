@@ -13,7 +13,7 @@ class CreateSubsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subs', function (Blueprint $table) {
+        Schema::create('angleslash_subs', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('name', 20);
@@ -28,6 +28,6 @@ class CreateSubsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subs');
+        Schema::dropIfExists('angleslash_subs');
     }
 }

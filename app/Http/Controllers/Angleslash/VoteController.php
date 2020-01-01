@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Angleslash;
 
 use Illuminate\Http\Request;
-use App\PostVote;
+use App\AngleslashPostVote;
+use App\Http\Controllers\Controller;
 
 class VoteController extends Controller
 {
@@ -11,7 +12,7 @@ class VoteController extends Controller
     {
         $class = $request->input('class');
         $postId = $request->input('postId');
-        $previousVote = PostVote::where('user_id', \Auth::id())->where('post_id', $postId)->first();
+        $previousVote = AngleslashPostVote::where('user_id', \Auth::id())->where('post_id', $postId)->first();
         $isUpvote = strpos($class, 'up');
 
         // If there is a vote by the same user on the same post
@@ -34,7 +35,7 @@ class VoteController extends Controller
         } else {
 
             // Create a new vote
-            PostVote::create([
+            AngleslashPostVote::create([
                 'type' => $isUpvote ? 'up' : 'down',
                 'user_id' => \Auth::id(),
                 'post_id' => $postId

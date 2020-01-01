@@ -13,7 +13,7 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('angleslash_posts', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('title',100);
@@ -30,6 +30,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('angleslash_posts');
     }
 }

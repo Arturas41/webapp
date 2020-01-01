@@ -1,11 +1,11 @@
-@extends('default')
+@extends('layouts/app')
 
 @section('content')
 
     <!--The user's posts-->
     <div class="col-lg-8">
         @foreach($user->posts()->paginate(15) as $post)
-            @include('snippets.post', array('post' => $post))
+            @include('angleslash.snippets.post', array('angleslash.post' => $post))
         @endforeach
 
     </div>

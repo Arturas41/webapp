@@ -17,10 +17,10 @@ Route::get('/learn_topic/{learn_topic}', 'LearnTopicController@show');
 Route::post('/learn_topic', 'LearnTopicController@store');
 
 Route::prefix('angleslash')->group(function () {
-// Display users, subs and front page
-    Route::get('/', 'PostController@frontpage');
-    Route::get('u/{user}', 'UserController@show');
-    Route::get('r/{sub}', 'SubController@show');
+//// Display users, subs and front page
+    Route::get('/', 'Angleslash\PostController@frontpage');
+    Route::get('u/{user}', 'UserController@showAngleslashProfile');
+    Route::get('r/{sub}', 'Angleslash\SubController@show');
 // Checking if the user is signed in (using AJAX)
     Route::get('authcheck', function () {
         return json_encode(Auth::check());
@@ -28,27 +28,27 @@ Route::prefix('angleslash')->group(function () {
 // Creating and storing a new sub
     Route::get('sub/new', [
         'middleware' => 'auth',
-        'uses' => 'SubController@displayform'
+        'uses' => 'Angleslash\SubController@displayform'
     ]);
 
     Route::post('sub/new', [
         'middleware' => 'auth',
-        'uses' => 'SubController@storesub'
+        'uses' => 'Angleslash\SubController@storesub'
     ]);
 // Creating and storing a new post / link
     Route::get('post/new', [
         'middleware' => 'auth',
-        'uses' => 'PostController@displayform',
+        'uses' => 'Angleslash\PostController@displayform',
     ]);
 
     Route::post('post/new', [
         'middleware' => 'auth',
-        'uses' => 'PostController@storepost'
+        'uses' => 'Angleslash\PostController@storepost'
     ]);
 // Voting on posts / links
     Route::post('vote', [
         'middleware' => 'auth',
-        'uses' => 'VoteController@vote'
+        'uses' => 'Angleslash\VoteController@vote'
     ]);
 });
 

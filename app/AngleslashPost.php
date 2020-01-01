@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class AngleslashPost extends Model
 {
-    protected $table = 'posts';
+    protected $table = 'angleslash_posts';
     protected $fillable = ['title', 'url', 'sub_id', 'user_id'];
 
     public function user()
@@ -16,11 +16,11 @@ class Post extends Model
 
     public function sub()
     {
-        return $this->belongsTo('App\Sub');
+        return $this->belongsTo('App\AngleslashSub','sub_id');
     }
 
     public function votes()
     {
-        return $this->hasMany('App\PostVote');
+        return $this->hasMany('App\AngleslashPostVote');
     }
 }

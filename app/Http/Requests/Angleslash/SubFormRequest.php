@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Angleslash;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class SubFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:20|alpha_dash|unique:subs'
+            'name' => 'required|min:3|max:20|alpha_dash|unique:angleslash_subs'
         ];
     }
 }

@@ -39,16 +39,16 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\AngleslashPost');
     }
 
     public function subs()
     {
-        return $this->hasMany('App\Sub');
+        return $this->hasMany('App\AngleslashSub');
     }
 
     public function postvotes()
     {
-        return $this->hasMany('App\PostVote');
+        return $this->hasMany('App\AngleslashPostVote');
     }
 }

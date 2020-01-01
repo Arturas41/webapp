@@ -13,28 +13,28 @@ class ForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->foreign('sub_id')->references('id')->on('subs')
+        Schema::table('angleslash_posts', function (Blueprint $table) {
+            $table->foreign('sub_id')->references('id')->on('angleslash_subs')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('angleslash_posts', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
-        Schema::table('subs', function (Blueprint $table) {
+        Schema::table('angleslash_subs', function (Blueprint $table) {
             $table->foreign('owner_id')->references('id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
-        Schema::table('post_votes', function (Blueprint $table) {
+        Schema::table('angleslash_post_votes', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
-        Schema::table('post_votes', function (Blueprint $table) {
-            $table->foreign('post_id')->references('id')->on('posts')
+        Schema::table('angleslash_post_votes', function (Blueprint $table) {
+            $table->foreign('post_id')->references('id')->on('angleslash_posts')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
@@ -47,20 +47,20 @@ class ForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign('posts_sub_id_foreign');
+        Schema::table('angleslash_posts', function (Blueprint $table) {
+            $table->dropForeign('angleslash_posts_sub_id_foreign');
         });
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign('posts_user_id_foreign');
+        Schema::table('angleslash_posts', function (Blueprint $table) {
+            $table->dropForeign('angleslash_posts_user_id_foreign');
         });
-        Schema::table('subs', function (Blueprint $table) {
-            $table->dropForeign('subs_owner_id_foreign');
+        Schema::table('angleslash_subs', function (Blueprint $table) {
+            $table->dropForeign('angleslash_subs_owner_id_foreign');
         });
-        Schema::table('post_votes', function (Blueprint $table) {
-            $table->dropForeign('post_votes_user_id_foreign');
+        Schema::table('angleslash_post_votes', function (Blueprint $table) {
+            $table->dropForeign('angleslash_post_votes_user_id_foreign');
         });
-        Schema::table('post_votes', function (Blueprint $table) {
-            $table->dropForeign('post_votes_post_id_foreign');
+        Schema::table('angleslash_post_votes', function (Blueprint $table) {
+            $table->dropForeign('angleslash_post_votes_post_id_foreign');
         });
     }
 }

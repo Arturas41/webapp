@@ -13,7 +13,7 @@ class CreatePostVotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_votes', function (Blueprint $table) {
+        Schema::create('angleslash_post_votes', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('type', 4);
@@ -29,6 +29,6 @@ class CreatePostVotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_votes');
+        Schema::dropIfExists('angleslash_post_votes');
     }
 }

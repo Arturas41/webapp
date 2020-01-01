@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PostVote extends Model
+class AngleslashPostVote extends Model
 {
-    protected $table = 'post_votes';
+    protected $table = 'angleslash_post_votes';
     protected $fillable = ['type', 'user_id', 'post_id'];
 
     public function post()
     {
-        return $this->belongsTo('App\Post');
+        return $this->belongsTo('App\AngleslashPost', 'vote_id');
     }
 
     public function user()

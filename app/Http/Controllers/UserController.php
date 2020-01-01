@@ -7,11 +7,11 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function show($name)
+    public function showAngleslashProfile($name)
     {
         $user = User::where('name', $name)->firstOrFail();
 
-        return view('profile')
+        return view('angleslash.profile')
             ->with('title', $user->name)
             ->with('user', $user);
     }
