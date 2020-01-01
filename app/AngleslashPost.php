@@ -23,4 +23,8 @@ class AngleslashPost extends Model
     {
         return $this->hasMany('App\AngleslashPostVote');
     }
+
+    public function tags(){
+        return $this->belongsToMany('App\AngleslashTag')->withTimestamps();
+    }
 }

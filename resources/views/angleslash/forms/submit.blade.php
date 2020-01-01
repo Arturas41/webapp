@@ -34,6 +34,11 @@
             {!! Form::text('sub', $value = null, ['class' => 'form-control input-lg', 'placeholder' => 'Name of sub here']) !!}
         </div>
 
+        <div class="form-group">
+            {!! Form::label('tags', 'Select associated tags (hold ctrl for multiple):') !!}
+            {!! Form::select('tags[]', $tags, null, ['class' => 'form-control input-lg', 'multiple', 'id' => 'prettify', 'data-placeholder' => 'Choose at least one tag']) !!}
+        </div>
+
         {!! Form::submit('Go!', ['class' => 'btn btn-lg btn-block btn-info']) !!}
     </div>
 

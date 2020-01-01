@@ -34,6 +34,14 @@ if (!is_null($vote)) {
             <a href="/angleslash/r/{{ $post->sub->name }}">
                 {{ $post->sub->name }}
             </a>
+
+            @unless ($post->tags->isEmpty())
+                    <p>
+                @foreach($post->tags as $tag)
+                    <span class="label label-danger">#{{ $tag->name }}</span>
+                @endforeach
+                    </p>
+            @endunless
             </span>
         </div>
     </div>

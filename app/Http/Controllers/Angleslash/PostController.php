@@ -31,7 +31,9 @@ class PostController extends Controller
 
     public function displayform()
     {
-        return view('angleslash.forms.submit')
+        $tags = \App\AngleslashTag::pluck('name', 'id');
+        $subs = \DB::table('angleslash_subs')->pluck('name', 'id');
+        return view('angleslash.forms.submit', compact(['tags', 'subs']))
             ->with('title', 'New Post');
     }
 
@@ -45,6 +47,9 @@ class PostController extends Controller
         $post->user_id = \Auth::id();
         $post->save();
 
+        $post->tags()->attach($request->input('tags'));
+
         return \Redirect::to('/angleslash');
     }
+
 }
