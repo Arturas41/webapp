@@ -26,7 +26,12 @@ class LearnTopicController extends Controller
     }
 
     public function store( Request $request ) {
-        //
+        $learnTopic = new LearnTopic();
+        $learnTopic->title = $request->input('title');
+        $learnTopic->url = $request->input('url');
+        $learnTopic->user_id = auth()->id();
+        $learnTopic->note = $request->input('note');
+        $learnTopic->save();
     }
 
     public function show( LearnTopic $learnTopic ) {

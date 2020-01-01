@@ -16,6 +16,7 @@ class CreateLearnTopicsTable extends Migration
         Schema::create('learn_topics', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('url')->nullable();
             $table->text('note')->nullable();
             $table->boolean('done_theory')->default(0);
             $table->boolean('done_practice')->default(0);

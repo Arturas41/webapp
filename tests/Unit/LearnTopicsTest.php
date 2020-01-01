@@ -10,10 +10,10 @@ class LearnTopicsTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function test_it_has_an_owner()
+    public function test_it_has_an_creator()
     {
         $learnTopic = factory('App\LearnTopic')->create();
 
-        $this->assertInstanceOf('App\User', $learnTopic->owner);
+        $this->assertInstanceOf('App\User', $learnTopic->creator);
     }
 }

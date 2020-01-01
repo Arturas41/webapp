@@ -16,9 +16,9 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="/">Components</a>
+                        <a class="dropdown-item" href="/learn_topic">Learn topic</a>
+                        <a class="dropdown-item" href="/learn_topic/create">Learn topic create</a>
                         <a class="dropdown-item" href="#">Action</a>
                     </div>
 
