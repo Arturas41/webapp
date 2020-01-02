@@ -52,3 +52,9 @@ Route::prefix('angleslash')->group(function () {
     ]);
 });
 
+Route::prefix('vue_playground')->group(function () {
+    Route::get('/', [
+        'uses' => 'VuePlayground\VuePlaygroundController@index'
+    ]);
+});
+
