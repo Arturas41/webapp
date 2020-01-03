@@ -62,5 +62,8 @@ Route::prefix('general_playground')->group(function () {
     Route::get('/laravel_collections', [
         'uses' => 'GeneralPlayground\GeneralPlaygroundController@laravel_collections'
     ]);
+    Route::get('/carbon', [
+        'uses' => 'GeneralPlayground\GeneralPlaygroundController@carbon'
+    ]);
 });
 

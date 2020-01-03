@@ -4,9 +4,304 @@ namespace App\Http\Controllers\GeneralPlayground;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class GeneralPlaygroundController extends Controller
 {
+    public function carbon(){
+
+        $carbon = new Carbon;
+//        var_dump($carbon);
+
+        $carbon = Carbon::today();
+//        var_dump($carbon);
+
+        $carbon = Carbon::tomorrow();
+//        var_dump($carbon);
+
+        $carbon = Carbon::yesterday();
+//        var_dump($carbon);
+
+        $carbon = Carbon::create(1999, 12, 31, 23, 59, 59);
+//        var_dump($carbon);
+
+        $carbon = Carbon::createFromDate(1999, 12, 31);
+//        var_dump($carbon);
+
+        $carbon = Carbon::createFromTime(13, 35, 55);
+//        var_dump($carbon);
+
+        $carbon = Carbon::createFromTimestamp(0);
+//        var_dump($carbon);
+
+        $carbon = Carbon::createFromTimestamp(1447271429);
+//        var_dump($carbon);
+
+        $carbon = new Carbon('November 5th 2013');
+
+//        var_dump($carbon);
+
+        $carbon = new Carbon('5th November 2013');
+//        var_dump($carbon);
+        $carbon = new Carbon('20131105');
+//        var_dump($carbon);
+        $carbon = new Carbon('2013/11/5');
+//        var_dump($carbon);
+        $carbon = new Carbon('13-11-05');
+//        var_dump($carbon);
+        $carbon = new Carbon('2013-11-05');
+//        var_dump($carbon);
+
+        $carbon = new Carbon('-3 days');
+//        var_dump($carbon);
+        $carbon = new Carbon('-4 weeks');
+//        var_dump($carbon);
+        $carbon = new Carbon('-5 years');
+//        var_dump($carbon);
+        $carbon = new Carbon('+2 days 9 hours');
+//        var_dump($carbon);
+        $carbon = new Carbon('+3 weeks 4 days');
+//        var_dump($carbon);
+        $carbon = new Carbon('+3 years 1 months 1 day 5 hours 33 minutes 25 seconds');
+//        var_dump($carbon);
+
+        $carbon = new Carbon('-3 days');
+//        var_dump($carbon);
+        $formatted = $carbon->toDateString();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('-2 days 10 hours');
+//        var_dump($carbon);
+        $formatted = $carbon->toTimeString();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('+5 days');
+//        var_dump($carbon);
+        $formatted = $carbon->toDateTimeString();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('tomorrow');
+//        var_dump($carbon);
+        $formatted = $carbon->toAtomString();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('next week');
+//        var_dump($carbon);
+        $formatted = $carbon->toCookieString();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('now');
+//        var_dump($carbon);
+        $formatted = $carbon->toDayDateTimeString();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('now');
+//        var_dump($carbon);
+        $formatted = $carbon->toFormattedDateString();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('now');
+//        var_dump($carbon);
+        $formatted = $carbon->toIso8601String();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('now');
+//        var_dump($carbon);
+        $formatted = $carbon->toRfc822String();
+//        var_dump($formatted);
+
+        $formatted = $carbon->toRfc850String();
+//        var_dump($formatted);
+
+        $formatted = $carbon->toRfc1036String();
+//        var_dump($formatted);
+
+        $formatted = $carbon->toRfc1123String();
+//        var_dump($formatted);
+
+        $formatted = $carbon->toRfc2822String();
+//        var_dump($formatted);
+
+        $formatted = $carbon->toRfc3339String();
+//        var_dump($formatted);
+
+        $formatted = $carbon->toRssString();
+//        var_dump($formatted);
+
+        $formatted = $carbon->toTimeString();
+//        var_dump($formatted);
+
+        $formatted = $carbon->toW3cString();
+//        var_dump($formatted);
+
+//        $formatted = $carbon->format('l');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('l jS \of F Y h:i:s A');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format(DATE_RFC2822);
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format(DATE_ATOM);
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('l \t\h\e jS');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('F j, Y, g:i a');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('"m.d.y');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('j, n, Y');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('Ymd');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('\i\t \i\s \t\h\e jS \d\a\y.');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('D M j G:i:s T Y');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('H:m:s \m \i\s\ \m\o\n\t\h');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('H:i:s');
+
+//        var_dump($formatted);
+
+        $formatted = $carbon->format('Y-m-d H:i:s');
+
+//        var_dump($formatted);
+
+        $carbon = new Carbon('-5 days');
+        $formatted = $carbon->diffForHumans();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('+2 hours');
+        $formatted = $carbon->diffForHumans();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('-33 minutes');
+        $formatted = $carbon->diffForHumans();
+//        var_dump($formatted);
+
+        $carbon = new Carbon('-55 seconds');
+        $formatted = $carbon->diffForHumans();
+//        var_dump($formatted);
+
+
+        $carbon = new Carbon('now');
+//        var_dump($carbon->year);
+//        var_dump($carbon->yearIso);
+//        var_dump($carbon->month);
+//        var_dump($carbon->day);
+//        var_dump($carbon->hour);
+//        var_dump($carbon->minute);
+//        var_dump($carbon->second);
+//        var_dump($carbon->micro);
+//        var_dump($carbon->dayOfWeek);
+//        var_dump($carbon->dayOfYear);
+//        var_dump($carbon->weekOfYear);
+//        var_dump($carbon->daysInMonth);
+//        var_dump($carbon->timestamp);
+//        var_dump($carbon->year);
+//        var_dump($carbon->yearIso);
+//        var_dump($carbon->month);
+//        var_dump($carbon->day);
+//        var_dump($carbon->hour);
+//        var_dump($carbon->minute);
+//        var_dump($carbon->second);
+//        var_dump($carbon->micro);
+//        var_dump($carbon->dayOfWeek);
+//        var_dump($carbon->dayOfYear);
+//        var_dump($carbon->weekOfYear);
+//        var_dump($carbon->daysInMonth);
+//        var_dump($carbon->timestamp);
+
+
+        $carbon = new Carbon('now');
+
+        $carbon->year = 2012;
+        $carbon->month = 3;
+        $carbon->day = 5;
+
+//        var_dump($carbon);
+
+//        echo $carbon->toDayDateTimeString();
+
+        $carbon = Carbon::now('America/New_York');
+//        var_dump($carbon);
+
+        $carbon = Carbon::createFromDate(2010, 5, 14, 'America/Chicago');
+//        var_dump($carbon);
+
+        $carbon->subDays(10);
+//        var_dump($carbon);
+
+        $carbon->addDays(50);
+//        var_dump($carbon);
+
+        $honda = new Carbon('January 10th 1988');
+        $subaru = new Carbon('May 20th 2013');
+
+//        echo 'The Honda was built '.$honda->diffInYears($subaru).' years before the Subaru';
+
+
+        $carbon = Carbon::now();
+//        echo $carbon->endOfWeek()->toDayDateTimeString();
+
+        $carbon = Carbon::now();
+//        echo $carbon->startOfMonth()->toDayDateTimeString();
+
+        $carbon = Carbon::now();
+//        echo $carbon->startOfYear()->toDayDateTimeString();
+
+
+        $carbon = Carbon::now();
+//        echo $carbon->next()->toCookieString();
+
+//        $carbon = Carbon::now();
+//        echo $carbon->previous()->toCookieString();
+
+        $today = Carbon::now();
+        echo 'Today is '.$today->format('l').'<br>';
+
+        $tomorrow = $today->addDay();
+        echo 'Today is '.$today->format('l').' and Tomorrow is '.$tomorrow->format('l');
+        
+        $tomorrow = $today->copy()->addDay();
+        echo 'Today is '.$today->format('l').' and Tomorrow is '.$tomorrow->format('l');
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
     public function laravel_collections()
     {
         $sites = collect([
