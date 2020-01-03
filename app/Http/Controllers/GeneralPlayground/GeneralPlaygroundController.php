@@ -8,6 +8,10 @@ use Carbon\Carbon;
 
 class GeneralPlaygroundController extends Controller
 {
+    public function javascriptDouglasCrockford(){
+        return view('general_playground.javascript_douglas_crockford');
+    }
+
     public function carbon(){
 
         $carbon = new Carbon;
@@ -285,7 +289,7 @@ class GeneralPlaygroundController extends Controller
 
         $tomorrow = $today->addDay();
         echo 'Today is '.$today->format('l').' and Tomorrow is '.$tomorrow->format('l');
-        
+
         $tomorrow = $today->copy()->addDay();
         echo 'Today is '.$today->format('l').' and Tomorrow is '.$tomorrow->format('l');
 

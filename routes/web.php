@@ -65,5 +65,8 @@ Route::prefix('general_playground')->group(function () {
     Route::get('/carbon', [
         'uses' => 'GeneralPlayground\GeneralPlaygroundController@carbon'
     ]);
+    Route::get('/javascript_douglas_crockford', [
+        'uses' => 'GeneralPlayground\GeneralPlaygroundController@javascriptDouglasCrockford'
+    ]);
 });
 
