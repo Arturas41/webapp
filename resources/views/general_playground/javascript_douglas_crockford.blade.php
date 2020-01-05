@@ -227,5 +227,134 @@
         // console.log(typeof myarray[9]);
         // console.log(myarray[9]);
 
+        var characters = ['Darth Vader', 'Yoda', 'Boba Fett'];
+        var total = characters.push('Luke Skywalker', 'Han Solo');
+
+        // console.log(characters); // ["Darth Vader", "Yoda", "Boba Fett", "Luke Skywalker", "Han Solo"]
+        // console.log(total);      // 5
+
+        var starwars = ['Episode 4: A New Hope',
+            'Episode 5: The Empire Strikes Back',
+            'Episode 6: Return of the Jedi',
+            'Episode 1: The Phantom Menace',
+            'Episode 2: Attack of the Clones',
+            'Episode 3: Revenge of the Sith',
+            'Episode 7: The Force Awakens'];
+
+        // console.log(starwars.indexOf('Episode 7: The Force Awakens'));           // 6
+        // console.log(starwars.indexOf('Episode 3: Revenge of the Sith'));          // 5
+        // console.log(starwars.indexOf('Episode 2: Attack of the Clones', 3));     // 4
+        // console.log(starwars.indexOf('Episode 1: The Phantom Menace', -4));   // 3
+
+        var locatedat = [];
+        var enemies = ['Kylo Ren', 'Darth Vader', 'Storm Trooper', 'General Hux', 'Emperor Palpatine', 'Storm Trooper'];
+        var enemy = 'Storm Trooper';
+        var enemylocation = enemies.indexOf(enemy);
+        while (enemylocation != -1) {
+            locatedat.push(enemylocation);
+            enemylocation = enemies.indexOf(enemy, enemylocation + 1);
+        }
+        // console.log(locatedat); //  2, 5
+
+        var vaderparts = ['helmet', 'left arm', 'right arm', 'left leg', 'right leg'];
+        var chopped = vaderparts.slice(2,3);
+
+        // console.log(chopped); // right arm
+
+        var spacecraft = ['X Wing', 'Death Star', 'Millenium Falcon', 'Jedi Interceptor'];
+        var allspacecraft = spacecraft.toString();
+
+        // console.log(allspacecraft);
+        //  X Wing,Death Star,Millenium Falcon,Jedi Interceptor
+
+        var summer = [10, 20, 30, 40, 50, 60, 70, 80].
+            filter(function niceweather(temperature) {
+                return temperature >= 70;
+            });
+        // console.log(summer);  //  70, 80
+
+        var spacecraft = [
+            {name: 'Tie Fighter', speed: 200000},
+            {name: 'Super Star Destroyer', speed: 300000},
+            {name: 'Death Star', speed: 400000},
+            {name: 'T65 X Wing Star fighter', speed: 500000},
+            {name: 'T47 Air (snow) Speeder', speed: 600000},
+            {name: '74-Z Speeder Bike', speed: 700000},
+            {name: 'Millenium Falcon', speed: 800000}
+        ];
+
+        function filterBySpeed(spacecraft) {
+            return spacecraft.speed > 450000;
+        }
+
+        var fleet = spacecraft.filter(filterBySpeed);
+
+        fleet.forEach(function (craft) {
+            // console.log(craft.name);
+        });
+
+        var wisdom = ['Do. Or do not. There is no try', 'Luminous beings are we…not this crude matter', 'Wars not make one great', 'Judge me by my size, do you?', 'Truly wonderful, the mind of a child is'];
+        var wisdom = wisdom.join(' <=***=> ');
+        // console.log(wisdom);
+        //  Do. Or do not. There is no try <=***=> Luminous beings are we…not this crude matter <=***=> Wars not make one great <=***=> Judge me by my size, do you? <=***=> Truly wonderful, the mind of a child is
+
+        var numbers = [2, 4, 6];
+
+        numbers.original = [];
+
+        numbers.forEach(function (element, index, numbers) {
+            numbers[index] *= 2;
+            numbers.original.push(element);
+        });
+
+        function listNumbers(element, index) {
+            // console.log('index' + index + ' has element ' + element);
+        }
+
+        numbers.original.forEach(listNumbers);
+        numbers.forEach(listNumbers);
+
+        var legoStarWarsGames = ['Empire Vs Rebels', 'Ultimate Rebel', 'The Quest for R2-D2'];
+        var legoStarWarsSets = [10188, 75111, 75110, 75109];
+
+        var gamesAndSets = legoStarWarsGames.concat(legoStarWarsSets);
+
+        // console.log(gamesAndSets);
+        //  ["Empire Vs Rebels", "Ultimate Rebel", "The Quest for R2-D2", 10188, 75111, 75110, 75109]
+
+        var starwars = ['star wars', 'the phantom menace', 'the force awakens'];
+        var swModified = starwars.map(function (element) {
+            return element.toUpperCase();
+        });
+
+        // console.log(swModified);
+        //   ["STAR WARS", "THE PHANTOM MENACE", "THE FORCE AWAKENS"]
+
+        var str = 'The Clone Wars';
+        var arr = Array.prototype.map.call(str, function (el) {
+            return el;
+        });
+        // console.log(nums)
+        // console.log(str); // The Clone Wars
+        // console.log(arr); //  ["T", "h", "e", " ", "C", "l", "o", "n", "e", " ", "W", "a", "r", "s"]
+
+        var nums = [1, 10, 2, 21, 33, 04, 12, 09, 300];
+        nums.sort(numsasexpected);
+
+        function numsasexpected(one, two) {
+            // console.log(one);
+            // console.log(two);
+            return one - two;
+        }
+
+        // console.log(nums);
+        //   [1, 2, 4, 9, 10, 12, 21, 33, 300]
+
+        var oldstring = 'AAPL is a great company with awesome products';
+        var newstring = oldstring.replace(/aapl/i, 'Apple');
+        // console.log(newstring);
+        //  Apple is a great company with awesome products
+
+
     </script>
 @endsection
