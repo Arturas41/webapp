@@ -31,31 +31,4 @@ Vue.component('vue-playground2', require('./components/VuePlayground2.vue').defa
 
 const app = new Vue({
     el: '#app',
-    // the data object,
-    // todos is where we collect to do items
-    // newTodo data binds to the form input
-    // data: {
-    //     todos: [
-    //         { body: 'Eat a Sandwich', completed: false }
-    //     ],
-    //
-    //     newTodo: ''
-    // },
-    // methods: {
-    //     // function declarations
-    //     addTodo: function (e) {
-    //
-    //         // prevent the HTML form from submitting to the server
-    //         e.preventDefault();
-    //
-    //         this.todos.push({
-    //             body: this.newTodo,
-    //             completed: false
-    //         });
-    //
-    //         // simply set the form input field to an empty string
-    //         // after we add a todo item
-    //         this.newTodo = '';
-    //     }
-    // }
 });

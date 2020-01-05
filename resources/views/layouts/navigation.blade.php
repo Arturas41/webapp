@@ -26,6 +26,7 @@
                         <a class="dropdown-item" href="/general_playground/laravel_collections">Laravel collections playground</a>
                         <a class="dropdown-item" href="/general_playground/carbon">Carbon playground</a>
                         <a class="dropdown-item" href="/general_playground/javascript_douglas_crockford">Havascript Douglas Crockford good practice playground</a>
+                        <a class="dropdown-item" href="/html_parser/index">HTML parser</a>
 
                     </div>
 

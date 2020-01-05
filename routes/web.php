@@ -70,3 +70,8 @@ Route::prefix('general_playground')->group(function () {
     ]);
 });
 
+Route::prefix('html_parser')->group(function () {
+    Route::get('/index', [
+        'uses' => 'HtmlParser\HtmlParserController@index'
+    ]);
+});
