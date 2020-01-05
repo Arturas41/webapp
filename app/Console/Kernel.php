@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->exec('cd ~/code/webapp && ls')
+            ->everyMinute()
+            ->sendOutputTo('/home/vagrant/code/webapp/listing.txt');
     }
 
     /**
