@@ -356,5 +356,41 @@
         //  Apple is a great company with awesome products
 
 
+        //prototype+module pattern 
+        var Car = function(color, brand){
+            this.color = color;
+            this.brand = brand;
+        }
+
+        Car.prototype = function () {
+            //privates
+            var engangemotor = function () {
+                    return 1;
+                },
+                applythrottle = function (mode) {
+                    if (engangemotor() == 1) {
+                        return 'Moving forward via ' + mode + ' mode.';
+                    }
+
+                },
+                applybrakes = function (percent) {
+                    return 'Applying brakes at ' + percent + ' percent.';
+                };
+            //publics
+            return {
+                applythrottle:applythrottle,
+                applybrakes:applybrakes
+            }
+
+        }();
+
+        // car = new Car('Red ', ' ASDF');
+        // console.log(car.color + car.brand + car.applythrottle('Pedal Assist'));
+        // console.log(car.applybrakes(50));
+        //
+        // car2 = new Car('Blue', 'ASDF123');
+        // console.log(car2.color + car2.brand + car2.applythrottle('Throttle Only'));
+        // console.log(car2.applybrakes(75));
+
     </script>
 @endsection
