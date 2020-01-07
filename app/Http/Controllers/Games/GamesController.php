@@ -13,8 +13,7 @@ class GamesController extends Controller
         return view('games/index', ['games' => $games]);
     }
 
-    public function show($id){
-        $game = Game::find($id);
-        return view('games/show', ['game' => $game]);
+    public function show(Game $id){
+        return view('games/show', ['game' => $id]);
     }
 }
