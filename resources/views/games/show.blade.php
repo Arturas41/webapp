@@ -20,8 +20,8 @@
             @foreach($game->reviews as $review)
                 <li class="list-group-item">{{ $review->body }}
                     <hr>
-                    <small class="text-primary">posted {{$review->created_at->diffForHumans()}} by
-                        user {{ $review->user->name }}</small>
+                    <a href="/games/reviews/{{$review->id}}"><small class="text-primary">posted {{$review->created_at->diffForHumans()}} by
+                        user {{ $review->user->name }}</small></a>
                 </li>
             @endforeach
         </ul>

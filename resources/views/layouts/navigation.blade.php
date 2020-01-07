@@ -29,6 +29,7 @@
                         <a class="dropdown-item" href="/html_parser/index">HTML parser</a>
                         <a class="dropdown-item" href="/games/games">Games</a>
                         <a class="dropdown-item" href="/games/games/create">Game create</a>
+                        <a class="dropdown-item" href="/games/reviews">Game reviews list</a>
 
                     </div>
 
