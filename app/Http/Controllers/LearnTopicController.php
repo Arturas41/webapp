@@ -33,6 +33,9 @@ class LearnTopicController extends Controller
         $learnTopic->note = $request->input('note');
         $learnTopic->save();
 
+        session()->flash('message', 'Topic saved');
+        session()->flash('type', 'success');
+
         return back();
     }
 

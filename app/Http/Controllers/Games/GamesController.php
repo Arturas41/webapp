@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Game;
 use App\User;
+use App\Mail\Hello;
 
 class GamesController extends Controller
 {
@@ -17,7 +18,7 @@ class GamesController extends Controller
     public function index(){
         $games = Game::all();
 
-        $activeusers = User::activeusers();
+        $activeusers = User::activeusers(); 
 
         return view('games/index', ['games' => $games, 'activeusers' => $activeusers]);
     }
@@ -47,6 +48,8 @@ class GamesController extends Controller
         $game->image = request()->file('image')->store('public/images');
         $game->user_id = auth()->id();
         $game->save();
+
+        \Mail::to('asdf@fsdfsadg.fsd')->send(new Hello());
 
         return redirect('/games/games');
     }

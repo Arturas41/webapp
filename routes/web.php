@@ -6,7 +6,6 @@
 |--------------------------------------------------------------------------
 */
 
-
 Auth::routes();
 
 Route::get('/', 'ComponentController@index')->name('components');

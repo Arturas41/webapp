@@ -31,6 +31,7 @@
 <body>
     <div id="app">
         @include('layouts/navigation')
+        @include('layouts.partials.flash')
         <main class="py-4">
             @yield('content')
         </main>
