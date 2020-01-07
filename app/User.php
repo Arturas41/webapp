@@ -61,4 +61,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\AngleslashPostVote');
     }
+
+    public static function activeusers(){
+        return static::selectRaw('users.name, count(*) submitted_games')
+            ->join('games', 'games.user_id', '=', 'users.id')
+            ->groupBy('users.name')
+            ->orderBy('submitted_games', 'DESC')
+            ->get();
+    }
 }

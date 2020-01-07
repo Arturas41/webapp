@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Games;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Game;
+use App\User;
 
 class GamesController extends Controller
 {
@@ -15,7 +16,10 @@ class GamesController extends Controller
 
     public function index(){
         $games = Game::all();
-        return view('games/index', ['games' => $games]);
+
+        $activeusers = User::activeusers();
+
+        return view('games/index', ['games' => $games, 'activeusers' => $activeusers]);
     }
 
     public function show(Game $id){
