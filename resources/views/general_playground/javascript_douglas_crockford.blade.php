@@ -356,7 +356,7 @@
         //  Apple is a great company with awesome products
 
 
-        //prototype+module pattern 
+        //prototype+module pattern
         var Car = function(color, brand){
             this.color = color;
             this.brand = brand;
@@ -391,6 +391,7 @@
         // car2 = new Car('Blue', 'ASDF123');
         // console.log(car2.color + car2.brand + car2.applythrottle('Throttle Only'));
         // console.log(car2.applybrakes(75));
+
 
     </script>
 @endsection

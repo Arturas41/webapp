@@ -75,3 +75,16 @@ Route::prefix('html_parser')->group(function () {
         'uses' => 'HtmlParser\HtmlParserController@index'
     ]);
 });
+
+Route::prefix('games')->group(function () {
+    Route::get('/games', function(){
+        $games = DB::table('games')->get();
+        return view('games/index', ['games' => $games]);
+    });
+    Route::get('/games/{id}', function($id){
+        $game = DB::table('games')->find($id);
+
+        return view('games/show', ['game' => $game]);
+    });
+});
+
