@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function reviews()
     {
         return $this->hasMany(Review::class);
@@ -15,7 +20,7 @@ class Game extends Model
         return $query->where('publisher', '=', 'pub2');
     }
 
-    public function addReview($body){
-        $this->reviews()->create(['body' => $body]);
+    public function addReview($body, $userid){
+        $this->reviews()->create(['body' => $body, 'user_id' => $userid]);
     }
 }

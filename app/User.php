@@ -37,6 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
+    
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function posts()
     {
         return $this->hasMany('App\AngleslashPost');

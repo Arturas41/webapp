@@ -7,6 +7,7 @@
         <div class="card-block">
             <h3 class="card-title">{{ $game->title }}</h3>
             <p class="card-text">{{ $game->title }} is published by {{ $game->publisher }}</p>
+            <p class="small">Game submitted by user {{ $game->user->name }}</p>
             <a href="/games/games" class="btn btn-primary">List Games</a>
         </div>
     </div>
@@ -19,7 +20,8 @@
             @foreach($game->reviews as $review)
                 <li class="list-group-item">{{ $review->body }}
                     <hr>
-                    <small class="text-primary">posted {{$review->created_at->diffForHumans()}}</small>
+                    <small class="text-primary">posted {{$review->created_at->diffForHumans()}} by
+                        user {{ $review->user->name }}</small>
                 </li>
             @endforeach
         </ul>

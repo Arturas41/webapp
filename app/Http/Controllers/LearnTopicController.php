@@ -32,6 +32,8 @@ class LearnTopicController extends Controller
         $learnTopic->user_id = auth()->id();
         $learnTopic->note = $request->input('note');
         $learnTopic->save();
+
+        return back();
     }
 
     public function show( LearnTopic $learnTopic ) {

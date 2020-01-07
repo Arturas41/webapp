@@ -15,7 +15,7 @@ class ReviewsController extends Controller
             'body' => 'required|min:3'
         ]);
 
-        $game->addReview(request('body'));
+        $game->addReview(request('body'), auth()->id());
         
         return back();
     }

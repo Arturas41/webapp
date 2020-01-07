@@ -36,6 +36,7 @@ class GamesController extends Controller
         $game->publisher = $request->get('publisher');
         $game->releasedate = $request->get('releasedate');
         $game->image = request()->file('image')->store('public/images');
+        $game->user_id = auth()->id();
         $game->save();
 
         return redirect('/games/games');
