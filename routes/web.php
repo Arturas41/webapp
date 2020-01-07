@@ -78,6 +78,8 @@ Route::prefix('html_parser')->group(function () {
 
 Route::prefix('games')->group(function () {
     Route::get('/games', 'Games\GamesController@index');
+    Route::get('/games/create',  'Games\GamesController@create');
     Route::get('/games/{id}', 'Games\GamesController@show');
+    Route::post('/games', 'Games\GamesController@store');
 });
 
