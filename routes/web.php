@@ -81,5 +81,6 @@ Route::prefix('games')->group(function () {
     Route::get('/games/create',  'Games\GamesController@create');
     Route::get('/games/{id}', 'Games\GamesController@show');
     Route::post('/games', 'Games\GamesController@store');
+    Route::post('games/{game}/reviews', 'Games\ReviewsController@store');
 });
 

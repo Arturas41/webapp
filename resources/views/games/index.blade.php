@@ -2,19 +2,16 @@
 
 @section('content')
 
-    <table border="1">
-        <tr>
-            <th>Game</th>
-            <th>Publisher</th>
-            <th>Release dates</th>
-        </tr>
-        @foreach($games as $game)
-        <tr>
-            <td><a href="/games/games/{{ $game->id }}">{{ $game->title }}</a></td>
-            <td>{{$game->publisher}}</td>
-            <td>{{$game->releasedate}}</td>
-        </tr>
-        @endforeach
-    </table>
+    @foreach($games as $game)
+        <div class="col-12 mb-3">
+            <div class="card">
+                <div class="card-block">
+                    <h3 class="card-title"><a href="/games/games/{{ $game->id }}">{{ $game->title }}</a></h3>
+                    <p class="card-text">Published by {{ $game->publisher }}</p>
+                    <a href="/games/games/{{ $game->id }}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    @endforeach
 
 @endsection
