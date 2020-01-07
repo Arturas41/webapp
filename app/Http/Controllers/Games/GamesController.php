@@ -8,6 +8,11 @@ use App\Game;
 
 class GamesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index(){
         $games = Game::all();
         return view('games/index', ['games' => $games]);
