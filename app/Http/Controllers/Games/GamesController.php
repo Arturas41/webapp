@@ -23,6 +23,13 @@ class GamesController extends Controller
     }
 
     public function store(Request $request){
+        $this->validate(request(),[
+            'title' => 'required|unique:games',
+            'publisher' => 'required',
+            'releasedate' => 'required',
+            'image' => 'required',
+        ]);
+
         $game = new Game();
         
         $game->title = $request->get('title');
@@ -30,5 +37,7 @@ class GamesController extends Controller
         $game->releasedate = $request->get('releasedate');
         $game->image = request()->file('image')->store('public/images');
         $game->save();
+
+        return redirect('/games/games');
     }
 }
