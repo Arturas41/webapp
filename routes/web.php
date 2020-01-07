@@ -77,14 +77,7 @@ Route::prefix('html_parser')->group(function () {
 });
 
 Route::prefix('games')->group(function () {
-    Route::get('/games', function(){
-        $games = DB::table('games')->get();
-        return view('games/index', ['games' => $games]);
-    });
-    Route::get('/games/{id}', function($id){
-        $game = DB::table('games')->find($id);
-
-        return view('games/show', ['game' => $game]);
-    });
+    Route::get('/games', 'Games\GamesController@index');
+    Route::get('/games/{id}', 'Games\GamesController@show');
 });
 
