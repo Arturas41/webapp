@@ -5,9 +5,67 @@ namespace App\Http\Controllers\GeneralPlayground;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class GeneralPlaygroundController extends Controller
 {
+
+    public function laravelStringHelpers(){
+        $string = 'this-is__a_--_string';
+        var_dump(Str::camel($string));
+
+        $class = class_basename('Illuminate\Http\Request');
+        var_dump(Str::camel($class));
+
+        $result = Str::endsWith('This is my name', 'name');
+        echo e($result);
+
+        $converted = Str::snake('fooBar');
+        var_dump(Str::camel($converted));
+
+        $truncated = Str::limit('The quick brown fox jumps over the lazy dog', 20);
+        var_dump(Str::camel($truncated));
+
+        $result = Str::startsWith('This is my name', 'This');
+        echo e($result);
+
+        $result = Str::contains('This is my name', 's my na');
+        echo e($result);
+
+        $adjusted = Str::finish('this/string', '/');
+        var_dump(Str::camel($adjusted));
+
+        $adjusted = Str::finish('this/string/', '/');
+        var_dump(Str::camel($adjusted));
+
+        $string = 'Here we have a pattern';
+        echo Str::is('*we*', $string);
+        //  1 or true
+        echo  Str::is('*pattern', $string);
+        //  1 or true
+        echo  Str::is('Here*', $string);
+        //  1 or true
+        echo  Str::is('joker', $string);
+        //  0 or false
+
+        echo Str::plural('Truck');
+        //  Trucks
+        echo Str::plural('House');
+        //  Houses
+        echo Str::singular('Houses');
+        //  House
+
+        echo Str::random(10);
+
+        echo Str::slug('Soon this string will be sluggified');
+
+        $converted = Str::studly('foo_bar');
+        var_dump($converted);
+
+        $converted = Str::title('a nice title uses the correct case');
+        var_dump($converted);
+    }
+
     public function javascriptDouglasCrockford(){
         return view('general_playground.javascript_douglas_crockford');
     }
