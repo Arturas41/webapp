@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
+                    <a href="#">{{ $thread->creator->name }}</a> posted:
                     <div class="panel-heading">{{ $thread->title }}</div>
  
                     <div class="panel-body">
@@ -17,14 +18,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 @foreach($thread->replies as $reply)
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            {{$reply->owner->name}} said {{ $reply->created_at->diffForHumans() }}
-                        </div>
-                        <div class="panel-body">
-                            {{ $reply->body }}
-                        </div>
-                    </div>
+                    @include('c_forum.threads.reply')
                 @endforeach
             </div>
         </div>
