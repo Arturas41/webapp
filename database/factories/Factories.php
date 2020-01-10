@@ -61,7 +61,7 @@ $factory->define( App\CForumThread::class, function($faker){
 
 $factory->define( App\CForumReply::class, function($faker){
     return[
-        'c_forum_tread_id' => function(){
+        'c_forum_thread_id' => function(){
             return factory('App\CForumThread')->create()->id;
         }, 
         'user_id' => function(){

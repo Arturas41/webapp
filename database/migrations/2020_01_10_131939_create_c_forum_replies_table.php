@@ -15,7 +15,7 @@ class CreateCForumRepliesTable extends Migration
     {
         Schema::create('c_forum_replies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('c_forum_tread_id');
+            $table->bigInteger('c_forum_thread_id');
             $table->bigInteger('user_id');
             $table->text('body');
             $table->timestamps();
