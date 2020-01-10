@@ -13,31 +13,33 @@ class ForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('angleslash_posts', function (Blueprint $table) {
-            $table->foreign('sub_id')->references('id')->on('angleslash_subs')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-        });
-        Schema::table('angleslash_posts', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-        });
-        Schema::table('angleslash_subs', function (Blueprint $table) {
-            $table->foreign('owner_id')->references('id')->on('users')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-        });
-        Schema::table('angleslash_post_votes', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-        });
-        Schema::table('angleslash_post_votes', function (Blueprint $table) {
-            $table->foreign('post_id')->references('id')->on('angleslash_posts')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-        });
+        if (DB::getDriverName() !== 'sqlite') { //Problem dropping foreign keys when run tests using in memory sqlite
+            Schema::table('angleslash_posts', function (Blueprint $table) {
+                $table->foreign('sub_id')->references('id')->on('angleslash_subs')
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
+            });
+            Schema::table('angleslash_posts', function (Blueprint $table) {
+                $table->foreign('user_id')->references('id')->on('users')
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
+            });
+            Schema::table('angleslash_subs', function (Blueprint $table) {
+                $table->foreign('owner_id')->references('id')->on('users')
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
+            });
+            Schema::table('angleslash_post_votes', function (Blueprint $table) {
+                $table->foreign('user_id')->references('id')->on('users')
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
+            });
+            Schema::table('angleslash_post_votes', function (Blueprint $table) {
+                $table->foreign('post_id')->references('id')->on('angleslash_posts')
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
+            });
+        }
     }
 
     /**
@@ -47,20 +49,22 @@ class ForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('angleslash_posts', function (Blueprint $table) {
-            $table->dropForeign('angleslash_posts_sub_id_foreign');
-        });
-        Schema::table('angleslash_posts', function (Blueprint $table) {
-            $table->dropForeign('angleslash_posts_user_id_foreign');
-        });
-        Schema::table('angleslash_subs', function (Blueprint $table) {
-            $table->dropForeign('angleslash_subs_owner_id_foreign');
-        });
-        Schema::table('angleslash_post_votes', function (Blueprint $table) {
-            $table->dropForeign('angleslash_post_votes_user_id_foreign');
-        });
-        Schema::table('angleslash_post_votes', function (Blueprint $table) {
-            $table->dropForeign('angleslash_post_votes_post_id_foreign');
-        });
+        if (DB::getDriverName() !== 'sqlite') { //Problem dropping foreign keys when run tests using in memory sqlite
+            Schema::table('angleslash_posts', function (Blueprint $table) {
+                $table->dropForeign('angleslash_posts_sub_id_foreign');
+            });
+            Schema::table('angleslash_posts', function (Blueprint $table) {
+                $table->dropForeign('angleslash_posts_user_id_foreign');
+            });
+            Schema::table('angleslash_subs', function (Blueprint $table) {
+                $table->dropForeign('angleslash_subs_owner_id_foreign');
+            });
+            Schema::table('angleslash_post_votes', function (Blueprint $table) {
+                $table->dropForeign('angleslash_post_votes_user_id_foreign');
+            });
+            Schema::table('angleslash_post_votes', function (Blueprint $table) {
+                $table->dropForeign('angleslash_post_votes_post_id_foreign');
+            });
+        }
     }
 }

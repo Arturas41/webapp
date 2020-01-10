@@ -90,3 +90,8 @@ Route::prefix('games')->group(function () {
     Route::get('/reviews/{review}', 'Games\ReviewsController@show');
 });
 
+Route::prefix('c_forum')->group(function(){
+    Route::get('threads','CForum\ThreadsController@index');
+    Route::get('threads/{thread}', 'CForum\ThreadsController@show');
+});
+

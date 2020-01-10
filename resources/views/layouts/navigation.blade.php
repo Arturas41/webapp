@@ -19,6 +19,7 @@
                         <a class="dropdown-item" href="/">Components</a>
                         <a class="dropdown-item" href="/learn_topic">Learn topic</a>
                         <a class="dropdown-item" href="/learn_topic/create">Learn topic create</a>
+                        <a class="dropdown-item" href="/c_forum/threads">Forum threads</a>
                         <a class="dropdown-item" href="/angleslash">Angleslash</a>
                         <a class="dropdown-item" href="/angleslash/post/new">Angleslash create new post</a>
                         <a class="dropdown-item" href="/angleslash/sub/new">Angleslash create new sub</a>
