@@ -2,7 +2,6 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
-use App\Tag;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -49,3 +48,25 @@ $factory->define( App\Component::class, function ( $faker ) {
         'description' => $faker->sentence
     ];
 } );
+
+$factory->define( App\CForumThread::class, function($faker){
+    return[
+        'user_id' => function(){
+            return factory('App\User')->create()->id;
+        },
+        'title' => $faker->sentence,
+        'body' => $faker->paragraph
+    ];
+});
+
+$factory->define( App\CForumReply::class, function($faker){
+    return[
+        'c_forum_tread_id' => function(){
+            return factory('App\CForumThread')->create()->id;
+        }, 
+        'user_id' => function(){
+            return factory('App\User')->create()->id;
+        },
+        'body' => $faker->paragraph
+    ];
+});
