@@ -6,35 +6,27 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class CForumReadThreadsTest extends TestCase
+class CForumCreateThreadsTest extends TestCase
 {
     use DatabaseMigrations;
-
-    public function setUp() : void{
-        parent::setUp();
-
-        $this->thread = factory('App\CForumThread')->create();
-    }
     
-    public function test_user_can_browse_threads(){
-        $response = $this->get('/c_forum/threads');
-
-        $response->assertSee($this->thread->title);
+    function test_guest_can_not_create_threads()
+    {
+        $this->expectException('Illuminate\Auth\AuthenticationException');
+ 
+        $thread = factory('App\CForumThread')->make();
+ 
+        $this->post('/c_forum/threads', $thread->toArray());
     }
 
-    public function test_user_can_read_a_single_thread(){
-        $response = $this->get('/c_forum/threads/' . $this->thread->id);
+    public function test_a_logged_in_user_can_create_new_threads(){
+        $this->actingAs(factory('App\User')->create());
 
-        $response->assertSee($this->thread->title);
+        $thread = factory('App\CForumThread')->make();
+
+        $this->post('/c_forum/threads', $thread->toArray());
+
+        $this->get($thread->path())->assertSee($thread->title);
     }
 
-    public function test_user_can_see_replies_that_are_associated_with_threads(){
-        $reply = factory('App\CForumReply')->create(['c_forum_thread_id' => $this->thread->id]);
-        
-        $response= $this->get('/c_forum/threads/' . $this->thread->id);
-
-        $response->assertSee($reply->body);
-        
-    }
-    
 }

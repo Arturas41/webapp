@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CForumThread extends Model
 {
 
-    protected $guarded = ['body'];
+    protected $fillable = ['user_id', 'title', 'body'];
 
     public function path(){
         return '/c_forum/threads/' . $this->id;

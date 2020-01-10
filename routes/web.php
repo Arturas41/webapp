@@ -92,6 +92,7 @@ Route::prefix('games')->group(function () {
 
 Route::prefix('c_forum')->group(function(){
     Route::get('threads','CForum\ThreadsController@index');
+    Route::post('/threads', 'CForum\ThreadsController@store');
     Route::get('threads/{thread}', 'CForum\ThreadsController@show');
     Route::post('threads/{thread}/replies', 'CForum\RepliesController@store');
 });

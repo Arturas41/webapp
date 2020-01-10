@@ -9,6 +9,11 @@ use App\CForumThread;
 class ThreadsController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index(){
         $threads = CForumThread::latest()->get();
 
@@ -17,6 +22,16 @@ class ThreadsController extends Controller
 
     public function show(CForumThread $thread){
         return view('c_forum.threads.show', compact('thread'));
+    }
+
+    public function store(Request $request){
+        $thread = CForumThread::create([
+            'user_id' => auth()->id(),
+            'title' => request('title'),
+            'body' => request('body')
+        ]);
+ 
+        return redirect($thread->path());
     }
 
 }
