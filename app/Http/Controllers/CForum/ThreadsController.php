@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CForum;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\CForumThread;
+use App\CForumChannel;
 
 class ThreadsController extends Controller
 {
@@ -37,7 +38,7 @@ class ThreadsController extends Controller
             'body' => request('body')
         ]);
 
-        //return redirect($thread->path()); //fix it
+        return redirect($thread->path());
     }
 
 }

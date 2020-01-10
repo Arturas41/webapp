@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CForumThread extends Model
 {
 
-    protected $fillable = ['user_id', 'c_forum_thread_id', 'title', 'body'];
+    protected $fillable = ['user_id', 'c_forum_channel_id', 'title', 'body'];
 
     public function path(){
         return '/c_forum/threads/' . $this->channel->slug . '/' . $this->id;
