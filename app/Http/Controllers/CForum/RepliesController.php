@@ -14,7 +14,7 @@ class RepliesController extends Controller
         $this->middleware('auth');
     }
 
-    public function store(CForumThread $thread){
+    public function store($channelId, CForumThread $thread){
         $thread->addReply([
             'body' => request('body'),
             'user_id' => auth()->id()

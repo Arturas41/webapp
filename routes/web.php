@@ -91,7 +91,11 @@ Route::prefix('games')->group(function () {
 });
 
 Route::prefix('c_forum')->group(function(){
-    Route::resource('threads', 'CForum\ThreadsController');
-    Route::post('threads/{thread}/replies', 'CForum\RepliesController@store');
+    Route::get('/threads', 'CForum\ThreadsController@index');
+    Route::get('/threads/create', 'CForum\ThreadsController@create');
+    Route::get('/threads/{channel}/{thread}', 'CForum\ThreadsController@show');
+    Route::post('/threads', 'CForum\ThreadsController@store');
+
+    Route::post('/threads/{channel}/{thread}/replies', 'CForum\RepliesController@store');
 });
 

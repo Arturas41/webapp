@@ -34,4 +34,18 @@ class CForumThreadTest extends TestCase
 
         $this->assertCount(1, $this->thread->replies);
     }
+
+    public function test_a_thread_belongs_to_a_channel()
+    {
+        $thread = factory('App\CForumThread')->create();
+ 
+        $this->assertInstanceOf('App\CForumChannel', $thread->channel);
+    }
+
+    public function test_a_thread_can_make_a_string_path()
+    {
+        $thread = factory('App\CForumThread')->create();
+ 
+        $this->assertEquals('/c_forum/threads/' . $thread->channel->slug . '/' . $thread->id, $thread->path());
+    }
 }

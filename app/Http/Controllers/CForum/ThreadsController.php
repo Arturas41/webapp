@@ -25,18 +25,19 @@ class ThreadsController extends Controller
         return view('c_forum.threads.create');
     }
 
-    public function show(CForumThread $thread){
+    public function show($channelId, CForumThread $thread){
         return view('c_forum.threads.show', compact('thread'));
     }
 
     public function store(Request $request){
         $thread = CForumThread::create([
             'user_id' => auth()->id(),
+            'c_forum_channel_id' => request('c_forum_channel_id'),
             'title' => request('title'),
             'body' => request('body')
         ]);
- 
-        return redirect($thread->path());
+
+        //return redirect($thread->path()); //fix it
     }
 
 }

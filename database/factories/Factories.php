@@ -49,10 +49,21 @@ $factory->define( App\Component::class, function ( $faker ) {
     ];
 } );
 
+$factory->define(App\CForumChannel::class, function ($faker) {
+    $name = $faker->word;
+    return [
+        'name' => $name,
+        'slug' => $name
+    ];
+});
+
 $factory->define( App\CForumThread::class, function($faker){
     return[
         'user_id' => function(){
             return factory('App\User')->create()->id;
+        },
+        'c_forum_channel_id' => function(){
+            return factory('App\CForumChannel')->create()->id;
         },
         'title' => $faker->sentence,
         'body' => $faker->paragraph
@@ -70,3 +81,4 @@ $factory->define( App\CForumReply::class, function($faker){
         'body' => $faker->paragraph
     ];
 });
+
