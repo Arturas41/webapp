@@ -29,4 +29,11 @@ class CForumCreateThreadsTest extends TestCase
         $this->get($thread->path())->assertSee($thread->title);
     }
 
+    function test_guest_can_not_see_thread_create_form()
+    {
+        $this->expectException('Illuminate\Auth\AuthenticationException');
+
+        $this->get('/c_forum/threads/create');
+    }
+
 }

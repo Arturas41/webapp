@@ -20,6 +20,11 @@ class ThreadsController extends Controller
         return view('c_forum.threads.index', compact('threads'));
     }
 
+    public function create()
+    {
+        return view('c_forum.threads.create');
+    }
+
     public function show(CForumThread $thread){
         return view('c_forum.threads.show', compact('thread'));
     }
