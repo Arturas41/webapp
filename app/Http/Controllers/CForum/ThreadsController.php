@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\CForumThread;
 use App\CForumChannel;
+use App\User;
 
 class ThreadsController extends Controller
 {
@@ -17,11 +18,18 @@ class ThreadsController extends Controller
 
     public function index(CForumChannel $channel){
         if ($channel->exists) {
-            $threads = $channel->threads()->latest()->get();
+            $threads = $channel->threads()->latest();
         }else{
-            $threads = CForumThread::latest()->get();
+            $threads = CForumThread::latest();
+        }
+
+        if($username = request('by')){
+            $user = User::where('name',$username)->firstOrFail();
+            $threads->where('user_id', $user->id);
         }
         
+        $threads = $threads->get();
+
         return view('c_forum.threads.index', compact('threads'));
     }
 

@@ -47,4 +47,18 @@ class CForumReadThreadsTest extends TestCase
             ->assertSee($threadInChannel->title)
             ->assertDontSee($threadNotInChannel->title);
     }
+
+    public function test_a_user_can_filter_by_any_username()
+    {
+
+        $user = factory('App\User')->create(['name' => 'JohnDoe']);
+        $this->actingAs($user);
+
+        $threadByJohn = factory('App\CForumThread')->create(['user_id' => auth()->id()]);
+        $threadNotByJohn = factory('App\CForumThread')->create();
+
+        $this->get('c_forum/threads?by=JohnDoe')
+            ->assertSee($threadByJohn->title)
+            ->assertDontSee($threadNotByJohn->title);
+    }
 }
