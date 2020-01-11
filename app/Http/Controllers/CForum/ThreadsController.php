@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\CForumThread;
 use App\CForumChannel;
 use App\User;
+use App\Filters\CForum\ThreadFilters;
 
 class ThreadsController extends Controller
 {
@@ -16,18 +17,13 @@ class ThreadsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index(CForumChannel $channel){
+    public function index(CForumChannel $channel, ThreadFilters $filters){
+        $threads = CForumThread::latest()->filter($filters);
+
         if ($channel->exists) {
-            $threads = $channel->threads()->latest();
-        }else{
-            $threads = CForumThread::latest();
+            $threads = $threads->where('c_forum_channel_id', $channel->id);
         }
 
-        if($username = request('by')){
-            $user = User::where('name',$username)->firstOrFail();
-            $threads->where('user_id', $user->id);
-        }
-        
         $threads = $threads->get();
 
         return view('c_forum.threads.index', compact('threads'));
