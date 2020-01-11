@@ -9,6 +9,15 @@ class CForumThread extends Model
 
     protected $fillable = ['user_id', 'c_forum_channel_id', 'title', 'body'];
 
+    protected static function boot()
+    {
+        parent::boot();
+ 
+        static::addGlobalScope('replyCount', function ($builder) {
+            $builder->withCount('replies');
+        });
+    }
+
     public function path(){
         return '/c_forum/threads/' . $this->channel->slug . '/' . $this->id;
     }

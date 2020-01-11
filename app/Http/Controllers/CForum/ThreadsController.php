@@ -35,7 +35,10 @@ class ThreadsController extends Controller
     }
 
     public function show($channelId, CForumThread $thread){
-        return view('c_forum.threads.show', compact('thread'));
+        return view('c_forum.threads.show', [
+            'thread' => $thread,
+            'replies' => $thread->replies()->paginate(2)
+        ]);
     }
 
     public function store(Request $request){
