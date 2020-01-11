@@ -31,6 +31,13 @@ class ThreadsController extends Controller
     }
 
     public function store(Request $request){
+
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+            'c_forum_channel_id' => 'required|exists:c_forum_channels,id'
+        ]);
+
         $thread = CForumThread::create([
             'user_id' => auth()->id(),
             'c_forum_channel_id' => request('c_forum_channel_id'),

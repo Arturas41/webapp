@@ -15,9 +15,11 @@ class CForumCreateThreadsTest extends TestCase
 
         $thread = factory('App\CForumThread')->create();
 
-        $this->post('/c_forum/threads', $thread->toArray());
-
-        $this->get($thread->path())->assertSee($thread->title);
+        $response = $this->post('/c_forum/threads', $thread->toArray());
+        
+        $this->get($response->headers->get('Location'))
+            ->assertSee($thread->title)
+            ->assertSee($thread->body);
     }
 
     function test_guest_can_not_create_threads()
@@ -28,5 +30,37 @@ class CForumCreateThreadsTest extends TestCase
  
         $this->post('/c_forum/threads')->assertRedirect('login');
     }
+
+    function test_a_thread_requires_a_title()
+    {
+        $this->expectException('Illuminate\Validation\ValidationException');
+
+        $this->publishThread(['title' => null]);
+    }    
+
+    function test_a_thread_requires_a_body()
+    {
+        $this->expectException('Illuminate\Validation\ValidationException');
+
+        $this->publishThread(['body' => null]);
+    }   
+
+    function test_a_thread_requires_a_valid_channel()
+    {
+        $this->expectException('Illuminate\Validation\ValidationException');
+
+        factory('App\CForumChannel', 2)->create();
+ 
+        $this->publishThread(['c_forum_channel_id' => 42]);
+    }
+
+    private function publishThread($overrides = []){
+        $this->actingAs(factory('App\User')->create());
+
+        $thread = factory('App\CForumThread')->make($overrides);
+
+        return $this->post('/c_forum/threads', $thread->toArray());
+    }
+
 
 }

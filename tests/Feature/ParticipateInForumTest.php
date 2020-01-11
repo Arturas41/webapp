@@ -28,5 +28,18 @@ class ParticipateInForumTest extends TestCase
 
         $this->get($thread->path())->assertSee($reply->body);
     }
+
+    public function test_a_reply_requires_a_body()
+    {
+        $this->expectException('Illuminate\Validation\ValidationException');
+
+        $this->actingAs(factory('App\User')->create());
+ 
+        $thread = factory('App\CForumThread')->create();
+ 
+        $reply = factory('App\CForumReply')->make(['body' => null]);
+ 
+        $this->post($thread->path() . '/replies', $reply->toArray());
+    }
     
 }
