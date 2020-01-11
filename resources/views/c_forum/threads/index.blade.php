@@ -10,7 +10,7 @@
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
 
-                                    @foreach(App\CForumChannel::all() as $channel)
+                                    @foreach($channels as $channel)
                                         <li><a href="/c_forum/threads/{{$channel->slug}}">{{$channel->name}}</a></li>
                                     @endforeach
                                 </ul>
