@@ -95,6 +95,7 @@ Route::prefix('c_forum')->group(function(){
     Route::get('/threads/create', 'CForum\ThreadsController@create');
     Route::get('/threads/{channel}/{thread}', 'CForum\ThreadsController@show');
     Route::post('/threads', 'CForum\ThreadsController@store');
+    Route::get('/threads/{channel}', 'CForum\ThreadsController@index');
 
     Route::post('/threads/{channel}/{thread}/replies', 'CForum\RepliesController@store');
 });

@@ -37,4 +37,14 @@ class CForumReadThreadsTest extends TestCase
         
     }
     
+    public function test_a_user_can_filter_threads_according_to_channel()
+    {
+        $channel = factory('App\CForumChannel')->create();
+        $threadInChannel = factory('App\CForumThread')->create(['c_forum_channel_id' => $channel->id]);
+        $threadNotInChannel = factory('App\CForumThread')->create();
+ 
+        $this->get('/c_forum/threads/' . $channel->slug)
+            ->assertSee($threadInChannel->title)
+            ->assertDontSee($threadNotInChannel->title);
+    }
 }

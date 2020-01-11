@@ -15,9 +15,13 @@ class ThreadsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index(){
-        $threads = CForumThread::latest()->get();
-
+    public function index(CForumChannel $channel){
+        if ($channel->exists) {
+            $threads = $channel->threads()->latest()->get();
+        }else{
+            $threads = CForumThread::latest()->get();
+        }
+        
         return view('c_forum.threads.index', compact('threads'));
     }
 
