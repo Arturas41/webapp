@@ -23,6 +23,7 @@
                         @if(auth()->check())
                             <a class="dropdown-item" href="/c_forum/threads?by={{ auth()->user()->name }}">My Threads</a>
                         @endif
+                        <a class="dropdown-item" href="/c_forum/threads?popular=1">Popular Threads</a>
                         <a class="dropdown-item" href="/c_forum/threads/create">New forum thread</a>
                         <a class="dropdown-item" href="/angleslash">Angleslash</a>
                         <a class="dropdown-item" href="/angleslash/post/new">Angleslash create new post</a>

@@ -61,4 +61,19 @@ class CForumReadThreadsTest extends TestCase
             ->assertSee($threadByJohn->title)
             ->assertDontSee($threadNotByJohn->title);
     }
+
+    public function test_a_user_can_filter_threads_by_number_of_replies()
+    {
+        $threadWithTwoReplies = factory('App\CForumThread')->create();
+        factory('App\CForumReply', 2)->create(['c_forum_thread_id' => $threadWithTwoReplies->id]);
+
+        $threadWithThreeReplies = factory('App\CForumThread')->create();
+        factory('App\CForumReply', 3)->create(['c_forum_thread_id' => $threadWithThreeReplies->id]);
+
+        $threadWithZeroReplies = $this->thread;
+
+        $response = $this->getJson('c_forum/threads?popular=1')->json();
+        $this->assertEquals([3, 2, 0], array_column($response, 'replies_count')); 
+    }
+
 }
