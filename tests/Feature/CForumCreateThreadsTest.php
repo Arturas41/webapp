@@ -60,7 +60,7 @@ class CForumCreateThreadsTest extends TestCase
 
         $this->actingAs(factory('App\User')->create());
 
-        $thread = factory('App\CForumThread')->create();
+        $thread = factory('App\CForumThread')->create(['user_id' => auth()->id()]);
         $reply = factory('App\CForumReply')->create(['c_forum_thread_id' => $thread->id]);
 
         $response = $this->json('DELETE', $thread->path());
@@ -89,5 +89,15 @@ class CForumCreateThreadsTest extends TestCase
         return $this->post('/c_forum/threads', $thread->toArray());
     }
 
+    public function test_unauthorized_users_can_not_delete_threads()
+    {
+        $this->expectException('Illuminate\Auth\Access\AuthorizationException');
+
+        $thread = factory('App\CForumThread')->create();
+
+        $this->actingAs(factory('App\User')->create());
+
+        $response = $this->json('DELETE', $thread->path());
+    }
 
 }

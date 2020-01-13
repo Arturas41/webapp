@@ -64,6 +64,7 @@ class ThreadsController extends Controller
     }
 
     public function destroy($channelId, CForumThread $thread){
+        $this->authorize('update', $thread);
         //$thread->replies()->delete(); //done on model boot
         $thread->delete();
 
