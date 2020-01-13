@@ -10,8 +10,8 @@ Auth::routes();
 
 Route::get('/', 'ComponentController@index')->name('components');
 
-Route::get('learn_topic', 'LearnTopicController@index');
-Route::get('learn_topic/create', 'LearnTopicController@create');
+Route::get('/learn_topic', 'LearnTopicController@index');
+Route::get('/learn_topic/create', 'LearnTopicController@create');
 Route::get('/learn_topic/{learn_topic}', 'LearnTopicController@show');
 Route::post('/learn_topic', 'LearnTopicController@store');
 
@@ -100,5 +100,7 @@ Route::prefix('c_forum')->group(function(){
     Route::post('/threads/{channel}/{thread}/replies', 'CForum\RepliesController@store');
 
     Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
+
+    Route::get('/user_profiles/{user}', 'CForum\UserProfilesController@show');
 });
 

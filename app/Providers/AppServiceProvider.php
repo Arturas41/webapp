@@ -14,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->isLocal()) {
+            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+        }
     }
 
     /**
@@ -25,7 +27,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         \View::composer('c_forum.threads.*', function ($view) {
-            $view->with('channels', CForumChannel::all());
+            $channels = \Cache::rememberForever('channels', function () {
+                return CForumChannel::all();
+            });
+            $view->with('channels', $channels);
         });
     }
 }

@@ -21,11 +21,7 @@ class CreateAngleslashTagsTable extends Migration
 
         Schema::create('angleslash_post_angleslash_tag', function (Blueprint $table) {
             $table->integer('angleslash_post_id')->unsigned()->index();
-            $table->foreign('angleslash_post_id')->references('id')->on('angleslash_posts')->onDelete('cascade');
-
             $table->integer('angleslash_tag_id')->unsigned()->index();
-            $table->foreign('angleslash_tag_id')->references('id')->on('angleslash_tags')->onDelete('cascade');
-
             $table->timestamps();
         });
     }

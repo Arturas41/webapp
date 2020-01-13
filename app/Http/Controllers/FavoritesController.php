@@ -15,12 +15,8 @@ class FavoritesController extends Controller
 
     public function store(CForumReply $reply){
         $reply->favorite();
-        //$reply->favorites()->create(['user_id' => auth()->id()]);
-        //Favorite::create([
-        //    'user_id' => auth()->id(),
-        //    'favorited_id' => $reply->id,
-        //    'favorited_type' => get_class($reply)
-        //]);
+
+        return back();
     }
 }
 

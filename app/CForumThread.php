@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class CForumThread extends Model
 {
 
-    protected $fillable = ['user_id', 'c_forum_channel_id', 'title', 'body'];
+    //protected $fillable = ['user_id', 'c_forum_channel_id', 'title', 'body'];
+    protected $guarded = [];
+
+    protected $with = ['creator', 'channel'];
 
     protected static function boot()
     {

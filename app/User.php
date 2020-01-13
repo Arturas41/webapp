@@ -69,4 +69,9 @@ class User extends Authenticatable
             ->orderBy('submitted_games', 'DESC')
             ->get();
     }
+
+    public function cForumThreads()
+    {
+        return $this->hasMany(CForumThread::class)->latest();
+    }
 }
