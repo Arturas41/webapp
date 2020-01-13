@@ -37,6 +37,15 @@
                         <a href="#">{{ $thread->creator->name }}</a> and currently has {{ $thread->replies_count }} {{ str_plural('reply', $thread->replies_count) }}.
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="{{$thread->path()}}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button class="btn btn-link">Delete Thread</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

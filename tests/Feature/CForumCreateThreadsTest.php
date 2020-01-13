@@ -54,6 +54,33 @@ class CForumCreateThreadsTest extends TestCase
         $this->publishThread(['c_forum_channel_id' => 42]);
     }
 
+    public function test_a_thread_can_be_deleted()
+    {
+        $this->withoutExceptionHandling();
+
+        $this->actingAs(factory('App\User')->create());
+
+        $thread = factory('App\CForumThread')->create();
+        $reply = factory('App\CForumReply')->create(['c_forum_thread_id' => $thread->id]);
+
+        $response = $this->json('DELETE', $thread->path());
+
+        $response->assertStatus(204);
+
+        $this->assertDatabaseMissing('c_forum_threads', ['id' => $thread->id]);
+        $this->assertDatabaseMissing('c_forum_replies', ['id' => $reply->id]);
+
+    }
+
+    public function test_guests_can_not_delete_threads()
+    {
+        $this->expectException('Illuminate\Auth\AuthenticationException');
+
+        $thread = factory('App\CForumThread')->create();
+
+        $this->json('DELETE', $thread->path());
+    }
+
     private function publishThread($overrides = []){
         $this->actingAs(factory('App\User')->create());
 

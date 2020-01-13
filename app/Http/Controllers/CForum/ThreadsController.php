@@ -63,4 +63,15 @@ class ThreadsController extends Controller
         return redirect($thread->path());
     }
 
+    public function destroy($channelId, CForumThread $thread){
+        //$thread->replies()->delete(); //done on model boot
+        $thread->delete();
+
+        if (request()->wantsJson()) {
+            return response([], 204);
+        }
+
+        return redirect('/c_forum/threads');
+    }
+
 }
