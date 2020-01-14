@@ -23,3 +23,4 @@ storage
 tests
 vendor
 webpack.mix.js
+yarn.lock

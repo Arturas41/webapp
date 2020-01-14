@@ -74,4 +74,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CForumThread::class)->latest();
     }
+
+    public function activity()
+    {
+        return $this->hasMany(Activity::class);
+    }
 }

@@ -22,7 +22,7 @@ trait RecordsActivityTrait
 
     protected static function getActivitiesToRecord()
     {
-        return ['created', 'deleting'];
+        return ['created', 'deleted'];
     }
 
     protected function recordActivity($event)

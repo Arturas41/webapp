@@ -16,4 +16,9 @@ class CForumReply extends Model
     public function owner(){
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function thread()
+    {
+        return $this->belongsTo(CForumThread::class, 'c_forum_thread_id');
+    }
 }

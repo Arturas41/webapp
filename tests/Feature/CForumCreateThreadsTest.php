@@ -71,13 +71,13 @@ class CForumCreateThreadsTest extends TestCase
         $this->assertDatabaseMissing('c_forum_replies', ['id' => $reply->id]);
 
         $this->assertDatabaseHas('activities', [
-            'type' => 'deleting_CForumThread',
+            'type' => 'deleted_CForumThread',
             'user_id' => auth()->id(),
             'subject_id' => $thread->id,
             'subject_type' => 'App\CForumThread'
         ]);
         $this->assertDatabaseHas('activities', [
-            'type' => 'deleting_CForumReply',
+            'type' => 'deleted_CForumReply',
             'user_id' => auth()->id(),
             'subject_id' => $reply->id,
             'subject_type' => 'App\CForumReply'
