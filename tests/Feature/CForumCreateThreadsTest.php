@@ -70,6 +70,19 @@ class CForumCreateThreadsTest extends TestCase
         $this->assertDatabaseMissing('c_forum_threads', ['id' => $thread->id]);
         $this->assertDatabaseMissing('c_forum_replies', ['id' => $reply->id]);
 
+        $this->assertDatabaseHas('activities', [
+            'type' => 'deleting_CForumThread',
+            'user_id' => auth()->id(),
+            'subject_id' => $thread->id,
+            'subject_type' => 'App\CForumThread'
+        ]);
+        $this->assertDatabaseHas('activities', [
+            'type' => 'deleting_CForumReply',
+            'user_id' => auth()->id(),
+            'subject_id' => $reply->id,
+            'subject_type' => 'App\CForumReply'
+        ]);
+
     }
 
     public function test_guests_can_not_delete_threads()

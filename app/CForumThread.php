@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class CForumThread extends Model
 {
 
+    use RecordsActivityTrait;
+
     //protected $fillable = ['user_id', 'c_forum_channel_id', 'title', 'body'];
     protected $guarded = [];
 
@@ -21,8 +23,12 @@ class CForumThread extends Model
         });
 
         static::deleting(function($thread) {
-            $thread->replies()->delete();
+            $thread->replies->each->delete();
         });
+
+        //static::created(function ($thread) {
+        //    $thread->recordActivity('created');
+        //});
     }
 
     public function path(){

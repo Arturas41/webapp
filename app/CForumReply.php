@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CForumReply extends Model
 {
 
-    use FavoriteableTrait;
+    use FavoriteableTrait, RecordsActivityTrait;
     //protected $fillable = ['body', 'user_id'];
     protected $guarded = [];
 
