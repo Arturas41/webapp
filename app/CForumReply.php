@@ -13,6 +13,11 @@ class CForumReply extends Model
 
     protected $with = ['owner', 'favorites'];
 
+    public function path()
+    {
+        return $this->thread->path() . '#reply-' . $this->id;
+    }
+
     public function owner(){
         return $this->belongsTo(User::class, 'user_id');
     }

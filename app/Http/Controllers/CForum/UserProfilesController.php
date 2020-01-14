@@ -11,7 +11,7 @@ class UserProfilesController extends Controller
 
     public function show(User $user){
         $activities = $user->activity()->latest()->with('subject')
-            ->whereIn('type', ['created_CForumReply', 'created_CForumThread'])
+            ->whereIn('type', ['created_CForumReply', 'created_CForumThread', 'created_Favorite'])
             ->get()
             ->groupBy(function ($activity){
                 return $activity->created_at->format('Y-m-d');
