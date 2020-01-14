@@ -20,11 +20,11 @@ class CForumUserProfileTest extends TestCase
 
     public function test_profiles_display_all_threads_by_the_user()
     {
-        $user = factory('App\User')->create();
+        $this->actingAs(factory('App\User')->create());
 
-        $thread = factory('App\CForumThread')->create(['user_id' => $user->id]);
+        $thread = factory('App\CForumThread')->create(['user_id' => auth()->id()]);
  
-        $this->withoutExceptionHandling()->get('/c_forum/user_profiles/' . $user->id)
+        $this->withoutExceptionHandling()->get('/c_forum/user_profiles/' . auth()->id())
             ->assertSee($thread->title)
             ->assertSee($thread->body);
     }

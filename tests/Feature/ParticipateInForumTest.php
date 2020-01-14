@@ -41,5 +41,25 @@ class ParticipateInForumTest extends TestCase
  
         $this->post($thread->path() . '/replies', $reply->toArray());
     }
+    public function test_unauthorized_users_can_not_delete_replies()
+    {
+        $this->expectException('Illuminate\Auth\Access\AuthorizationException');
+
+        $this->actingAs(factory('App\User')->create());
     
+        $reply = factory('App\CForumReply')->create();
+ 
+        $this->delete('/c_forum/replies/' . $reply->id);
+    }
+
+    public function test_authorized_users_can_delete_replies()
+    {
+        $this->actingAs(factory('App\User')->create());
+
+        $reply = factory('App\CForumReply')->create(['user_id' => auth()->id()]);
+
+        $this->delete('/c_forum/replies/' . $reply->id);
+
+        $this->assertDatabaseMissing('c_forum_replies', ['id' => $reply->id]);
+    }
 }

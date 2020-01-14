@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CForum;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\CForumThread;
+use App\CForumReply;
 
 class RepliesController extends Controller
 {
@@ -24,6 +25,15 @@ class RepliesController extends Controller
             'user_id' => auth()->id()
         ]);
 
+        return back();
+    }
+
+    public function destroy(CForumReply $reply)
+    {
+        $this->authorize('update', $reply);
+
+        $reply->delete();
+ 
         return back();
     }
 

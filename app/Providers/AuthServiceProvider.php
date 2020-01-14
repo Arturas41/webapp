@@ -13,7 +13,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-         'App\CForumThread' => 'App\Policies\CForum\ThreadPolicy',
+        'App\CForumThread' => 'App\Policies\CForum\ThreadPolicy',
+        'App\CForumReply' => 'App\Policies\CForum\ReplyPolicy',
     ];
 
     /**

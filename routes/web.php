@@ -101,6 +101,7 @@ Route::prefix('c_forum')->group(function(){
     Route::post('/threads/{channel}/{thread}/replies', 'CForum\RepliesController@store');
 
     Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
+    Route::delete('/replies/{reply}', 'CForum\RepliesController@destroy');
 
     Route::get('/user_profiles/{user}', 'CForum\UserProfilesController@show');
 });
