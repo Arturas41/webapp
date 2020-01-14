@@ -62,4 +62,27 @@ class ParticipateInForumTest extends TestCase
 
         $this->assertDatabaseMissing('c_forum_replies', ['id' => $reply->id]);
     }
+
+    public function test_authorized_users_can_update_replies()
+    {
+        $this->actingAs(factory('App\User')->create());
+
+        $reply = factory('App\CForumReply')->create(['user_id' => auth()->id()]);
+
+        $this->patch('/c_forum/replies/' . $reply->id, ['body' => 'Text has been edited!']);
+
+        $this->assertDatabaseHas('c_forum_replies', ['id' => $reply->id, 'body' => 'Text has been edited!']);
+    }
+
+    public function test_unauthorized_users_can_not_update_replies()
+    {
+        $this->expectException('Illuminate\Auth\Access\AuthorizationException');
+
+        $this->actingAs(factory('App\User')->create());
+
+        $reply = factory('App\CForumReply')->create();
+
+        $this->patch('/c_forum/replies/' . $reply->id);
+    }
+
 }

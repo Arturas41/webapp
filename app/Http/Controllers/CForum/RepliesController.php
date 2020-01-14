@@ -33,8 +33,19 @@ class RepliesController extends Controller
         $this->authorize('update', $reply);
 
         $reply->delete();
- 
+
+        //  if there is an ajax request, do not redirect
+        if (request()->expectsJson()) {
+            return response(['status' => 'Reply deleted']);
+        }
+
         return back();
+    }
+
+    public function update(CForumReply $reply){
+        $this->authorize('update', $reply);
+        
+        $reply->update(request(['body']));
     }
 
 }
