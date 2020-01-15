@@ -14,6 +14,12 @@ window.flash = function (message) {
     window.events.$emit('flash', message)
 };
 
+window.Vue.prototype.authorize = function (handler) {
+    let user = window.App.user;
+ 
+    return user ? handler(user) : false;
+};
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -30,6 +36,7 @@ Vue.component('vue-playground', require('./components/VuePlayground.vue').defaul
 Vue.component('vue-playground2', require('./components/VuePlayground2.vue').default);
 Vue.component('flash', require('./components/Flash.vue').default);
 Vue.component('reply', require('./components/Reply.vue').default);
+Vue.component('thread-view', require('./components/pages/Thread.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
