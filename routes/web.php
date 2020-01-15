@@ -107,6 +107,8 @@ Route::prefix('c_forum')->group(function(){
     Route::delete('/replies/{reply}', 'CForum\RepliesController@destroy');
 
     Route::get('/user_profiles/{user}', 'CForum\UserProfilesController@show');
+    Route::get('/user_profiles/{user}/notifications', 'CForum\UserNotificationsController@index');
+    Route::delete('/user_profiles/{user}/notifications/{notification}', 'CForum\UserNotificationsController@destroy');
 
     Route::post('/threads/{channel}/{thread}/subscriptions', 'CForum\ThreadSubscriptionsController@store')->middleware('auth');
     Route::delete('/threads/{channel}/{thread}/subscriptions', 'CForum\ThreadSubscriptionsController@destroy')->middleware('auth');

@@ -39,6 +39,7 @@ Vue.component('paginator', require('./components/Paginator.vue').default);
 Vue.component('reply', require('./components/Reply.vue').default);
 Vue.component('new-reply', require('./components/NewReply.vue').default);
 Vue.component('thread-view', require('./components/pages/Thread.vue').default);
+Vue.component('user-notifications', require('./components/UserNotifications.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

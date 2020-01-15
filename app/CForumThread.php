@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\CForum\ThreadReceivedNewReply;
 use Illuminate\Database\Eloquent\Model;
 
 class CForumThread extends Model
@@ -77,7 +78,11 @@ class CForumThread extends Model
     }
 
     public function addReply($reply){
-        return $this->replies()->create($reply);
+        $reply = $this->replies()->create($reply);
+
+        event(new ThreadReceivedNewReply($reply));
+
+        return $reply;
     }
 
     public function scopeFilter($query, $filters)
