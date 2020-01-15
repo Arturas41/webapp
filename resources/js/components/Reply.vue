@@ -16,6 +16,13 @@
                 });
                 this.editing = false;
                 flash('Updated!');
+            },
+ 
+            destroy() {
+                axios.delete('/c_forum/replies/' + this.attributes.id);
+                $(this.$el).fadeOut(1000, () => {
+                    flash('Your reply is now deleted!');
+                });
             }
         }
     }
