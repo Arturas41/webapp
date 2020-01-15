@@ -18,5 +18,10 @@ class FavoritesController extends Controller
 
         return back();
     }
+
+    public function destroy(CForumReply $reply)
+    {
+        $reply->unfavorite();
+    }
 }
 

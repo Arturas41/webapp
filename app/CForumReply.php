@@ -8,10 +8,12 @@ class CForumReply extends Model
 {
 
     use FavoriteableTrait, RecordsActivityTrait;
-    //protected $fillable = ['body', 'user_id'];
+
     protected $guarded = [];
 
     protected $with = ['owner', 'favorites'];
+
+    protected $appends = ['favoritesCount', 'isFavorited'];
 
     public function path()
     {

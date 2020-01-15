@@ -102,6 +102,7 @@ Route::prefix('c_forum')->group(function(){
 
     Route::patch('/replies/{reply}', 'CForum\RepliesController@update');
     Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
+    Route::delete('/replies/{reply}/favorites', 'FavoritesController@destroy');
     Route::delete('/replies/{reply}', 'CForum\RepliesController@destroy');
 
     Route::get('/user_profiles/{user}', 'CForum\UserProfilesController@show');

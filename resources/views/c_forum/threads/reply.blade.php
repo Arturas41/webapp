@@ -8,12 +8,7 @@
                 </h5>
 
                 <div>
-                    <form method="POST" action="/c_forum/replies/{{$reply->id}}/favorites">
-                        {{csrf_field()}}
-                        <button type="submit" class="btn btn-primary {{ $reply->isFavorited() ? 'disabled' : '' }}">
-                            {{ $reply->favorites_count }} {{ str_plural('Favorite', $reply->favorites_count) }}
-                        </button>
-                    </form>
+                    <favorite :reply="{{ $reply }}"></favorite>
                 </div>
             </div>
         </div>
