@@ -35,6 +35,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('vue-playground', require('./components/VuePlayground.vue').default);
 Vue.component('vue-playground2', require('./components/VuePlayground2.vue').default);
 Vue.component('flash', require('./components/Flash.vue').default);
+Vue.component('paginator', require('./components/Paginator.vue').default);
 Vue.component('reply', require('./components/Reply.vue').default);
 Vue.component('new-reply', require('./components/NewReply.vue').default);
 Vue.component('thread-view', require('./components/pages/Thread.vue').default);

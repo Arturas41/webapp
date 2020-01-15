@@ -98,6 +98,7 @@ Route::prefix('c_forum')->group(function(){
     Route::post('/threads', 'CForum\ThreadsController@store');
     Route::get('/threads/{channel}', 'CForum\ThreadsController@index');
 
+    Route::get('/threads/{channel}/{thread}/replies', 'CForum\RepliesController@index');
     Route::post('/threads/{channel}/{thread}/replies', 'CForum\RepliesController@store');
 
     Route::patch('/replies/{reply}', 'CForum\RepliesController@update');
