@@ -70,6 +70,8 @@
             destroy() {
                 axios.delete('/c_forum/replies/' + this.data.id);
 
+                console.log(this.data.id);
+                
                 this.$emit('deleted', this.data.id);
                 //$(this.$el).fadeOut(1000, () => {
                 //    flash('Your reply is now deleted!');

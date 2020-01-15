@@ -17,18 +17,6 @@
 
                     <replies :data="{{ $thread->replies }}" @added="repliesCount++" @removed="repliesCount--"></replies>
 
-                    {{ $replies->links() }}
-                    @if(auth()->check())
-                        <form method="POST" action="{{$thread->path() . '/replies'}}">
-                            {{csrf_field()}}
-                            <div class="form-group">
-                                <textarea name="body" id="body" class="form-control" placeholder="What do you think?" rows="5"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-default">Post</button>
-                        </form>
-                    @else
-                        <p class="text-center">Please <a href="{{ route('login') }}">login</a> to respond.</p>
-                    @endif
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-default">

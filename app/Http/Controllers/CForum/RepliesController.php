@@ -16,16 +16,21 @@ class RepliesController extends Controller
     }
 
     public function store($channelId, CForumThread $thread, Request $request){
+
         $this->validate($request, [
-            'body' => 'required'
+           'body' => 'required'
         ]);
 
-        $thread->addReply([
+        $reply = $thread->addReply([
             'body' => request('body'),
             'user_id' => auth()->id()
         ]);
 
-        return back();
+        if (request()->expectsJson()) {
+            return $reply->load('owner');
+        }
+
+        return back()->with('flash', 'Your reply was published!');
     }
 
     public function destroy(CForumReply $reply)

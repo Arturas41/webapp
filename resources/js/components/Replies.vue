@@ -1,22 +1,25 @@
 <template>
     <div>
-        <div v-for="(reply, index) in items">
+        <div v-for="(reply, index) in items" v-bind:key="reply.id">
             <reply :data="reply" @deleted="remove(index)"></reply>
         </div>
+        <new-reply :endpoint="endpoint" @created="add"></new-reply>
     </div>
 </template>
 
 <script>
     import Reply from './Reply.vue';
+    import NewReply from './NewReply.vue';
  
     export default {
         props: ['data'], // accepts data for replies
  
-        components: {Reply},
+        components: {Reply, NewReply},
  
         data() {
             return {
-                items: this.data
+                items: this.data,
+                endpoint: location.pathname + '/replies'
             }
         },
  
