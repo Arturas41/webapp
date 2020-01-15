@@ -9,10 +9,11 @@ class CForumThread extends Model
 
     use RecordsActivityTrait;
 
-    //protected $fillable = ['user_id', 'c_forum_channel_id', 'title', 'body'];
     protected $guarded = [];
 
     protected $with = ['creator', 'channel'];
+
+    protected $appends = ['isSubscribedTo'];
 
     protected static function boot()
     {
@@ -46,6 +47,33 @@ class CForumThread extends Model
     public function channel()
     {
         return $this->belongsTo(CForumChannel::class, 'c_forum_channel_id');
+    }
+
+    public function subscribe($userId = null)
+    {
+        $this->subscriptions()->create([
+            'user_id' => $userId ?: auth()->id()
+        ]);
+        return $this;
+    }
+
+    public function unsubscribe($userId = null)
+    {
+        $this->subscriptions()
+            ->where('user_id', $userId ?: auth()->id())
+            ->delete();
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(CForumThreadSubscription::class);
+    }
+
+    public function getIsSubscribedToAttribute()
+    {
+        return $this->subscriptions()
+            ->where('user_id', auth()->id())
+            ->exists();
     }
 
     public function addReply($reply){

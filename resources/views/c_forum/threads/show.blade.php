@@ -21,8 +21,13 @@
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            This thread was created {{ $thread->created_at->diffForHumans() }} by
+                            <p>
+                                This thread was created {{ $thread->created_at->diffForHumans() }} by
                             <a href="#">{{ $thread->creator->name }}</a> and currently has <span v-text="repliesCount"></span> replies.
+                            </p>
+                            <p>
+                                <subscribe-button :active="{{ json_encode($thread->isSubscribedTo) }}"></subscribe-button>
+                            </p>
                         </div>
                     </div>
                     <div class="panel panel-default">
