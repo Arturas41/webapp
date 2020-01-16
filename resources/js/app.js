@@ -41,6 +41,10 @@ Vue.component('new-reply', require('./components/NewReply.vue').default);
 Vue.component('thread-view', require('./components/pages/Thread.vue').default);
 Vue.component('user-notifications', require('./components/UserNotifications.vue').default);
 Vue.component('avatar-form', require('./components/AvatarForm.vue').default);
+
+Vue.component('vp2-example', require('./components/vue_playground2/ExampleComponent.vue').default);
+Vue.component('vp2-main', require('./components/vue_playground2/Main.vue').default);
+Vue.component('vp2-bootstrap-card', require('./components/vue_playground2/BootstrapCard.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

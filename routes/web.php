@@ -57,6 +57,12 @@ Route::prefix('vue_playground')->group(function () {
     ]);
 });
 
+Route::prefix('vue_playground2')->group(function () {
+    Route::get('/', [
+        'uses' => 'VuePlayground\VuePlayground2Controller@index'
+    ]);
+});
+
 Route::prefix('general_playground')->group(function () {
     Route::get('/laravel_string_helpers', [
         'uses' => 'GeneralPlayground\GeneralPlaygroundController@laravelStringHelpers'
