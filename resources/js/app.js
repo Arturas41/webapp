@@ -46,12 +46,13 @@ Vue.component('vp2-example', require('./components/vue_playground2/ExampleCompon
 Vue.component('vp2-main', require('./components/vue_playground2/Main.vue').default);
 Vue.component('vp2-bootstrap-card', require('./components/vue_playground2/BootstrapCard.vue').default);
 Vue.component('vp2-parent-card', require('./components/vue_playground2/ParentCard.vue').default);
+Vue.component('vp2-parent-card2', require('./components/vue_playground2/ParentCard2.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+Vue.prototype.$eventBus = new Vue();
 const app = new Vue({
     el: '#app',
 });
