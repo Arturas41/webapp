@@ -1,6 +1,7 @@
 <template>
     <div class="d-flex flex-column align-items-center">
-        <vp2-bootstrap-card v-for="card in 2"></vp2-bootstrap-card>
+        <vp2-bootstrap-card></vp2-bootstrap-card>
+        <vp2-parent-card></vp2-parent-card>
     </div>
 </template>
 
