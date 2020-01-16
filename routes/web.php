@@ -115,4 +115,5 @@ Route::prefix('c_forum')->group(function(){
 });
 
 
-Route::get('api/users', 'Api\UsersController@index');
+Route::get('api/users', 'Api\UsersController@index')->middleware('auth');
+Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar');

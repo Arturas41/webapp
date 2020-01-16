@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="page-header">
+            <avatar-form :user="{{ $user }}"></avatar-form>
             <h1>
                 {{ $user->name }}
                 <small>registered {{ $user->created_at->diffForHumans() }}</small>
