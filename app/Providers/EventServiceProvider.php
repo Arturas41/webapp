@@ -22,7 +22,8 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\WriteMessageToFile',
         ],
         'App\Events\CForum\ThreadReceivedNewReply' => [
-            'App\Listeners\CForum\NotifySubscribers'
+            'App\Listeners\CForum\NotifySubscribers',
+            'App\Listeners\CForum\NotifyMentionedUsers'
         ],
     ];
 

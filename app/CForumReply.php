@@ -28,4 +28,10 @@ class CForumReply extends Model
     {
         return $this->belongsTo(CForumThread::class, 'c_forum_thread_id');
     }
+
+    public function mentionedUsers()
+    {
+        preg_match_all('/@([\w\-]+)/', $this->body, $matches);
+        return $matches[1];
+    }
 }
