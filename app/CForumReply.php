@@ -34,4 +34,9 @@ class CForumReply extends Model
         preg_match_all('/@([\w\-]+)/', $this->body, $matches);
         return $matches[1];
     }
+
+    //public function setBodyAttribute($body)
+    //{
+    //    $this->attributes['body'] = $body;
+    //}
 }

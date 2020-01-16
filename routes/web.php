@@ -114,3 +114,5 @@ Route::prefix('c_forum')->group(function(){
     Route::delete('/threads/{channel}/{thread}/subscriptions', 'CForum\ThreadSubscriptionsController@destroy')->middleware('auth');
 });
 
+
+Route::get('api/users', 'Api\UsersController@index');
