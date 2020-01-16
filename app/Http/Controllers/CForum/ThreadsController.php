@@ -39,9 +39,12 @@ class ThreadsController extends Controller
     }
 
     public function show($channelId, CForumThread $thread){
+        if (auth()->check()) {
+            auth()->user()->read($thread);
+        }
+
         return view('c_forum.threads.show', [
-            'thread' => $thread,
-            'replies' => $thread->replies()->paginate(10)
+            'thread' => $thread
         ]);
     }
 

@@ -66,4 +66,16 @@ class CForumThreadTest extends TestCase
         $thread->unsubscribe($userId);
         $this->assertCount(0, $thread->subscriptions);
     }
+
+    public function test_a_thread_can_check_if_the_authenticated_user_has_read_all_replies()
+    {
+        $this->actingAs(factory('App\User')->create());
+        $thread = factory('App\CForumThread')->create();
+        tap(auth()->user(), function ($user) use ($thread) {
+            $this->assertTrue($thread->hasUpdatesFor($user));
+            $user->read($thread);
+            $this->assertFalse($thread->hasUpdatesFor($user));
+        });
+    }
+
 }

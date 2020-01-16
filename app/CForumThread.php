@@ -89,4 +89,11 @@ class CForumThread extends Model
     {
         return $filters->apply($query);
     }
+
+    public function hasUpdatesFor(User $user)
+    {
+        $key = $user->visitedThreadCacheKey($this);
+        
+        return $this->updated_at > cache($key);
+    }
 }
