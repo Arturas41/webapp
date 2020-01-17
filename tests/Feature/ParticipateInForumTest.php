@@ -15,19 +15,19 @@ class ParticipateInForumTest extends TestCase
         $this->post('/c_forum/threads/1/asdf/replies', []);
     }
 
-    public function test_an_authenticated_user_can_participate_in_forum_threads(){
-        $user = factory('App\User')->create();
+    //public function test_an_authenticated_user_can_participate_in_forum_threads(){
+    //    $user = factory('App\User')->create();
 
-        $this->be($user);
+    //    $this->be($user);
         
-        $thread = factory('App\CForumThread')->create();
+    //    $thread = factory('App\CForumThread')->create();
 
-        $reply = factory('App\CForumReply')->create();
+    //    $reply = factory('App\CForumReply')->create();
 
-        $this->post($thread->path() . '/replies', $reply->toArray());
+    //    $this->post($thread->path() . '/replies', $reply->toArray());
 
-        $this->get($thread->path())->assertSee($reply->body);
-    }
+    //    $this->get($thread->path())->assertSee($reply->body);
+    //}
 
     public function test_a_reply_requires_a_body()
     {

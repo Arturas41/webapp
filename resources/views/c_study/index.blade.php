@@ -1,5 +1,5 @@
 @extends('layouts/app')
 
 @section('content')
-    <vp2-main></vp2-main>
+    study index page
 @endsection

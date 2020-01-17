@@ -20,6 +20,8 @@ class CForumReplyTest extends TestCase
 
     public function test_it_can_fetch_all_mentioned_users_starting_with_the_given_characters()
     {
+        $this->actingAs(factory('App\User')->create());
+
         factory('App\User')->create(['name' => 'LilKim']);
         factory('App\User')->create(['name' => 'LilKimBro']);
         factory('App\User')->create(['name' => 'JoeBlow']);

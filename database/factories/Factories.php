@@ -93,3 +93,13 @@ $factory->define(\Illuminate\Notifications\DatabaseNotification::class, function
         'data' => ['foo' => 'bar']
     ];
 });
+
+$factory->define( App\CStudyMaterial::class, function($faker){
+    return[
+        'user_id' => function(){
+            return factory('App\User')->create()->id;
+        },
+        'reference' => $faker->url,
+        'title' => $faker->sentence
+    ];
+});

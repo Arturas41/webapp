@@ -15,6 +15,9 @@ Route::get('/learn_topic/create', 'LearnTopicController@create');
 Route::get('/learn_topic/{learn_topic}', 'LearnTopicController@show');
 Route::post('/learn_topic', 'LearnTopicController@store');
 
+Route::get('api/users', 'Api\UsersController@index')->middleware('auth');
+Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar');
+
 Route::prefix('angleslash')->group(function () {
 //// Display users, subs and front page
     Route::get('/', 'Angleslash\PostController@frontpage');
@@ -120,6 +123,18 @@ Route::prefix('c_forum')->group(function(){
     Route::delete('/threads/{channel}/{thread}/subscriptions', 'CForum\ThreadSubscriptionsController@destroy')->middleware('auth');
 });
 
+Route::prefix('c_study')->group(function(){
+    
+    Route::get('/', function(){
+        return redirect()->route('asdf');
+    });
+    Route::get('/materials', [
+            'as' => 'asdf',
+            'uses' => 'CStudy\MaterialController@index'
+        ]
+    );
+    Route::post('/materials', 'CStudy\MaterialController@store');
 
-Route::get('api/users', 'Api\UsersController@index')->middleware('auth');
-Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar');
+});
+
+
