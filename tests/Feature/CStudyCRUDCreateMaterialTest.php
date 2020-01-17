@@ -14,10 +14,20 @@ class CStudyCRUDCreateMaterialTest extends TestCase
         parent::setUp();
     }
     
-    public function test_a_logged_in_user_can_create_new_threads(){
+    private function invalidRequest($options = []){
+        $this->actingAs(factory('App\User')->create());
+        
+        $this->expectException('Illuminate\Validation\ValidationException');
+
+        $material = factory('App\CStudyMaterial')->make($options);
+
+        $this->post('/c_study/materials', $material->toArray());
+    }
+
+    public function test_a_logged_in_user_can_create_new_materials(){
         $this->actingAs(factory('App\User')->create());
 
-        $material = factory('App\CStudyMaterial')->create();
+        $material = factory('App\CStudyMaterial')->make();
 
         $this->post('/c_study/materials', $material->toArray());
         
@@ -28,4 +38,32 @@ class CStudyCRUDCreateMaterialTest extends TestCase
         ]);
     }
 
+    function test_guest_can_not_create_materials()
+    {
+        $this->expectException('Illuminate\Auth\AuthenticationException');
+
+        $material = factory('App\CStudyMaterial')->create();
+ 
+        $this->post('/c_study/materials', $material->toArray());
+    }
+
+    function test_validation_require_a_title(){
+        $this->invalidRequest(['title' => null]);
+    }
+
+    function test_validation_require_a_reference(){
+        $this->invalidRequest(['reference' => null]);
+    }
+
+    function test_validation_title_no_longer_then_255(){
+        $this->invalidRequest(['title' => bin2hex(random_bytes(128)) ]);
+    }
+
+    function test_validation_reference_has_to_be_url(){
+        $this->invalidRequest(['reference' => 'fdsa\moc.fdsa.www\\:ptth' ]);
+    }
+
+    function test_validation_reference_no_longer_then_2048(){
+        $this->invalidRequest(['reference' => 'http://www.asdf.com/' . bin2hex(random_bytes(1024)) ]);
+    }
 }

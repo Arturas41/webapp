@@ -19,9 +19,10 @@ class MaterialController extends Controller
 
     public function store(){
 
-        //$this->validate($request, [
-        //    'title' => 'required'
-        //]);
+        $this->validate(request(), [
+            'title' => 'required|max:255',
+            'reference' => 'required|max:2048|url'
+        ]);
 
         $material = CStudyMaterial::create([
             'user_id' => auth()->id(),
