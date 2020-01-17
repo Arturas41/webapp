@@ -18,6 +18,19 @@
                 <component :is="selectedComponent"></component>
             </keep-alive>
         </div>
+        <vp2-form></vp2-form>
+        <h1>Vue Routing Example</h1>
+
+            <div>
+              <h2>Links</h2>
+              <ul>
+                <router-link :to="{name:'one', params:{id:'asdf'}}">page_one with id</router-link>
+                <router-link :to="{name:'two'}">page_two</router-link>
+                <button @click="pushHome" class="btn">Go Home</button>
+
+                <router-view></router-view>
+              </ul>
+            </div>
     </div>
 </template>
 
@@ -28,15 +41,23 @@
     import One from '../vue_playground2/OneComponent.vue';
     import Two from '../vue_playground2/TwoComponent.vue';
     import Three from '../vue_playground2/ThreeComponent.vue';
+    import Form from '../vue_playground2/Form.vue';
 
     export default {
-        components: {BootstrapCard, SlotsExample, One, Two, Three},
+        components: {BootstrapCard, SlotsExample, One, Two, Three, Form},
 
         data(){
             return{
                 slotMarkup: 'THE REAL DEAL!',
                 selectedComponent: 'One' 
             }
+        },
+
+        methods: {
+            pushHome() {
+                this.$router.push('/page-one/54312');
+            }
         }
+
     }
 </script>

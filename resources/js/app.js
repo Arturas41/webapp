@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+import { routes } from "./routes.js";
+import VueRouter from 'vue-router';
 
 window.Vue = require('vue');
 
@@ -48,16 +50,22 @@ Vue.component('vp2-bootstrap-card', require('./components/vue_playground2/Bootst
 Vue.component('vp2-parent-card', require('./components/vue_playground2/ParentCard.vue').default);
 Vue.component('vp2-parent-card2', require('./components/vue_playground2/ParentCard2.vue').default);
 Vue.component('vp2-slots-example', require('./components/vue_playground2/SlotsExample.vue').default);
+Vue.component('vp2-form', require('./components/vue_playground2/Form.vue').default);
+Vue.component('vp2-page-one', require('./components/vue_playground2/PageOne.vue').default);
+Vue.component('vp2-page-two', require('./components/vue_playground2/PageTwo.vue').default);
 
+Vue.use(VueRouter);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+const router = new VueRouter({routes});
+
 Vue.prototype.$eventBus = new Vue();
+
 const app = new Vue({
     el: '#app',
+    router
 });
+
+
+
 
 
