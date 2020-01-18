@@ -17,8 +17,8 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/">Components</a>
-                        <a class="dropdown-item" href="/learn_topic">Learn topic</a>
-                        <a class="dropdown-item" href="/learn_topic/create">Learn topic create</a>
+                        <a class="dropdown-item" href="/c_study/materials">Study materials</a>
+                        <a class="dropdown-item" href="/c_study/materials/create">Create study material</a>
                         <a class="dropdown-item" href="/c_forum/threads">Forum threads</a>
                         @if(auth()->check())
                             <a class="dropdown-item" href="/c_forum/threads?by={{ auth()->user()->name }}">My Threads</a>

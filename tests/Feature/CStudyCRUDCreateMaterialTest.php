@@ -66,4 +66,24 @@ class CStudyCRUDCreateMaterialTest extends TestCase
     function test_validation_reference_no_longer_then_2048(){
         $this->invalidRequest(['reference' => 'http://www.asdf.com/' . bin2hex(random_bytes(1024)) ]);
     }
+
+    //Unit test..?
+    function test_can_attach_tags_to_material(){
+        $this->actingAs(factory('App\User')->create());
+
+        $material = factory('App\CStudyMaterial')->create();
+        $tag1 = factory('App\Tag')->create(['name' => 'tag_name_1']);
+        $tag2 = factory('App\Tag')->create(['name' => 'tag_name_2']);
+
+        $material->tags()->attach([$tag1->id, $tag2->id]);
+
+        $this->assertDatabaseHas('taggables', [
+            'tag_id' => $tag1->id,
+            'taggable_id' => $material->id,
+            'taggable_type' => 'App\CStudyMaterial'
+        ]);
+
+         $this->assertEquals(2, $material->tags()->count());
+
+    }
 }

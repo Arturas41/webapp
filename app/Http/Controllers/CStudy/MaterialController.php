@@ -14,7 +14,9 @@ class MaterialController extends Controller
     }
 
     public function index(){
-        return view('c_study/index');
+        $materials = CStudyMaterial::latest()->get();
+
+        return view('c_study/materials/index', compact('materials'));
     }
 
     public function store(){
