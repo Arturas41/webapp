@@ -14,7 +14,7 @@ import 'buefy/dist/buefy.css';
 import fontawesome from '@fortawesome/fontawesome';
 import fas from '@fortawesome/fontawesome-free-solid';
 fontawesome.library.add(fas);
-import VueSidebarMenu from 'vue-sidebar-menu'
+import VueSidebarMenu from 'vue-sidebar-menu';
 
 window.Vue = require('vue');
 
