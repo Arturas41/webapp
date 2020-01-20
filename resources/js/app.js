@@ -5,8 +5,16 @@
  */
 
 require('./bootstrap');
+
 import { routes } from "./routes.js";
 import VueRouter from 'vue-router';
+
+import Buefy from 'buefy';
+import 'buefy/dist/buefy.css';
+import fontawesome from '@fortawesome/fontawesome';
+import fas from '@fortawesome/fontawesome-free-solid';
+fontawesome.library.add(fas);
+import VueSidebarMenu from 'vue-sidebar-menu'
 
 window.Vue = require('vue');
 
@@ -54,7 +62,14 @@ Vue.component('vp2-form', require('./components/vue_playground2/Form.vue').defau
 Vue.component('vp2-page-one', require('./components/vue_playground2/PageOne.vue').default);
 Vue.component('vp2-page-two', require('./components/vue_playground2/PageTwo.vue').default);
 
+Vue.component('layout-navbar', require('./components/layout/Navbar.vue').default);
+Vue.component('navbar-dropdown', require('./components/layout/Dropdown.vue').default);
+Vue.component('sidebar-menu', require('./components/layout/sidebar/SidebarMenu.vue').default);
+Vue.component('sidebar', require('./components/layout/sidebar/Sidebar.vue').default);
+
 Vue.use(VueRouter);
+Vue.use(Buefy);
+Vue.use(VueSidebarMenu);
 
 const router = new VueRouter({routes});
 

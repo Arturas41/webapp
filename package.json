@@ -11,6 +11,8 @@
         "webpack": "node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome": "^1.1.8",
+        "@fortawesome/fontawesome-free-solid": "^5.0.13",
         "axios": "^0.19",
         "bootstrap": "^4.0.0",
         "cross-env": "^5.2.1",
@@ -27,7 +29,10 @@
     },
     "dependencies": {
         "at.js": "^1.5.4",
+        "buefy": "^0.8.9",
+        "font-awesome": "^4.7.0",
         "jquery.caret": "^0.3.1",
-        "save": "^2.4.0"
+        "save": "^2.4.0",
+        "vue-sidebar-menu": "^4.4.7"
     }
 }
