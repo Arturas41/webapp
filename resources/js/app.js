@@ -62,8 +62,6 @@ Vue.component('vp2-form', require('./components/vue_playground2/Form.vue').defau
 Vue.component('vp2-page-one', require('./components/vue_playground2/PageOne.vue').default);
 Vue.component('vp2-page-two', require('./components/vue_playground2/PageTwo.vue').default);
 
-Vue.component('layout-navbar', require('./components/layout/Navbar.vue').default);
-Vue.component('navbar-dropdown', require('./components/layout/Dropdown.vue').default);
 Vue.component('sidebar-menu', require('./components/layout/sidebar/SidebarMenu.vue').default);
 Vue.component('sidebar', require('./components/layout/sidebar/Sidebar.vue').default);
 
