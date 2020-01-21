@@ -112,8 +112,7 @@
             },
             authenticate(){
                 if(!window.App.signedIn){
-                    window.location.href = "/login";
-                    //this.$router.push({name: 'login'});
+                    this.$router.push({name: 'login'});
                 }
             }
         }

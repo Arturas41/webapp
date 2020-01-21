@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -46,4 +48,9 @@ class LoginController extends Controller
     {
         return Session::get('backUrl') ? Session::get('backUrl') :   $this->redirectTo;
     }
+
+    public function logout() {
+        Auth::logout();
+    }
+
 }

@@ -1,7 +1,9 @@
 import PageOne from './components/vue_playground2/PageOne.vue';
 import PageTwo from './components/vue_playground2/PageTwo.vue';
 
-import Login from './components/pages/login/Login.vue';
+import Login from './components/pages/auth/Login.vue';
+import Register from './components/pages/auth/Register.vue';
+import Logout from './components/pages/auth/Logout.vue';
 
 import GamesList from './components/pages/games/List.vue';
 import GamesCreate from './components/pages/games/Create.vue';
@@ -13,6 +15,9 @@ import GamesReview from './components/pages/games/reviews/View.vue';
  export const routes = [
      
      {path: '/login', component: Login, name: 'login'},
+     {path: '/register', component: Register, name: 'register'},
+     {path: '/logout', component: Logout, name: 'logout'},   
+     
      //c_games routes
      {path: '/games', component: GamesList, name: 'games'},
      {path: '/games/create', component: GamesCreate, name: 'game_create'},
