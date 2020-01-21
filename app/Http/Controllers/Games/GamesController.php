@@ -16,20 +16,27 @@ class GamesController extends Controller
     }
 
     public function index(){
-        $games = Game::all();
+        $games = Game::with('user')->get();
 
         $activeusers = User::activeusers(); 
 
-        return view('games/index', ['games' => $games, 'activeusers' => $activeusers]);
+        if (request()->wantsJson()) {
+            return ['games' => $games, 'activeusers' => $activeusers];
+        }
+
+        //return view('games/index', ['games' => $games, 'activeusers' => $activeusers]);
     }
 
     public function show(Game $id){
-        return view('games/show', ['game' => $id]);
+        if (request()->wantsJson()) {
+            return ['game' => $id, 'reviews' => $id->reviews];
+        }
+        //return view('games/show', ['game' => $id]);
     }
 
     public function create(){
 
-        return view('games.create');
+        //return view('games.create');
     }
 
     public function store(Request $request){
@@ -51,6 +58,6 @@ class GamesController extends Controller
 
         \Mail::to('asdf@fsdfsadg.fsd')->send(new Hello());
 
-        return redirect('/games/games');
+        return;
     }
 }

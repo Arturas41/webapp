@@ -18,7 +18,7 @@ class CreateGamesTable extends Migration
             $table->bigInteger('user_id');
             $table->string('title');
             $table->string('publisher');
-            $table->integer('releasedate');
+            $table->timestamp('releasedate');
             $table->string('image');
             $table->timestamps();
         });

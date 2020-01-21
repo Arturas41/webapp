@@ -17,7 +17,12 @@ class ReviewsController extends Controller
     public function index()
     {
         $reviews = Review::latest()->get();
-        return view('games.reviews.index', ['reviews' => $reviews]);
+
+        if (request()->wantsJson()) {
+            return $reviews;
+        }
+
+        //return view('games.reviews.index', ['reviews' => $reviews]);
     }
 
     public function create(Game $game)
@@ -31,13 +36,22 @@ class ReviewsController extends Controller
             'body' => 'required|min:3'
         ]);
 
-        $game->addReview(request('body'), auth()->id());
-        
-        return back();
+        $review = $game->addReview(request('body'), auth()->id());
+
+        if (request()->wantsJson()) {
+            $review = Review::find($review->id);
+            return $review;
+        }
+
+        //return back();
     }
 
     public function show(Review $review)
     {
-        return view('games.reviews.show', ['review' => $review]);
+        if (request()->wantsJson()) {
+            return $review;
+        }
+
+        //return view('games.reviews.show', ['review' => $review]);
     }
 }

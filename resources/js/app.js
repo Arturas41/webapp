@@ -65,6 +65,7 @@ Vue.component('vp2-page-two', require('./components/vue_playground2/PageTwo.vue'
 Vue.component('sidebar-menu', require('./components/layout/sidebar/SidebarMenu.vue').default);
 Vue.component('sidebar', require('./components/layout/sidebar/Sidebar.vue').default);
 
+
 Vue.use(VueRouter);
 Vue.use(Buefy);
 Vue.use(VueSidebarMenu);

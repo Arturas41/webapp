@@ -5,25 +5,9 @@
   >
     <div class="demo">
 
-
-
-
-
-
-
-
-
       <div class="">
         <router-view />
       </div>
-
-
-
-
-
-
-
-
 
       <sidebar-menu
         :menu="menu"
@@ -49,17 +33,15 @@ export default {
         {
           href: '/games',
           title: 'Games',
-          icon: 'fa fa-list-ul',
+          icon: 'fa fa-gamepad',
           child: [
             {
               href: '/games/create',
-              title: 'Create game',
-              icon: 'fa fa-file-alt'
+              title: 'Create game'
             },
             {
               href: '/games/reviews',
-              title: 'Reviews list',
-              icon: 'fa fa-file-alt'
+              title: 'Reviews list'
             }
           ]
         },
@@ -193,11 +175,9 @@ export default {
   },
   methods: {
     onToggleCollapse (collapsed) {
-      console.log(collapsed)
       this.collapsed = collapsed
     },
     onItemClick (event, item) {
-      console.log('onItemClick')
       // console.log(event)
       // console.log(item)
     }

@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
+
+    protected $with = ['user'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -21,6 +24,6 @@ class Game extends Model
     }
 
     public function addReview($body, $userid){
-        $this->reviews()->create(['body' => $body, 'user_id' => $userid]);
+        return $this->reviews()->create(['body' => $body, 'user_id' => $userid]);
     }
 }
