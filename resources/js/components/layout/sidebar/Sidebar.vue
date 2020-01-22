@@ -80,8 +80,8 @@ export default {
                     title: 'Douglas Crockford JS'
                 },
                 {
-                    href: '/playground',
-                    title: 'Playground'
+                    href: '/general_playground/laravel_string_helpers',
+                    title: 'Laravel String Helpers'
                 }
             ]
         },

@@ -30,7 +30,6 @@
                         <a class="dropdown-item" href="/angleslash/sub/new">Angleslash create new sub</a>
                         <a class="dropdown-item" href="/vue_playground">Vue playground</a>
                         <a class="dropdown-item" href="/general_playground/laravel_collections">Laravel collections playground</a>
-                        <a class="dropdown-item" href="/general_playground/laravel_string_helpers">laravel string helpers playground</a>
                         <a class="dropdown-item" href="/general_playground/carbon">Carbon playground</a>
                         <a class="dropdown-item" href="/html_parser/index">HTML parser</a>
 

@@ -11,59 +11,83 @@ class GeneralPlaygroundController extends Controller
 {
 
     public function laravelStringHelpers(){
-        $string = 'this-is__a_--_string';
-        var_dump(Str::camel($string));
 
-        $class = class_basename('Illuminate\Http\Request');
-        var_dump(Str::camel($class));
+        $collection = collect();
 
-        $result = Str::endsWith('This is my name', 'name');
-        echo e($result);
+        $data['helper'] = "Str::camel('this-is__a_--_string')";
+        $data['result'] = Str::camel('this-is__a_--_string');
+        $collection->push($data);
 
-        $converted = Str::snake('fooBar');
-        var_dump(Str::camel($converted));
+        $data['helper'] = "Str::endsWith('This is my name', 'name')";
+        $data['result'] = Str::endsWith('This is my name', 'name');
+        $collection->push($data);
 
-        $truncated = Str::limit('The quick brown fox jumps over the lazy dog', 20);
-        var_dump(Str::camel($truncated));
+        $data['helper'] = "Str::snake('fooBar')";
+        $data['result'] = Str::snake('fooBar');
+        $collection->push($data);
 
-        $result = Str::startsWith('This is my name', 'This');
-        echo e($result);
+        $data['helper'] = "Str::limit('The quick brown fox jumps over the lazy dog', 20)";
+        $data['result'] = Str::limit('The quick brown fox jumps over the lazy dog', 20);
+        $collection->push($data);
 
-        $result = Str::contains('This is my name', 's my na');
-        echo e($result);
+        $data['helper'] = "Str::startsWith('This is my name', 'This')";
+        $data['result'] = Str::startsWith('This is my name', 'This');
+        $collection->push($data);
 
-        $adjusted = Str::finish('this/string', '/');
-        var_dump(Str::camel($adjusted));
+        $data['helper'] = "Str::contains('This is my name', 's my na')";
+        $data['result'] = Str::contains('This is my name', 's my na');
+        $collection->push($data);
 
-        $adjusted = Str::finish('this/string/', '/');
-        var_dump(Str::camel($adjusted));
+        $data['helper'] = "Str::finish('this/string', '/')";
+        $data['result'] = Str::finish('this/string', '/');
+        $collection->push($data);
 
-        $string = 'Here we have a pattern';
-        echo Str::is('*we*', $string);
-        //  1 or true
-        echo  Str::is('*pattern', $string);
-        //  1 or true
-        echo  Str::is('Here*', $string);
-        //  1 or true
-        echo  Str::is('joker', $string);
-        //  0 or false
+        $data['helper'] = "Str::is('*we*', 'Here we have a pattern')";
+        $data['result'] = Str::is('*we*', 'Here we have a pattern');
+        $collection->push($data);
 
-        echo Str::plural('Truck');
-        //  Trucks
-        echo Str::plural('House');
-        //  Houses
-        echo Str::singular('Houses');
-        //  House
+        $data['helper'] = "Str::is('*pattern', 'Here we have a pattern')";
+        $data['result'] = Str::is('*pattern', 'Here we have a pattern');
+        $collection->push($data);
 
-        echo Str::random(10);
+        $data['helper'] = "Str::is('Here*', 'Here we have a pattern')";
+        $data['result'] = Str::is('Here*', 'Here we have a pattern');
+        $collection->push($data);
 
-        echo Str::slug('Soon this string will be sluggified');
+        $data['helper'] = "Str::is('joker', 'Here we have a pattern')";
+        $data['result'] = Str::is('joker', 'Here we have a pattern');
+        $collection->push($data);
 
-        $converted = Str::studly('foo_bar');
-        var_dump($converted);
+        $data['helper'] = "Str::plural('Truck')";
+        $data['result'] = Str::plural('Truck');
+        $collection->push($data);
 
-        $converted = Str::title('a nice title uses the correct case');
-        var_dump($converted);
+        $data['helper'] = "Str::plural('House')";
+        $data['result'] = Str::plural('House');
+        $collection->push($data);
+
+        $data['helper'] = "Str::singular('Houses')";
+        $data['result'] = Str::singular('Houses');
+        $collection->push($data);
+
+        $data['helper'] = "Str::random(10)";
+        $data['result'] = Str::random(10);
+        $collection->push($data);
+
+        $data['helper'] = "Str::slug('Soon this string will be sluggified')";
+        $data['result'] = Str::slug('Soon this string will be sluggified');
+        $collection->push($data);
+
+        $data['helper'] = "Str::studly('foo_bar')";
+        $data['result'] = Str::studly('foo_bar');
+        $collection->push($data);
+
+        $data['helper'] = "Str::title('a nice title uses the correct case')";
+        $data['result'] = Str::title('a nice title uses the correct case');
+        $collection->push($data);
+
+        return $collection;
+
     }
 
     public function carbon(){
