@@ -17,20 +17,28 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/">Components</a>
+
+
                         <a class="dropdown-item" href="/c_study/materials">Study materials</a>
                         <a class="dropdown-item" href="/c_study/materials/create">Create study material</a>
                         <a class="dropdown-item" href="/c_forum/threads">Forum threads</a>
+
                         @if(auth()->check())
                             <a class="dropdown-item" href="/c_forum/threads?by={{ auth()->user()->name }}">My Threads</a>
                         @endif
+
                         <a class="dropdown-item" href="/c_forum/threads?popular=1">Popular Threads</a>
                         <a class="dropdown-item" href="/c_forum/threads/create">New forum thread</a>
+
+
                         <a class="dropdown-item" href="/angleslash">Angleslash</a>
                         <a class="dropdown-item" href="/angleslash/post/new">Angleslash create new post</a>
                         <a class="dropdown-item" href="/angleslash/sub/new">Angleslash create new sub</a>
 
+
                         <a class="dropdown-item" href="/vue_playground">Vue playground</a>
-                        <a class="dropdown-item" href="/general_playground/laravel_collections">Laravel collections playground</a>
+
+
                         <a class="dropdown-item" href="/html_parser/index">HTML parser</a>
 
                     </div>

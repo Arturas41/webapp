@@ -72,25 +72,6 @@ export default {
         },
 
         {
-            title: 'Playground',
-            icon: 'fa fa-code',
-            child: [
-                {
-                    href: '/general_playground/javascript_douglas_crockford',
-                    title: 'Douglas Crockford JS'
-                },
-                {
-                    href: '/general_playground/laravel_string_helpers',
-                    title: 'Laravel String Helpers'
-                },
-                {
-                    href: '/general_playground/laravel_carbon',
-                    title: 'Carbon'
-                }
-            ]
-        },
-
-        {
             title: 'Games',
             icon: 'fa fa-gamepad',
             child: [
@@ -105,6 +86,37 @@ export default {
                 {
                     href: '/games/reviews',
                     title: 'Reviews list'
+                }
+            ]
+        },
+
+        {
+            title: 'Playground',
+            icon: 'fa fa-code',
+            child: [
+                {
+                    href: '/general_playground/javascript_douglas_crockford',
+                    title: 'Douglas Crockford JS'
+                },
+                {
+                    href: '/general_playground/laravel_string_helpers',
+                    title: 'Laravel String Helpers'
+                },
+                {
+                    href: '/general_playground/laravel_carbon',
+                    title: 'Carbon'
+                },
+                {
+                    href: '/general_playground/vue_playground',
+                    title: 'Vue'
+                },
+                {
+                    href: '/general_playground/vue_playground3',
+                    title: 'Vue'
+                },
+                {
+                    href: '/general_playground/vue_playground2',
+                    title: 'Vue'
                 }
             ]
         },
