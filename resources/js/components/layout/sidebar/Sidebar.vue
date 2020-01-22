@@ -32,21 +32,29 @@ export default {
     let login = {}
     if(window.App.signedIn){
         login = {
-          href: '/logout',
-          title: 'Logout',
-          icon: 'fa fa-user',
+            title: 'User',
+            icon: 'fa fa-user',
+            child: [
+                {
+                    href: '/logout',
+                    title: 'Logout'
+                }
+            ]
         };
     }else{
         login = {
-          href: '/login',
-          title: 'Login in',
-          icon: 'fa fa-user',
-          child: [
-            {
-              href: '/register',
-              title: 'Register'
-            }
-          ]
+            title: 'User',
+            icon: 'fa fa-user',
+            child: [
+                {
+                    href: '/login',
+                    title: 'Login in'
+                },
+                {
+                    href: '/register',
+                    title: 'Register'
+                }
+            ]
         };
     }
 
@@ -56,26 +64,47 @@ export default {
     return {
       menu: [
         login,
+
         {
-          href: '/games',
-          title: 'Games',
-          icon: 'fa fa-gamepad',
-          child: [
-            {
-              href: '/games/create',
-              title: 'Create game'
-            },
-            {
-              href: '/games/reviews',
-              title: 'Reviews list'
-            }
-          ]
+            header: true,
+            title: 'Useless content',
+            hiddenOnCollapse: true
         },
+
         {
-          header: true,
-          title: 'Getting Started',
-          hiddenOnCollapse: true
+            title: 'Playground',
+            icon: 'fa fa-code',
+            child: [
+                {
+                    href: '/general_playground/javascript_douglas_crockford',
+                    title: 'Douglas Crockford JS'
+                },
+                {
+                    href: '/playground',
+                    title: 'Playground'
+                }
+            ]
         },
+
+        {
+            title: 'Games',
+            icon: 'fa fa-gamepad',
+            child: [
+                {
+                    href: '/games',
+                    title: 'Games list'
+                },
+                {
+                    href: '/games/create',
+                    title: 'Create game'
+                },
+                {
+                    href: '/games/reviews',
+                    title: 'Reviews list'
+                }
+            ]
+        },
+
         {
           href: '/page-one/asdf',
           title: 'Installation',

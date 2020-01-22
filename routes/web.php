@@ -11,10 +11,10 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', 'ComponentController@index')->name('components');
 
-Route::get('/learn_topic', 'LearnTopicController@index');
-Route::get('/learn_topic/create', 'LearnTopicController@create');
-Route::get('/learn_topic/{learn_topic}', 'LearnTopicController@show');
-Route::post('/learn_topic', 'LearnTopicController@store');
+//Route::get('/learn_topic', 'LearnTopicController@index');
+//Route::get('/learn_topic/create', 'LearnTopicController@create');
+//Route::get('/learn_topic/{learn_topic}', 'LearnTopicController@show');
+//Route::post('/learn_topic', 'LearnTopicController@store');
 
 Route::get('api/users', 'Api\UsersController@index')->middleware('auth');
 Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar');
@@ -76,9 +76,6 @@ Route::prefix('general_playground')->group(function () {
     ]);
     Route::get('/carbon', [
         'uses' => 'GeneralPlayground\GeneralPlaygroundController@carbon'
-    ]);
-    Route::get('/javascript_douglas_crockford', [
-        'uses' => 'GeneralPlayground\GeneralPlaygroundController@javascriptDouglasCrockford'
     ]);
 });
 

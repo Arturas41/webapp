@@ -66,10 +66,6 @@ class GeneralPlaygroundController extends Controller
         var_dump($converted);
     }
 
-    public function javascriptDouglasCrockford(){
-        return view('general_playground.javascript_douglas_crockford');
-    }
-
     public function carbon(){
 
         $carbon = new Carbon;
