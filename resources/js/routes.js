@@ -14,6 +14,7 @@ import GamesReview from './components/pages/games/reviews/View.vue';
 
 import DouglasCrockfordJS from './components/pages/general_playground/DouglasCrockfordJS.vue';
 import LaravelStringHelpers from './components/pages/general_playground/LaravelStringHelpers.vue';
+import LaravelCarbon from './components/pages/general_playground/LaravelCarbon.vue';
 
  export const routes = [
      
@@ -21,6 +22,7 @@ import LaravelStringHelpers from './components/pages/general_playground/LaravelS
      
      {path: '/general_playground/javascript_douglas_crockford', component: DouglasCrockfordJS, name: 'douglas_crockford_js'},
      {path: '/general_playground/laravel_string_helpers', component: LaravelStringHelpers, name: 'laravel_string_helpers'},
+     {path: '/general_playground/laravel_carbon', component: LaravelCarbon, name: 'laravel_carbon'},
      
      {path: '/login', component: Login, name: 'login'},
      {path: '/register', component: Register, name: 'register'},

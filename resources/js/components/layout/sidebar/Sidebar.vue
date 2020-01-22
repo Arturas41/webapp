@@ -82,6 +82,10 @@ export default {
                 {
                     href: '/general_playground/laravel_string_helpers',
                     title: 'Laravel String Helpers'
+                },
+                {
+                    href: '/general_playground/laravel_carbon',
+                    title: 'Carbon'
                 }
             ]
         },
