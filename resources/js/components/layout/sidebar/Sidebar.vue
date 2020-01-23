@@ -36,7 +36,7 @@ export default {
     let login = {}
     if(window.App.signedIn){
         login = {
-            title: 'User',
+            title: '',
             icon: 'fa fa-user',
             child: [
                 {
@@ -47,7 +47,7 @@ export default {
         };
     }else{
         login = {
-            title: 'User',
+            title: '',
             icon: 'fa fa-user',
             child: [
                 {
@@ -68,7 +68,9 @@ export default {
     return {
       menu: [
         login,
-
+        {
+            component: separator
+        },
         {
             header: true,
             title: 'Useless content',
@@ -82,6 +84,44 @@ export default {
                 {
                     href: '/crawl_url',
                     title: 'Crawl URL'
+                }
+            ]
+        },
+
+        {
+            title: 'Forum',
+            icon: 'fa fa-italic',
+            child: [
+                {
+                    href: '/angleslash/posts',
+                    title: 'Posts list'
+                },
+                {
+                    href: '/angleslash/posts/create',
+                    title: 'Create post'
+                },
+                {
+                    href: '/angleslash/subs/create',
+                    title: 'Create sub'
+                }
+            ]
+        },
+
+        {
+            title: 'Angleslash',
+            icon: 'fa fa-beer',
+            child: [
+                {
+                    href: '/angleslash/posts',
+                    title: 'Posts list'
+                },
+                {
+                    href: '/angleslash/posts/create',
+                    title: 'Create post'
+                },
+                {
+                    href: '/angleslash/subs/create',
+                    title: 'Create sub'
                 }
             ]
         },
@@ -135,48 +175,9 @@ export default {
                 }
             ]
         },
-
-        {
-          href: '/page-one/asdf',
-          title: 'Installation',
-          icon: 'fa fa-download'
-        },
-        {
-          href: '/page-two',
-          title: 'Basic Usage',
-          icon: 'fa fa-code'
-        },
-        {
-          header: true,
-          title: 'Usage',
-          hiddenOnCollapse: true
-        },
-        {
-          href: '/props',
-          title: 'Props',
-          icon: 'fa fa-cogs'
-        },
-        {
-          href: '/events',
-          title: 'Events',
-          icon: 'fa fa-bell'
-        },
-        {
-          href: '/styling',
-          title: 'Styling',
-          icon: 'fa fa-palette'
-        },
-        {
-          component: separator
-        },
-        {
-          header: true,
-          title: 'Example',
-          hiddenOnCollapse: true
-        },
         {
           href: '/disabled',
-          title: 'Disabled page',
+          title: 'Bug reports',
           icon: 'fa fa-lock',
           disabled: true
         },
@@ -188,23 +189,7 @@ export default {
             class: 'vsm--badge_default'
           }
         },
-        {
-          href: '/page',
-          title: 'Dropdown Page',
-          icon: 'fa fa-list-ul',
-          child: [
-            {
-              href: '/page/sub-page-1',
-              title: 'Sub Page 01',
-              icon: 'fa fa-file-alt'
-            },
-            {
-              href: '/page/sub-page-2',
-              title: 'Sub Page 02',
-              icon: 'fa fa-file-alt'
-            }
-          ]
-        },
+
         {
           title: 'Multiple Level',
           icon: 'fa fa-list-alt',

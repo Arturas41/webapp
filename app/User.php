@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'email',
+        'password', 'remember_token', 'email', 'stripe_id', 'card_brand', 'card_last_four', 'trial_ends_at'
     ];
 
     /**
@@ -55,7 +55,7 @@ class User extends Authenticatable
 
     public function subs()
     {
-        return $this->hasMany('App\AngleslashSub');
+        return $this->hasMany('App\AngleslashSub', 'owner_id');
     }
 
     public function postvotes()

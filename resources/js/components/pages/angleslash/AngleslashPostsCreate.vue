@@ -2,7 +2,15 @@
     <div>   
 
         <div class="form-group">
-            <label for="url">URL</label>
+            <label>Title</label>
+            <input type="text"
+                   id="title"
+                   class="form-control"
+                   v-model="title">
+        </div>
+
+        <div class="form-group">
+            <label>URL</label>
             <input type="text"
                    id="url"
                    class="form-control"
@@ -10,11 +18,11 @@
         </div>
 
         <div class="form-group">
-            <label for="node">Node</label>
+            <label>Sub</label>
             <input type="text"
-                   id="node"
+                   id="sub"
                    class="form-control"
-                   v-model="node">
+                   v-model="sub">
         </div>
         
         <form-errors v-bind:form_errors="form_errors"></form-errors>
@@ -23,10 +31,6 @@
                 @click.prevent="submitted">Submit!
         </button>
 
-        <div v-for="node in nodes">
-            {{node}}
-        </div>
-
     </div>
 </template>
 <script>
@@ -34,30 +38,24 @@
  
         data() {
             return {
-                url: 'https://vegibit.com/php-simple-html-dom-parser-vs-friendsofphp-goutte/',
-                node: 'p > a',
-                nodes: [],
+                title: '',
+                url: '',
+                sub: '',
                 form_errors: []
             };
         },
 
         methods: {
             submitted: function(){
-
-                axios.post('/html_parser/crawl_url', {url: this.url, node:this.node})
+                axios.post('/angleslash/posts', { title: this.title, url: this.url, sub: this.sub })
                     .then(({data}) => {
-                        this.nodes = data;
-                        flash('Parsed');
+                        flash('Post saved');
                         this.form_errors = [];
                     })
                     .catch((error) => {
                         this.form_errors = error.response.data.errors;
                     });
             }
-        },
-
-        mounted:function(){
-              
         },
     }
 </script>

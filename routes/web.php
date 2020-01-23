@@ -20,39 +20,13 @@ Route::get('api/users', 'Api\UsersController@index')->middleware('auth');
 Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store')->middleware('auth')->name('avatar');
 
 Route::prefix('angleslash')->group(function () {
-//// Display users, subs and front page
-    Route::get('/', 'Angleslash\PostController@frontpage');
-    Route::get('u/{user}', 'UserController@showAngleslashProfile');
-    Route::get('r/{sub}', 'Angleslash\SubController@show');
-// Checking if the user is signed in (using AJAX)
-    Route::get('authcheck', function () {
-        return json_encode(Auth::check());
-    });
-// Creating and storing a new sub
-    Route::get('sub/new', [
-        'middleware' => 'auth',
-        'uses' => 'Angleslash\SubController@displayform'
-    ]);
 
-    Route::post('sub/new', [
-        'middleware' => 'auth',
-        'uses' => 'Angleslash\SubController@storesub'
-    ]);
-// Creating and storing a new post / link
-    Route::get('post/new', [
-        'middleware' => 'auth',
-        'uses' => 'Angleslash\PostController@displayform',
-    ]);
+    Route::get('users/{user}', 'UserController@showAngleslashProfile');
+    Route::get('posts', 'Angleslash\PostController@index');
+    Route::post('posts', 'Angleslash\PostController@store');
+    Route::post('subs', 'Angleslash\SubController@store');
+    Route::get('subs/{sub}', 'Angleslash\SubController@show');
 
-    Route::post('post/new', [
-        'middleware' => 'auth',
-        'uses' => 'Angleslash\PostController@storepost'
-    ]);
-// Voting on posts / links
-    Route::post('vote', [
-        'middleware' => 'auth',
-        'uses' => 'Angleslash\VoteController@vote'
-    ]);
 });
 
 Route::prefix('general_playground')->group(function () {

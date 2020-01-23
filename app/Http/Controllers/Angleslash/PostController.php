@@ -11,45 +11,33 @@ use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    public function show($sub, $postId)
+    public function __construct()
     {
-        $sub = AngleslashSub::where('name', $sub)->firstOrFail();
-        $post = AngleslashPost::find($postId);
-
-        return view('angleslash.post')
-            ->with('title', $post->title)
-            ->with('sub', $post->sub->name)
-            ->with('post', $post);
+        $this->middleware('auth')->except(['index']);
+    }
+   
+    public function index(){
+        return AngleslashPost::with('sub','user')->get();
     }
 
-    public function frontpage()
+    public function store(PostFormRequest $request)
     {
-        return view('angleslash.sub')
-            ->with('title', 'Front Page')
-            ->with('posts', AngleslashPost::paginate(15));
-    }
+        $this->validate(request(), [
+            'title' => 'required|max:100',
+            'url' => 'required|max:2083|active_url',
+            'sub' => 'required|exists:angleslash_subs,name'
+        ]);
 
-    public function displayform()
-    {
-        $tags = \App\AngleslashTag::pluck('name', 'id');
-        $subs = \DB::table('angleslash_subs')->pluck('name', 'id');
-        return view('angleslash.forms.submit', compact(['tags', 'subs']))
-            ->with('title', 'New Post');
-    }
-
-    public function storepost(PostFormRequest $request)
-    {
         $post = new AngleslashPost;
 
-        $post->title = $request->get('title');
-        $post->url = $request->get('url');
-        $post->sub_id = AngleslashSub::where('name', $request->get('sub'))->first()->id;
+        $post->title = request('title');
+        $post->url = request('url');
+        $post->sub_id = AngleslashSub::where('name', request('sub'))->first()->id;
         $post->user_id = \Auth::id();
         $post->save();
 
-        $post->tags()->attach($request->input('tags'));
-
-        return \Redirect::to('/angleslash');
+        return $post;
     }
+
 
 }

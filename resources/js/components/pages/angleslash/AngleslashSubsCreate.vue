@@ -2,19 +2,11 @@
     <div>   
 
         <div class="form-group">
-            <label for="url">URL</label>
+            <label>Sub name</label>
             <input type="text"
-                   id="url"
+                   id="name"
                    class="form-control"
-                   v-model="url">
-        </div>
-
-        <div class="form-group">
-            <label for="node">Node</label>
-            <input type="text"
-                   id="node"
-                   class="form-control"
-                   v-model="node">
+                   v-model="name">
         </div>
         
         <form-errors v-bind:form_errors="form_errors"></form-errors>
@@ -23,10 +15,6 @@
                 @click.prevent="submitted">Submit!
         </button>
 
-        <div v-for="node in nodes">
-            {{node}}
-        </div>
-
     </div>
 </template>
 <script>
@@ -34,9 +22,7 @@
  
         data() {
             return {
-                url: 'https://vegibit.com/php-simple-html-dom-parser-vs-friendsofphp-goutte/',
-                node: 'p > a',
-                nodes: [],
+                name: '',
                 form_errors: []
             };
         },
@@ -44,20 +30,15 @@
         methods: {
             submitted: function(){
 
-                axios.post('/html_parser/crawl_url', {url: this.url, node:this.node})
+                axios.post('/angleslash/subs', {name: this.name})
                     .then(({data}) => {
-                        this.nodes = data;
-                        flash('Parsed');
+                        flash('Sub saved');
                         this.form_errors = [];
                     })
                     .catch((error) => {
                         this.form_errors = error.response.data.errors;
                     });
             }
-        },
-
-        mounted:function(){
-              
         },
     }
 </script>

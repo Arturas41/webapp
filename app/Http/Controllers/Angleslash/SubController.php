@@ -9,32 +9,31 @@ use App\Http\Controllers\Controller;
 
 class SubController extends Controller
 {
-    public function show($name)
+    
+    public function __construct()
     {
-
-        $sub = AngleslashSub::where('name', $name)->firstOrFail();
-
-        return view('angleslash.sub')
-            ->with('sub', $sub->name)
-            ->with('posts', $sub->posts()->paginate(15));
+        $this->middleware('auth')->except(['show']);
+    }
+ 
+    public function show(AngleslashSub $sub)
+    {
+        return [
+            'sub' => $sub,
+            'posts' => $sub->posts
+        ];
     }
 
-    public function displayform()
+    public function store(SubFormRequest $request)
     {
-        return view('angleslash.forms.createsub')
-            ->with('title', 'Create Sub');
-    }
-
-    public function storesub(SubFormRequest $request)
-    {
+        $this->validate(request(), [
+            'name' => 'required|min:3|max:20|alpha_dash|unique:angleslash_subs'
+        ]);
 
         $sub = new AngleslashSub;
-        $sub->name = $request->get('name');
+        $sub->name = request('name');
         $sub->owner_id = \Auth::id();
         $sub->save();
-
-
-
-        return \Redirect::to('angleslash/r/' . $request->get('name'));
+        return $sub;
     }
+
 }

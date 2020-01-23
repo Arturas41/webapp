@@ -21,7 +21,6 @@
 
     <!-- Angleslash -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
 
     <link rel="stylesheet" href="/css/vendor/jquery.atwho.css">
     <style>
@@ -39,14 +38,10 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts/navigation')
+        {{-- @include('layouts/navigation') --}}
         <sidebar sessionMessage="{{ session('flash') }}"></sidebar>
-
-        @include('layouts.partials.flash')
-        
-            @yield('content')
-       
-        @include('layouts/footer')
+        {{-- @include('layouts.partials.flash') --}}
+        {{-- @yield('content') --}}
     </div>
 </body>
 </html>
