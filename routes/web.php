@@ -55,18 +55,6 @@ Route::prefix('angleslash')->group(function () {
     ]);
 });
 
-Route::prefix('vue_playground')->group(function () {
-    Route::get('/', [
-        'uses' => 'VuePlayground\VuePlaygroundController@index'
-    ]);
-});
-
-Route::prefix('vue_playground2')->group(function () {
-    Route::get('/', [
-        'uses' => 'VuePlayground\VuePlayground2Controller@index'
-    ]);
-});
-
 Route::prefix('general_playground')->group(function () {
     Route::get('/laravel_string_helpers', [
         'uses' => 'GeneralPlayground\GeneralPlaygroundController@laravelStringHelpers'
@@ -80,8 +68,8 @@ Route::prefix('general_playground')->group(function () {
 });
 
 Route::prefix('html_parser')->group(function () {
-    Route::get('/index', [
-        'uses' => 'HtmlParser\HtmlParserController@index'
+    Route::post('/crawl_url', [
+        'uses' => 'HtmlParser\HtmlParserController@crawlUrl'
     ]);
 });
 

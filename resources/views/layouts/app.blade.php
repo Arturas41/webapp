@@ -40,10 +40,8 @@
 <body>
     <div id="app">
         @include('layouts/navigation')
-        <flash message="{{ session('flash') }}"></flash>
-        <sidebar></sidebar>
+        <sidebar sessionMessage="{{ session('flash') }}"></sidebar>
 
-        
         @include('layouts.partials.flash')
         
             @yield('content')

@@ -6,6 +6,7 @@
     <div class="demo">
 
       <div class="">
+        <flash :message='sessionMessage'></flash>
         <router-view />
       </div>
 
@@ -27,6 +28,9 @@ const separator = {
 }
 
 export default {
+
+    props: ['sessionMessage'],
+
   data () {
 
     let login = {}
@@ -69,6 +73,17 @@ export default {
             header: true,
             title: 'Useless content',
             hiddenOnCollapse: true
+        },
+
+        {
+            title: 'HTML parser',
+            icon: 'fa fa-crop',
+            child: [
+                {
+                    href: '/crawl_url',
+                    title: 'Crawl URL'
+                }
+            ]
         },
 
         {

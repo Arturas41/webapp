@@ -16,28 +16,32 @@ import VuePlayground from './components/pages/general_playground/VuePlayground.v
 import VuePlayground3 from './components/pages/general_playground/VuePlayground3.vue';
 import VuePlayground2 from './components/pages/general_playground/vue_playground2/Main.vue';
 
+import CrawlUrl from './components/pages/html_parser/CrawlUrl.vue';
+
  export const routes = [
      
-     //playground
+    //playground
+    {path: '/general_playground/javascript_douglas_crockford', component: DouglasCrockfordJS, name: 'douglas_crockford_js'},
+    {path: '/general_playground/laravel_string_helpers', component: LaravelStringHelpers, name: 'laravel_string_helpers'},
+    {path: '/general_playground/laravel_carbon', component: LaravelCarbon, name: 'laravel_carbon'},
+    {path: '/general_playground/vue_playground', component: VuePlayground, name: 'vue_playground'},
+    {path: '/general_playground/vue_playground3', component: VuePlayground3, name: 'vue_playground3'},
+    {path: '/general_playground/vue_playground2', component: VuePlayground2, name: 'vue_playground2'},
      
-     {path: '/general_playground/javascript_douglas_crockford', component: DouglasCrockfordJS, name: 'douglas_crockford_js'},
-     {path: '/general_playground/laravel_string_helpers', component: LaravelStringHelpers, name: 'laravel_string_helpers'},
-     {path: '/general_playground/laravel_carbon', component: LaravelCarbon, name: 'laravel_carbon'},
-     {path: '/general_playground/vue_playground', component: VuePlayground, name: 'vue_playground'},
-     {path: '/general_playground/vue_playground3', component: VuePlayground3, name: 'vue_playground3'},
-     {path: '/general_playground/vue_playground2', component: VuePlayground2, name: 'vue_playground2'},
+    //auth
+    {path: '/login', component: Login, name: 'login'},
+    {path: '/register', component: Register, name: 'register'},
+    {path: '/logout', component: Logout, name: 'logout'},   
      
-     {path: '/login', component: Login, name: 'login'},
-     {path: '/register', component: Register, name: 'register'},
-     {path: '/logout', component: Logout, name: 'logout'},   
+    //c_games routes
+    {path: '/games', component: GamesList, name: 'games'},
+    {path: '/games/create', component: GamesCreate, name: 'game_create'},
+    {path: '/games/reviews', component: GamesReviewsList, name: 'game_reviews'},
+    {path: '/games/reviews/:id', component: GamesReview, name: 'game_review'},
+    {path: '/games/:id', component: GamesView, name: 'game'},
      
-     //c_games routes
-     {path: '/games', component: GamesList, name: 'games'},
-     {path: '/games/create', component: GamesCreate, name: 'game_create'},
-     {path: '/games/reviews', component: GamesReviewsList, name: 'game_reviews'},
-     
-     {path: '/games/reviews/:id', component: GamesReview, name: 'game_review'},
-     {path: '/games/:id', component: GamesView, name: 'game'},
+    //html parser
+    {path: '/crawl_url', component: CrawlUrl, name: 'crawl_url'},
      
 ];
 

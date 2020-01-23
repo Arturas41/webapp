@@ -9,7 +9,13 @@ use GuzzleHttp\Client as GuzzleHttp;
 
 class HtmlParserController extends Controller
 {
-    public function index(){
+
+    public function crawlUrl(){
+        $this->validate(request(), [
+            'node' => 'required|max:255',
+            'url' => 'required|max:2048|url'
+        ]);
+
         $client = new Client();
 
         $guzzleclient = new GuzzleHttp([
@@ -19,53 +25,47 @@ class HtmlParserController extends Controller
 
         $client->setClient($guzzleclient);
 
-        $crawler = $client->request('GET', 'https://vegibit.com/php-simple-html-dom-parser-vs-friendsofphp-goutte/');
+        $crawler = $client->request('GET', request('url'));
+
+        $nodes = collect([]);
+        $crawler->filter(request('node'))->each(function ($node) use ($nodes) {
+            $nodes->push($node->text());
+        });
+
+        return $nodes;
 
 //        //eq
-//        echo $crawler->filter('li')->eq(1)->text();
-
+//        $crawler->filter('li')->eq(1)->text();
 //        //slice
 //        $crawler->filter('li')->slice(3, 2)->each(function ($node) {
 //            echo $node->text() . '<br>';
 //        });
-
 //        //reduce
 //        $crawler->filter('li')->reduce(function ($node) {
 //            if (strlen($node->text()) > 2) {
 //                echo $node->text() . '<br>';
 //            }
 //        });
-
 //        //first
-//        echo $crawler->filter('li')->first()->text();
-
+//        $crawler->filter('li')->first()->text();
 //        //last
-//        echo $crawler->filter('li')->last()->text();
-
+//        $crawler->filter('li')->last()->text();
 //        //siblings
 //        $crawler->filter('li')->eq(2)->siblings()->each(function ($node) {
 //            echo $node->text() . '<br>';
 //        });
-
 //        //attr
-//        echo $crawler->filter('form')->attr('action');
-
+//        $crawler->filter('form')->attr('action');
 //        //nodeName
-//        echo $crawler->filter('.motorcycle')->nodeName();
-
+//        $crawler->filter('.motorcycle')->nodeName();
 //        //html
-//        echo $crawler->filter('form')->html();
-
+//        $crawler->filter('form')->html();
 //        //selectLink()
 //        $link = $crawler->selectLink('top')->link();
 //        $crawler = $client->click($link);
-//        echo $crawler->filter('p.title')->first()->text();
+//        $crawler->filter('p.title')->first()->text();
 
-        $nodes = collect([]);
-        $crawler->filter('p > a')->each(function ($node) use ($nodes) {
-            $nodes->push($node->text());
-        });
 
-        return view('html_parser.index', compact(['nodes']));
     }
+
 }

@@ -30,8 +30,8 @@
         },
         
         watch: {
-            form_errors: function(newVal, oldVal){
-                if(newVal.lenght != 0){
+            form_errors: function(){
+                if(this.form_errors != 0){
                     this.show_erors = true
                 }else{
                     this.show_erors = false
