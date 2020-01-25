@@ -73,6 +73,25 @@ export default {
         },
         {
             header: true,
+            title: 'Main content',
+            hiddenOnCollapse: true
+        },
+        {
+            title: 'Study',
+            icon: 'fa fa-crop',
+            child: [
+                {
+                    href: '/c_study/materials',
+                    title: 'List study materials'
+                },
+                {
+                    href: '/c_study/materials/create',
+                    title: 'Create study material'
+                }
+            ]
+        },
+        {
+            header: true,
             title: 'Useless content',
             hiddenOnCollapse: true
         },

@@ -23,6 +23,12 @@ import AngleslashSubsCreate from './components/pages/angleslash/AngleslashSubsCr
 import AngleslashSubsShow from './components/pages/angleslash/AngleslashSubsShow.vue';
 import AngleslashUsersShow from './components/pages/angleslash/AngleslashUsersShow.vue';
 
+import CStudyMaterials from './components/pages/c_study/materials/Index.vue';
+import CStudyMaterialsCreate from './components/pages/c_study/materials/Create.vue';
+import CStudyMaterialsRead from './components/pages/c_study/materials/Read.vue';
+import CStudyMaterialsUpdate from './components/pages/c_study/materials/Update.vue';
+import CStudyMaterialsDelete from './components/pages/c_study/materials/Delete.vue';
+
  export const routes = [
      
     //auth
@@ -54,6 +60,13 @@ import AngleslashUsersShow from './components/pages/angleslash/AngleslashUsersSh
     {path: '/angleslash/subs/create', component: AngleslashSubsCreate, name: 'angleslash_subs_create'},
     {path: '/angleslash/subs/:id', component: AngleslashSubsShow, name: 'angleslash_subs_show'},
     {path: '/angleslash/users/:username', component: AngleslashUsersShow, name: 'angleslash_users_show'},
+    
+    //c_study
+    {path: '/c_study/materials', component: CStudyMaterials, name: 'materials'},
+    {path: '/c_study/materials/create', component: CStudyMaterialsCreate, name: 'materials_create'},
+    {path: '/c_study/materials/read/:id', component: CStudyMaterialsRead, name: 'materials_read'},
+    {path: '/c_study/materials/update/:id', component: CStudyMaterialsUpdate, name: 'materials_update'},
+    {path: '/c_study/materials/delete/:id', component: CStudyMaterialsDelete, name: 'materials_delete'},
      
 ];
 

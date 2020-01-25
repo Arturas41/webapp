@@ -41,7 +41,7 @@
         {{-- @include('layouts/navigation') --}}
         <sidebar sessionMessage="{{ session('flash') }}"></sidebar>
         {{-- @include('layouts.partials.flash') --}}
-        {{-- @yield('content') --}}
+        @yield('content')
     </div>
 </body>
 </html>
