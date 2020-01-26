@@ -18,11 +18,9 @@ class CStudyMaterial extends Model
     }
 
     public function addTags($tags){
-        foreach ($tags as $key => $value){
+        foreach ((array)$tags as $key => $value){
             $tag = Tag::firstOrCreate(['name' => $value]);
             
-           
-
             if(!$this->hasTag($value)){
                 $this->tags()->attach([$tag->id]);
             }
