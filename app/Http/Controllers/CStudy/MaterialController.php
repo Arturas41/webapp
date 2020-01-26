@@ -14,9 +14,9 @@ class MaterialController extends Controller
     }
 
     public function index(){
-        $materials = CStudyMaterial::latest()->get();
+        $materials = CStudyMaterial::with('tags')->latest()->get();
 
-        return view('c_study/materials/index', compact('materials'));
+        return $materials;
     }
 
     public function store(){
@@ -33,6 +33,12 @@ class MaterialController extends Controller
         ]);
 
         return redirect($material->path())->with('flash', 'Created:' . $material->title);;
+    }
+
+    public function destroy(CStudyMaterial $material){
+        $this->authorize('delete', $material);
+        $material->delete();
+        return response([], 204);
     }
 
 }

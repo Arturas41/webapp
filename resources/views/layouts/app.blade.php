@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Angleslash -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -38,10 +38,12 @@
 </head>
 <body>
     <div id="app">
-        {{-- @include('layouts/navigation') --}}
-        <sidebar sessionMessage="{{ session('flash') }}"></sidebar>
-        {{-- @include('layouts.partials.flash') --}}
-        @yield('content')
+        <v-app>
+            {{-- @include('layouts/navigation') --}}
+            <sidebar sessionMessage="{{ session('flash') }}"></sidebar>
+            {{-- @include('layouts.partials.flash') --}}
+            @yield('content')
+        </v-app>
     </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        UPDATE SINGLE MATERIAL
+        UPDATE SINGLE MATERIAL-{{$route.params.id}}
     </div>
 </template>
 <script>

@@ -85,15 +85,9 @@ Route::prefix('c_forum')->group(function(){
 
 Route::prefix('c_study')->group(function(){
     
-    Route::get('/', function(){
-        return redirect()->route('asdf');
-    });
-    Route::get('/materials', [
-            'as' => 'asdf',
-            'uses' => 'CStudy\MaterialController@index'
-        ]
-    );
+    Route::get('/materials', 'CStudy\MaterialController@index');
     Route::post('/materials', 'CStudy\MaterialController@store');
+    Route::delete('/materials/{material}', 'CStudy\MaterialController@destroy');
 
 });
 

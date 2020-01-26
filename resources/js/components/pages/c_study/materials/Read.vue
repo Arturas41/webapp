@@ -1,6 +1,6 @@
 <template>
     <div>
-        READ SINGLE MATERIAL
+        READ SINGLE MATERIAL-{{$route.params.id}}
     </div>
 </template>
 <script>

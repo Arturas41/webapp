@@ -16,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\CForumThread' => 'App\Policies\CForum\ThreadPolicy',
         'App\CForumReply' => 'App\Policies\CForum\ReplyPolicy',
         'App\User' => 'App\Policies\UserPolicy',
+        'App\CStudyMaterial' => 'App\Policies\CStudy\MaterialPolicy',
     ];
 
     /**

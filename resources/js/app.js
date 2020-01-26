@@ -9,11 +9,20 @@ require('./bootstrap');
 import { routes } from "./routes.js";
 import VueRouter from 'vue-router';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 import Buefy from 'buefy';
 import 'buefy/dist/buefy.css';
+
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css';
+
 import fontawesome from '@fortawesome/fontawesome';
 import fas from '@fortawesome/fontawesome-free-solid';
 fontawesome.library.add(fas);
+
+import '@mdi/font/css/materialdesignicons.min.css';
+
 import VueSidebarMenu from 'vue-sidebar-menu';
 
 window.Vue = require('vue');
@@ -61,8 +70,11 @@ Vue.component('sidebar', require('./components/layout/sidebar/Sidebar.vue').defa
 
 Vue.component('form-errors', require('./components/pages/partials/FormErrors.vue').default);
 
+Vue.component('c_study-material-delete-dialog', require('./components/pages/c_study/materials/Delete.vue').default);
+
 Vue.use(VueRouter);
 Vue.use(Buefy);
+Vue.use(Vuetify);
 Vue.use(VueSidebarMenu);
 
 const router = new VueRouter({routes});
@@ -71,7 +83,8 @@ Vue.prototype.$eventBus = new Vue();
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    vuetify: new Vuetify(),
 });
 
 

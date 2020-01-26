@@ -78,7 +78,7 @@ export default {
         },
         {
             title: 'Study',
-            icon: 'fa fa-crop',
+            icon: 'fa fa-crow',
             child: [
                 {
                     href: '/c_study/materials',
@@ -103,25 +103,6 @@ export default {
                 {
                     href: '/crawl_url',
                     title: 'Crawl URL'
-                }
-            ]
-        },
-
-        {
-            title: 'Forum',
-            icon: 'fa fa-italic',
-            child: [
-                {
-                    href: '/angleslash/posts',
-                    title: 'Posts list'
-                },
-                {
-                    href: '/angleslash/posts/create',
-                    title: 'Create post'
-                },
-                {
-                    href: '/angleslash/subs/create',
-                    title: 'Create sub'
                 }
             ]
         },

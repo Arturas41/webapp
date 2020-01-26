@@ -9,8 +9,6 @@ class CStudyMaterial extends Model
 
     protected $guarded = [];
 
-    protected $with = ['tags'];
-
     public function path(){
         return '/c_study/materials/' . $this->id;
     }
