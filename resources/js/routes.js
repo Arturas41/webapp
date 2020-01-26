@@ -62,11 +62,12 @@ import CStudyMaterialsDelete from './components/pages/c_study/materials/Delete.v
     {path: '/angleslash/users/:username', component: AngleslashUsersShow, name: 'angleslash_users_show'},
     
     //c_study
-    {path: '/c_study/materials', component: CStudyMaterials, name: 'materials'},
-    {path: '/c_study/materials/create', component: CStudyMaterialsCreate, name: 'materials_create'},
-    {path: '/c_study/materials/read/:id', component: CStudyMaterialsRead, name: 'materials_read'},
-    {path: '/c_study/materials/update/:id', component: CStudyMaterialsUpdate, name: 'materials_update'},
-    {path: '/c_study/materials/delete/:id', component: CStudyMaterialsDelete, name: 'materials_delete'},
+    {path: '/c_study/materials', component: CStudyMaterials, name: 'c_study_materials'},
+    {path: '/c_study/materials/create/:id', component: CStudyMaterialsCreate, name: 'c_study_materials_create'},
+    {path: '/c_study/materials/create', component: CStudyMaterialsCreate, name: 'c_study_materials_create'},
+    {path: '/c_study/materials/read/:id', component: CStudyMaterialsRead, name: 'c_study_materials_read'},
+    {path: '/c_study/materials/update/:id', component: CStudyMaterialsUpdate, name: 'c_study_materials_update'},
+    {path: '/c_study/materials/delete/:id', component: CStudyMaterialsDelete, name: 'c_study_materials_delete'},
      
 ];
 

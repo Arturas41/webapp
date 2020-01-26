@@ -29,8 +29,8 @@ window.Vue = require('vue');
 
 window.events = new Vue();
  
-window.flash = function (message) {
-    window.events.$emit('flash', message)
+window.flash = function (message, type) {
+    window.events.$emit('flash', message, type)
 };
 
 window.Vue.prototype.authorize = function (handler) {
@@ -71,6 +71,7 @@ Vue.component('sidebar', require('./components/layout/sidebar/Sidebar.vue').defa
 Vue.component('form-errors', require('./components/pages/partials/FormErrors.vue').default);
 
 Vue.component('c_study-material-delete-dialog', require('./components/pages/c_study/materials/Delete.vue').default);
+Vue.component('c_study-material-form', require('./components/pages/c_study/materials/Form.vue').default);
 
 Vue.use(VueRouter);
 Vue.use(Buefy);

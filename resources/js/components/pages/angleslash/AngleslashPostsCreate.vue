@@ -49,7 +49,7 @@
             submitted: function(){
                 axios.post('/angleslash/posts', { title: this.title, url: this.url, sub: this.sub })
                     .then(({data}) => {
-                        flash('Post saved');
+                        flash('Post saved', 'success');
                         this.form_errors = [];
                     })
                     .catch((error) => {

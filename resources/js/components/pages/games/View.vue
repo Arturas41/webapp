@@ -82,7 +82,7 @@
             submitReview(){
                 axios.post('/games/games/' + this.$router.history.current.params.id + '/reviews', {body: this.review_textarea})
                     .then((response) => {
-                        flash('Review Added')
+                        flash('Review Added', 'success')
                         this.reviews.unshift(response.data);
                         this.review_textarea = ''
                     });

@@ -1,33 +1,35 @@
 <template>
-    <div class="alert alert-success" role="alert" v-show="show">
-        <strong>Success!</strong> {{ body }}
+    <div v-bind:class=this.class role="alert" v-show="show">
+        {{ body }}
     </div>
 </template>
  
 <script>
     export default {
-        props: ['message'],
+        props: ['message', 'type'],
  
         data() {
             return {
                 body: '',
+                class: '',
                 show: false,
             }
         },
  
         created() {
             if (this.message) {
-                this.flash(this.message);
+                this.flash(this.message, this.type);
             }
  
-            window.events.$on('flash', message => {
-                this.flash(message);
+            window.events.$on('flash', (message,type) => {
+                this.flash(message,type);
             })
         },
  
         methods: {
-            flash(message) {
+            flash(message,type) {
                 this.body = message;
+                this.class = "alert alert-" + type;
                 this.show = true;
                 this.hide();
             },

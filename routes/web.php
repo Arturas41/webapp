@@ -86,8 +86,10 @@ Route::prefix('c_forum')->group(function(){
 Route::prefix('c_study')->group(function(){
     
     Route::get('/materials', 'CStudy\MaterialController@index');
+    Route::get('/materials/{material}', 'CStudy\MaterialController@show');
     Route::post('/materials', 'CStudy\MaterialController@store');
     Route::delete('/materials/{material}', 'CStudy\MaterialController@destroy');
+    Route::patch('/materials/{material}', 'CStudy\MaterialController@update');
 
 });
 

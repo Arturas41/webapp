@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "alphametric/laravel-validation-rules": "^2.1",
         "barryvdh/laravel-ide-helper": "^2.6",
         "doctrine/dbal": "^2.10",
         "emanueleminotto/simple-html-dom": "^1.5",

@@ -40,7 +40,7 @@
                                 <v-card-actions>
                                         <v-spacer></v-spacer>
                                         <v-btn text color="primary">
-                                            Create
+                                            <router-link :to="{ name: 'c_study_materials_create', params: { id: material.id }}">Create</router-link>
                                         </v-btn>
                                         <v-btn text color="primary">
                                             Read
@@ -75,7 +75,7 @@
             }
         },
 
-        mounted:function(){
+        beforeMount:function(){
             axios.get('/c_study/materials')
                 .then((response) => {
                     this.materials = response.data

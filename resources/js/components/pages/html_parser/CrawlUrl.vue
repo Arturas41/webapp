@@ -47,7 +47,7 @@
                 axios.post('/html_parser/crawl_url', {url: this.url, node:this.node})
                     .then(({data}) => {
                         this.nodes = data;
-                        flash('Parsed');
+                        flash('Parsed', 'success');
                         this.form_errors = [];
                     })
                     .catch((error) => {

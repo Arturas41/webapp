@@ -32,7 +32,7 @@
 
                 axios.post('/angleslash/subs', {name: this.name})
                     .then(({data}) => {
-                        flash('Sub saved');
+                        flash('Sub saved', 'success');
                         this.form_errors = [];
                     })
                     .catch((error) => {

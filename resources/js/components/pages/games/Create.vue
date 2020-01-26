@@ -92,7 +92,7 @@
 
                 axios.post('/games/games/', formData)
                     .then((response) => {
-                        flash('Game Added')
+                        flash('Game Added', 'success')
                         this.show_errors = false;
                         this.$router.push({name: 'games'});
 
