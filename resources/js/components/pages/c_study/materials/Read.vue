@@ -5,7 +5,6 @@
         </v-row>
 
         <v-row justify="center">
-            {{data}}
             <v-col cols="8">
 
                 <v-card class="mx-auto" outlined>
