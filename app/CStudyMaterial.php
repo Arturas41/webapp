@@ -16,4 +16,8 @@ class CStudyMaterial extends Model
         return '/c_study/materials/' . $this->id;
     }
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id')->select(array('id', 'name'));
+    }
+
 }

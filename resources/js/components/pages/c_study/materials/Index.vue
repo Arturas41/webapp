@@ -23,7 +23,7 @@
                                 <v-row no-gutters>
 
                                       <v-col cols="8">
-                                          NOTES</br>NOTES</br>NOTES</br>NOTES</br>NOTES</br>NOTES</br>NOTES</br>NOTES</br>NOTES</br>
+                                          {{material.note}}
                                       </v-col>
                                       <v-divider vertical class="mx-4"></v-divider>
                                       <v-col cols="3">
@@ -43,10 +43,10 @@
                                             <router-link :to="{ name: 'c_study_materials_create', params: { id: material.id }}">Create</router-link>
                                         </v-btn>
                                         <v-btn text color="primary">
-                                            Read
+                                            <router-link :to="{ name: 'c_study_materials_read', params: { id: material.id }}">Read</router-link>
                                         </v-btn>
                                         <v-btn text color="primary">
-                                            Update
+                                            <router-link :to="{ name: 'c_study_materials_update', params: { id: material.id }}">Update</router-link>
                                         </v-btn>
                                         <v-btn text color="red">
                                               <c_study-material-delete-dialog v-on:deleteMaterial="deleteMaterial" v-bind:material="material"></c_study-material-delete-dialog>

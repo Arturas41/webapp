@@ -22,7 +22,7 @@ class MaterialController extends Controller
     }
 
     public function show(CStudyMaterial $material){
-        return CStudyMaterial::with(['tags'])->where('id',$material->id)->first();
+        return CStudyMaterial::with(['tags','user'])->where('id',$material->id)->first();
     }
 
     public function store(){
