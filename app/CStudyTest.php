@@ -3,14 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\MorphTraits\Taggable;
 
 class CStudyMaterial extends Model
 {
 
-    protected $guarded = [];
+    use Taggable;
 
-    public function tags(){
-        return $this->morphToMany('App\Tag', 'taggable');
-    }
+    protected $guarded = [];
 
 }
