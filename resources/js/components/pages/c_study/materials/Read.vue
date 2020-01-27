@@ -3,7 +3,8 @@
         <v-row justify="center">
             {{data.title}}
         </v-row>
-
+        </br>
+        </br>
         <v-row justify="center">
             <v-col cols="8">
 
