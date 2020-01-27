@@ -8,7 +8,7 @@
  
         data() {
             return {
-                data:{title:"", reference:"", tags:[]},
+                data:{title:"", reference:"", note:"", tags:[]},
                 action: 'update'
             };
         },
@@ -29,6 +29,7 @@
                 this.data.tags = [];
                 this.data.title = '';
                 this.data.reference = '';
+                this.data.note = '';
 
                 if(this.$route.params.id){
                     axios.get('/c_study/materials/' + this.$route.params.id)
@@ -39,6 +40,7 @@
                             );
                             this.data.title = response.data.title;
                             this.data.reference = response.data.reference;
+                            this.data.note = response.data.note;
                         }).catch((error) => {
                             this.$router.go(-1);
                             flash('Material not found', 'danger');

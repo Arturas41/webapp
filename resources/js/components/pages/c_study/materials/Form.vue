@@ -4,6 +4,12 @@
             <v-text-field v-model="data.title" :counter="255" label="Title"></v-text-field>
             <v-text-field v-model="data.reference" :counter="2048" label="Reference"></v-text-field>
 
+            <v-textarea
+              label="Note"
+              auto-grow
+              v-model="data.note"
+            ></v-textarea>
+
             <v-combobox multiple v-model="data.tags" label="Tags"  append-icon chips deletable-chips class="tag-input" persistent-hint>
             </v-combobox>
 

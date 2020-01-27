@@ -8,7 +8,7 @@
  
         data() {
             return {
-                data:{title:"", reference:"", tags:[]},
+                data:{title:"", reference:"", note:"", tags:[]},
                 action: 'create'
             };
         },
@@ -29,6 +29,7 @@
                 this.data.tags = [];
                 this.data.title = '';
                 this.data.reference = '';
+                this.data.note = '';
 
                 if(this.$route.params.id){
                     axios.get('/c_study/materials/' + this.$route.params.id)

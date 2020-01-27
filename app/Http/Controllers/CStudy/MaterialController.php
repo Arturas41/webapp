@@ -37,6 +37,7 @@ class MaterialController extends Controller
         $material = CStudyMaterial::create([
             'user_id' => auth()->id(),
             'title' => request('title'),
+            'note' => request('note'),
             'reference' => request('reference')
         ]);
 
@@ -60,7 +61,11 @@ class MaterialController extends Controller
             "tags.*"  => ['required', 'alpha_dash', new Lowercase],
         ]);
         
-        $material->update(['title' => request('title'), 'reference' => request('reference')]);
+        $material->update([
+            'title' => request('title'), 
+            'reference' => request('reference'),
+            'note' => request('note')
+        ]);
 
         $material->addTags(request('tags'));
 
