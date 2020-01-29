@@ -13,6 +13,21 @@
             <v-combobox multiple v-model="data.tags" label="Tags"  append-icon chips deletable-chips class="tag-input" persistent-hint>
             </v-combobox>
 
+
+            <span class="grey--text text--darken-1 caption mr-2">
+              Rating ({{ data.rating }})
+            </span>
+            <v-rating
+              v-model="data.rating"
+              color="yellow accent-4"
+              dense
+              half-increments
+              hover
+              size="18"
+            ></v-rating>
+
+
+
             <form-errors v-bind:form_errors="form_errors"></form-errors>
 
             <v-btn color="success" class="mr-4" @click="submitCreate" v-if="this.action == 'create'">

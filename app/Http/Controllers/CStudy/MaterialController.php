@@ -18,11 +18,11 @@ class MaterialController extends Controller
     public function index(){
         $materials = CStudyMaterial::with(['tags'])->latest()->get();
 
-        return $materials;
+        return response($materials, 200);
     }
 
     public function show(CStudyMaterial $material){
-        return CStudyMaterial::with(['tags','user'])->where('id',$material->id)->first();
+        return response(CStudyMaterial::with(['tags','user'])->where('id',$material->id)->first(), 200);
     }
 
     public function store(){
@@ -41,7 +41,7 @@ class MaterialController extends Controller
             'reference' => request('reference')
         ]);
 
-        $material->addTags(request('tags'));
+        $material->updateTags(collect(request('tags')));
 
         return response($material, 201);
     }
@@ -67,9 +67,9 @@ class MaterialController extends Controller
             'note' => request('note')
         ]);
 
-        $material->addTags(request('tags'));
+        $material->updateTags(collect(request('tags')));
 
-        return $material;
+        return response($material, 200);
     }
 
 }

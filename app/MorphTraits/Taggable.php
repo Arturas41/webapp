@@ -10,17 +10,21 @@ trait Taggable
         return $this->morphToMany('App\Tag', 'taggable');
     }
 
-    public function addTags($tags){
-        foreach ((array)$tags as $key => $value){
-            $tag = Tag::firstOrCreate(['name' => $value]);
-            
-            if(!$this->hasTag($value)){
-                $this->tags()->attach([$tag->id]);
-            }
-        }
-    }
+    public function updateTags($newTags){
+        
+        $oldTags = $this->tags()->get(['name'])->map(function($oldTags) {
+            return $oldTags->name;
+        });
 
-    public function hasTag($tagName){
-        return $this->tags()->where('name', $tagName)->first();
+        foreach ($newTags->diff($oldTags) as $key => $value){
+            $tag = Tag::firstOrCreate(['name' => $value]);
+            $this->tags()->attach([$tag->id]);
+        }
+
+        foreach ($oldTags->diff($newTags) as $key => $value){
+            $tag = Tag::firstOrCreate(['name' => $value]);
+            $this->tags()->detach([$tag->id]);
+        }
+
     }
 }

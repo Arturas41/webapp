@@ -8,7 +8,7 @@
  
         data() {
             return {
-                data:{title:"", reference:"", note:"", tags:[]},
+                data:{title:"", reference:"", note:"", tags:[], rating: 2.5},
                 action: 'create'
             };
         },
