@@ -13,9 +13,11 @@
                         Note
                     </v-card-title>
                     <v-card-text>
-                                <div v-for="(text, index) in data.note.split('\n')" :key="index">
-                                    {{ text }}
-                                  </div>
+                        <div v-if="data.note == null">
+                        </div>
+                        <div v-else v-for="(text, index) in data.note.split('\n')" :key="index">
+                            {{ text }}
+                        </div>
                     </v-card-text>
                 </v-card>
 
@@ -112,6 +114,8 @@
                     axios.get('/c_study/materials/' + this.$route.params.id)
                         .then((response) => {
                             this.data = response.data;
+                            //this.data.note = '';
+                            console.log(this.data)
                         }).catch((error) => {
                             this.$router.go(-1);
                             flash('Material not found', 'danger');
