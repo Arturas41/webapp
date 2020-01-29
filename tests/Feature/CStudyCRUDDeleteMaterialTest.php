@@ -46,4 +46,33 @@ class CStudyCRUDDeleteMaterialTest extends TestCase
         $this->delete('/c_study/materials/' . $material->id);
     }
 
+    function test_detach_tags_when_material_deleted()
+    {
+        $user = factory('App\User')->create();
+        $this->actingAs($user);
+
+        $material = factory('App\CStudyMaterial')->create(['user_id' => $user->id]);
+        $tag1 = factory('App\Tag')->create(['name' => 'tag_name_1']);
+
+        $material->tags()->attach([$tag1->id]);
+
+        $this->assertDatabaseHas('taggables', [
+            'tag_id' => $tag1->id,
+            'taggable_id' => $material->id,
+            'taggable_type' => 'App\CStudyMaterial'
+        ]);
+
+        $this->delete('/c_study/materials/' . $material->id);
+
+        $this->assertDatabaseMissing('taggables', [            
+            'tag_id' => $tag1->id,
+            'taggable_id' => $material->id,
+            'taggable_type' => 'App\CStudyMaterial'
+        ]);
+
+        $this->assertDatabaseHas('tags', [
+            'name' => $tag1->name
+        ]);
+    }
+
 }
