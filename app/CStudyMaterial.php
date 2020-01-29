@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\MorphTraits\Taggable;
+use App\MorphTraits\Rateable;
 
 class CStudyMaterial extends Model
 {
-    use Taggable;
+    use Taggable, Rateable;
 
     protected $guarded = [];
 
@@ -17,6 +18,10 @@ class CStudyMaterial extends Model
 
         static::deleting(function($model) {
             $model->tags()->detach();
+        });
+
+        static::deleting(function($model) {
+            $model->rating()->delete();
         });
     }
 

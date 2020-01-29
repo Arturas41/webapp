@@ -62,6 +62,25 @@
                     </v-card-text>
                 </v-card>
 
+                <v-card>
+                    <v-card-title>
+                        Rating ({{ data.rating.value }})
+                    </v-card-title>
+                    <v-card-text>
+                        <v-rating
+                            v-model="data.rating.value"
+                            color="yellow accent-4"
+                            dense
+                            half-increments
+                            hover
+                            size="18"
+                            readonly
+                        ></v-rating>
+                    </v-card-text>
+                </v-card>
+
+
+
                 <v-card class="mx-auto" outlined>
                     <v-list-item three-line>
                         <v-list-item-content>

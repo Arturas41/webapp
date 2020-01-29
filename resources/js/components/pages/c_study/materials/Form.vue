@@ -15,18 +15,16 @@
 
 
             <span class="grey--text text--darken-1 caption mr-2">
-              Rating ({{ data.rating }})
+                Rating ({{ data.rating }})
             </span>
             <v-rating
-              v-model="data.rating"
-              color="yellow accent-4"
-              dense
-              half-increments
-              hover
-              size="18"
+                v-model="data.rating"
+                color="yellow accent-4"
+                dense
+                half-increments
+                hover
+                size="18"
             ></v-rating>
-
-
 
             <form-errors v-bind:form_errors="form_errors"></form-errors>
 

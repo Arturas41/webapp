@@ -41,6 +41,7 @@
                             this.data.title = response.data.title;
                             this.data.reference = response.data.reference;
                             this.data.note = response.data.note;
+                            this.data.rating = response.data.rating.value;
                         }).catch((error) => {
                             this.$router.go(-1);
                             flash('Material not found', 'danger');

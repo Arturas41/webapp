@@ -22,7 +22,7 @@ class MaterialController extends Controller
     }
 
     public function show(CStudyMaterial $material){
-        return response(CStudyMaterial::with(['tags','user'])->where('id',$material->id)->first(), 200);
+        return response(CStudyMaterial::with(['tags','user','rating'])->where('id',$material->id)->first(), 200);
     }
 
     public function store(){
@@ -42,6 +42,8 @@ class MaterialController extends Controller
         ]);
 
         $material->updateTags(collect(request('tags')));
+
+        $material->createRating(request('rating'));
 
         return response($material, 201);
     }
@@ -68,6 +70,8 @@ class MaterialController extends Controller
         ]);
 
         $material->updateTags(collect(request('tags')));
+
+        $material->updateRating(request('rating'));
 
         return response($material, 200);
     }

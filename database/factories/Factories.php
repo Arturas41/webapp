@@ -103,3 +103,11 @@ $factory->define( App\CStudyMaterial::class, function($faker){
         'title' => $faker->sentence
     ];
 });
+
+$factory->define( App\Rating::class, function ( $faker ) {
+    return [
+        'value' => 0,
+        'rated_id' => 0,
+        'rated_type' => 'App\Model'
+    ];
+});
