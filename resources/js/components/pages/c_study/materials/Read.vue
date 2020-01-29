@@ -58,8 +58,8 @@
                     <v-card-title>
                         Priority
                     </v-card-title>
-                    <v-card-text>
-                        {{priorityText(data.priority.value)}}
+                    <v-card-text  v-bind:class="priorityColor(data.priority.value)">
+                        <p class="pt-8">{{priorityText(data.priority.value)}}</p>
                     </v-card-text>
                 </v-card>
 
@@ -184,6 +184,30 @@
                         text = '-';
                 }
                 return text;
+            },
+            //needs to be global
+            priorityColor: function(value){
+                let color = '';
+                switch(value) {
+                    case 1:
+                        color = 'light-green lighten-4';
+                        break;
+                    case 2:
+                        color = 'light-green lighten-1';
+                        break;
+                    case 3:
+                        color = 'lime lighten-2';
+                        break;
+                    case 4:
+                        color = 'red lighten-3';
+                        break;
+                    case 5:
+                        color = 'red lighten-1';
+                        break;
+                    default:
+                        color = '';
+                }
+                return color;
             }
         },
     }
