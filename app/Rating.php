@@ -10,6 +10,10 @@ class Rating extends Model
 
     public $timestamps = false;
 
+    protected $casts = [
+        'value' => 'float',
+    ];
+
     public function rated()
     {
         return $this->morphTo();

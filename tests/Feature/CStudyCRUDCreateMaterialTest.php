@@ -28,7 +28,6 @@ class CStudyCRUDCreateMaterialTest extends TestCase
         $this->actingAs(factory('App\User')->create());
 
         $material = factory('App\CStudyMaterial')->make();
-        $material->rating = 2.5;
 
         $this->post('/c_study/materials', $material->toArray());
         

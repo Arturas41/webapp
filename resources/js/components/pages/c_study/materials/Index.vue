@@ -12,14 +12,14 @@
         <v-row justify="center">
               <v-expansion-panels inset>
                     <v-expansion-panel v-for="material in materials" :key="material.id">
-                          <v-expansion-panel-header>
+                          <v-expansion-panel-header v-bind:class="priorityColor(material.priority.value)">
                               <v-row no-gutters>
                                   <v-col cols="4">{{material.title}}</v-col>
                                   <v-col cols="8" class="text--secondary">
                                   </v-col>
                               </v-row>
                           </v-expansion-panel-header>
-                          <v-expansion-panel-content>
+                          <v-expansion-panel-content></br>
                                 <v-row no-gutters>
 
                                       <v-col cols="8">
@@ -72,6 +72,30 @@
             deleteMaterial: function(material){
                 let index = this.materials.indexOf(material);
                 this.materials.splice(index, 1);
+            },
+            //needs to be global
+            priorityColor: function(value){
+                let color = '';
+                switch(value) {
+                    case 1:
+                        color = 'light-green lighten-4';
+                        break;
+                    case 2:
+                        color = 'light-green lighten-1';
+                        break;
+                    case 3:
+                        color = 'lime lighten-2';
+                        break;
+                    case 4:
+                        color = 'red lighten-3';
+                        break;
+                    case 5:
+                        color = 'red lighten-1';
+                        break;
+                    default:
+                        color = '';
+                }
+                return color;
             }
         },
 
@@ -80,6 +104,6 @@
                 .then((response) => {
                     this.materials = response.data
                 });
-        },
+        }
     }
 </script>

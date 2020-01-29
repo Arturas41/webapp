@@ -8,7 +8,9 @@
  
         data() {
             return {
-                data:{title:"", reference:"", note:"", tags:[], rating: 2.5},
+                data:{title:"", reference:"", note:"", tags:[], rating: 2.5, 
+                    priority: 3
+                },
                 action: 'update'
             };
         },
@@ -42,6 +44,7 @@
                             this.data.reference = response.data.reference;
                             this.data.note = response.data.note;
                             this.data.rating = response.data.rating.value;
+                            this.data.priority = response.data.priority.value;
                         }).catch((error) => {
                             this.$router.go(-1);
                             flash('Material not found', 'danger');

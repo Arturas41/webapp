@@ -1,8 +1,6 @@
 <?php
  
 namespace App\MorphTraits;
-
-use App\Tag;
  
 trait Rateable
 {
@@ -10,11 +8,11 @@ trait Rateable
         return $this->morphOne('App\Rating', 'rated');
     }
 
-    public function updateRating($rating = 2.5){
+    public function updateRating($rating){
         $this->rating()->update(['value' => $rating]);
     }
 
-    public function createRating($rating = 2.5){
+    public function createRating($rating){
         $this->rating()->create(['value' => $rating]);
     }
 }

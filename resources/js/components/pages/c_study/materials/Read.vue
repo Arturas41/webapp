@@ -38,6 +38,9 @@
                             </v-row>
                             <v-row justify="center">
                                 <v-btn text color="primary">
+                                    <router-link :to="{ name: 'c_study_materials'}">List</router-link>
+                                </v-btn>
+                                <v-btn text color="primary">
                                     <router-link :to="{ name: 'c_study_materials_create', params: { id: data.id }}">Create</router-link>
                                 </v-btn>
                                 <v-btn text color="primary">
@@ -48,6 +51,15 @@
                                 </v-btn>
                             </v-row>
                         </v-card-actions>
+                    </v-card-text>
+                </v-card>
+
+                <v-card class="mx-auto" outlined>
+                    <v-card-title>
+                        Priority
+                    </v-card-title>
+                    <v-card-text>
+                        {{priorityText(data.priority.value)}}
                     </v-card-text>
                 </v-card>
 
@@ -111,7 +123,13 @@
                     note: '',
                     user: {
                         name: ''
-                    }
+                    },
+                    rating: {
+                        value: 0
+                    },
+                    priority: {
+                        value: 3
+                    },
                 }
             };
         },
@@ -133,8 +151,6 @@
                     axios.get('/c_study/materials/' + this.$route.params.id)
                         .then((response) => {
                             this.data = response.data;
-                            //this.data.note = '';
-                            console.log(this.data)
                         }).catch((error) => {
                             this.$router.go(-1);
                             flash('Material not found', 'danger');
@@ -144,6 +160,30 @@
             deleteMaterial: function(material){
                 this.$router.go(-1);
                 flash('Material deleted', 'success');
+            },
+            //needs to be global
+            priorityText: function(value){
+                let text = '-';
+                switch(value) {
+                    case 1:
+                        text = 'Very low';
+                        break;
+                    case 2:
+                        text = 'Low';
+                        break;
+                    case 3:
+                        text = 'Moderate';
+                        break;
+                    case 4:
+                        text = 'High';
+                        break;
+                    case 5:
+                        text = 'Very high';
+                        break;
+                    default:
+                        text = '-';
+                }
+                return text;
             }
         },
     }

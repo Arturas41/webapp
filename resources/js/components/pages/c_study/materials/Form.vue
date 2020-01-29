@@ -10,9 +10,19 @@
               v-model="data.note"
             ></v-textarea>
 
+            <v-select
+                v-model="data.priority"
+                item-text="text"
+                item-value="value"
+                :items="priorities"
+
+                menu-props="auto"
+                label="Priority"
+                hide-details
+            ></v-select>
+
             <v-combobox multiple v-model="data.tags" label="Tags"  append-icon chips deletable-chips class="tag-input" persistent-hint>
             </v-combobox>
-
 
             <span class="grey--text text--darken-1 caption mr-2">
                 Rating ({{ data.rating }})
@@ -45,7 +55,34 @@
 
         data() {
             return {
-                form_errors: []
+                form_errors: [],
+                //needs to be global
+                priorities: [
+                    {
+                        value: 0,
+                        text: '-'
+                    },
+                    {
+                        value: 1,
+                        text: 'Very Low'
+                    },
+                    {
+                        value: 2,
+                        text: 'Low'
+                    },
+                    {
+                        value: 3,
+                        text: 'Moderate'
+                    },
+                    {
+                        value: 4,
+                        text: 'High'
+                    },
+                    {
+                        value: 5,
+                        text: 'Very high'
+                    },
+                ],
             };
         },
 
