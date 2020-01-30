@@ -63,6 +63,18 @@
                     </v-card-text>
                 </v-card>
 
+                <v-card class="mx-auto" outlined>
+                    <v-list-item three-line>
+                        <v-list-item-content>
+                            <v-list-item-title class="headline mb-1">To Do</v-list-item-title>
+                            <v-list-item-subtitle v-if="!data.to_dos.length">-</v-list-item-subtitle>
+                            <v-list-item-subtitle v-for="(to_do, index) in data.to_dos" :key="index">
+                                <p v-bind:class="priorityColor(to_do.priority.value)">{{to_do.name}}</p>
+                            </v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-card>
+
                 <v-card>
                     <v-card-title>
                         Tags
@@ -130,6 +142,7 @@
                     priority: {
                         value: 3
                     },
+                    to_dos: []
                 }
             };
         },

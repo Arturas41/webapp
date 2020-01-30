@@ -9,7 +9,8 @@
         data() {
             return {
                 data:{title:"", reference:"", note:"", tags:[], rating: 2.5,
-                    priority: 3
+                    priority: 3,
+                    to_dos: []
                 },
                 action: 'create'
             };

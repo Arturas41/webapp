@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use App\MorphTraits\Taggable;
 use App\MorphTraits\Rateable;
 use App\MorphTraits\Prioritable;
+use App\MorphTraits\ToDoable;
 
 class CStudyMaterial extends Model
 {
-    use Taggable, Rateable, Prioritable;
+    use Taggable, Rateable, Prioritable, ToDoable;
 
     protected $guarded = [];
 
@@ -19,6 +20,15 @@ class CStudyMaterial extends Model
 
         static::deleting(function($model) {
             $model->tags()->detach();
+        });
+
+        static::deleting(function($model) {
+
+            $model->toDos()->each(function($toDos) {
+                $toDos->delete();
+            });
+
+            $model->toDos()->detach();
         });
 
         static::deleting(function($model) {
