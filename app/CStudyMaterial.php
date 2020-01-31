@@ -48,4 +48,11 @@ class CStudyMaterial extends Model
         return $this->belongsTo(User::class, 'user_id')->select(array('id', 'name'));
     }
 
+    public function previousMaterials(){
+        return $this->belongsToMany('App\CStudyMaterial', 'c_study_material_previous_current', 'current_id', 'previous_id');
+    }
+
+    public function nextMaterials(){
+        return $this->belongsToMany('App\CStudyMaterial', 'c_study_material_previous_current', 'previous_id', 'current_id');
+    }
 }

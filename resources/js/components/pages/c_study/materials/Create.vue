@@ -35,6 +35,7 @@
                 this.data.note = '';
 
                 if(this.$route.params.id){
+                    this.data.previous_material_id = this.$route.params.id;
                     axios.get('/c_study/materials/' + this.$route.params.id)
                         .then((response) => {
                             response.data.tags.forEach((element) => {

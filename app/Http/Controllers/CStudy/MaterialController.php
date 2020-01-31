@@ -22,7 +22,16 @@ class MaterialController extends Controller
     }
 
     public function show(CStudyMaterial $material){
-        return response(CStudyMaterial::with(['tags','user','rating','priority','toDos'])->where('id',$material->id)->first(), 200);
+        return response(CStudyMaterial::with(
+            [
+                'tags',
+                'user',
+                'rating',
+                'priority',
+                'toDos',
+                'previousMaterials',
+                'nextMaterials'
+            ])->where('id',$material->id)->first(), 200);
     }
 
     public function store(){
@@ -55,6 +64,10 @@ class MaterialController extends Controller
             $material->createPriority(request('priority'));
         }else{
             $material->createPriority(3); //moderate
+        }
+
+        if(request()->has('previous_material_id')){
+            $material->previousMaterials()->attach(request('previous_material_id'));
         }
 
         return response($material, 201);

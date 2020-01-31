@@ -310,4 +310,34 @@ class CStudyCRUDMaterialTest extends TestCase
             'prioritized_type' => 'App\ToDo'
         ]);
     }
+
+    function test_crud_material_current_and_next_many_to_many()
+    {
+        $user = factory('App\User')->create();
+
+        $this->actingAs($user);
+
+        $previousMaterial = factory('App\CStudyMaterial')->create(['user_id' => $user->id]);
+
+        $currentMaterial = factory('App\CStudyMaterial')->make(['user_id' => $user->id]);
+        $currentMaterial->previous_material_id = $previousMaterial->id;
+
+        $currentMaterial = $this->post('/c_study/materials/', $currentMaterial->toArray());
+        $currentMaterial = $currentMaterial->original;
+
+        $this->assertDatabaseHas('c_study_materials', [
+            'id' => $previousMaterial->id,
+        ]);
+
+        $this->assertDatabaseHas('c_study_materials', [
+            'id' => $currentMaterial->id,
+        ]);
+
+        $this->assertDatabaseHas('c_study_material_previous_current', [
+            'previous_id' => $previousMaterial->id,
+            'current_id' => $currentMaterial->id,
+        ]);
+
+    }
+
 }

@@ -75,6 +75,30 @@
                     </v-list-item>
                 </v-card>
 
+                <v-card class="mx-auto" outlined>
+                    <v-list-item three-line>
+                        <v-list-item-content>
+                            <v-list-item-title class="headline mb-1">Previous materials</v-list-item-title>
+                            <v-list-item-subtitle v-if="!data.previous_materials.length">-</v-list-item-subtitle>
+                            <v-list-item-subtitle v-for="(previous_material, index) in data.previous_materials" :key="index">
+                                <router-link :to="{ name: 'c_study_materials_read', params: { id: previous_material.id }}">{{previous_material.title}}</router-link>
+                            </v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-card>
+
+                <v-card class="mx-auto" outlined>
+                    <v-list-item three-line>
+                        <v-list-item-content>
+                            <v-list-item-title class="headline mb-1">Next materials</v-list-item-title>
+                            <v-list-item-subtitle v-if="!data.next_materials.length">-</v-list-item-subtitle>
+                            <v-list-item-subtitle v-for="(next_material, index) in data.next_materials" :key="index">
+                                <router-link :to="{ name: 'c_study_materials_read', params: { id: next_material.id }}">{{next_material.title}}</router-link>
+                            </v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-card>
+
                 <v-card>
                     <v-card-title>
                         Tags
