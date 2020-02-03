@@ -23,7 +23,11 @@
                                 <v-row no-gutters>
 
                                       <v-col cols="8">
-                                          {{material.note}}
+                                          <div v-if="material.note == null">
+                                          </div>
+                                          <div v-else v-for="(text, index) in material.note.split('\n')" :key="index">
+                                              {{ text }}
+                                          </div>
                                       </v-col>
                                       <v-divider vertical class="mx-4"></v-divider>
                                       <v-col cols="3">
