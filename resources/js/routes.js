@@ -2,6 +2,7 @@ import Login from './components/pages/auth/Login.vue';
 import Register from './components/pages/auth/Register.vue';
 import Logout from './components/pages/auth/Logout.vue';
 
+import HighlightYourCode from './components/pages/general_playground/HighlightYourCode.vue';
 import DouglasCrockfordJS from './components/pages/general_playground/DouglasCrockfordJS.vue';
 import LaravelStringHelpers from './components/pages/general_playground/LaravelStringHelpers.vue';
 import LaravelCarbon from './components/pages/general_playground/LaravelCarbon.vue';
@@ -37,6 +38,7 @@ import CStudyMaterialsDelete from './components/pages/c_study/materials/Delete.v
     {path: '/logout', component: Logout, name: 'logout'},   
     
     //playground
+    {path: '/general_playground/highlight_your_code', component: HighlightYourCode, name: 'highlight_your_code'},
     {path: '/general_playground/javascript_douglas_crockford', component: DouglasCrockfordJS, name: 'douglas_crockford_js'},
     {path: '/general_playground/laravel_string_helpers', component: LaravelStringHelpers, name: 'laravel_string_helpers'},
     {path: '/general_playground/laravel_carbon', component: LaravelCarbon, name: 'laravel_carbon'},

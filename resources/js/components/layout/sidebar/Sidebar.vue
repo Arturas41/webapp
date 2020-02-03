@@ -150,6 +150,10 @@ export default {
             icon: 'fa fa-code',
             child: [
                 {
+                    href: '/general_playground/highlight_your_code',
+                    title: 'Highlight Your Code'
+                },
+                {
                     href: '/general_playground/javascript_douglas_crockford',
                     title: 'Douglas Crockford JS'
                 },

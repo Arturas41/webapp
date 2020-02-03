@@ -39,6 +39,9 @@ Route::prefix('general_playground')->group(function () {
     Route::get('/carbon', [
         'uses' => 'GeneralPlayground\GeneralPlaygroundController@carbon'
     ]);
+    Route::get('/highlight_your_code', [
+        'uses' => 'GeneralPlayground\GeneralPlaygroundController@highlightYourCode'
+    ]);
 });
 
 Route::prefix('html_parser')->group(function () {

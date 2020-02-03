@@ -8,8 +8,33 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class GeneralPlaygroundController extends Controller
-{
+{   
+    public function highlightYourCode(){
+        error_reporting(0);
+        
+        if (isset($_GET["path"])) {
+          $path = $_GET["path"];
+        } else {
+          $path = ".";
+        }
 
+        if (is_dir($path) === true) {
+          $i = 0;
+          if ($handle = opendir($path)) {
+            while (($file = readdir($handle)) !== false) {
+              //if ($file != "." && $file != "..") {
+                echo nl2br("<a href=\"#/general_playground/highlight_your_code?path={$path}" . DIRECTORY_SEPARATOR . "{$file}\">{$file}</a>\r\n");
+                $i++;
+              //}
+            }
+            closedir($handle);
+          }
+        } elseif (is_file($path) === true) {
+          highlight_file($path);  
+          echo 'it ran';
+        }
+    }
+    
     public function laravelStringHelpers(){
 
         $collection = collect();
