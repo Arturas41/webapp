@@ -5,6 +5,7 @@ composer.json
 composer.lock
 config
 database
+homestead.sql
 _ide_helper.php
 listing.txt
 node_modules
