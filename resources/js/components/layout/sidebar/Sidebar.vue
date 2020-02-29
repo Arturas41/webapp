@@ -97,6 +97,17 @@ export default {
         },
 
         {
+            title: 'Test Regex',
+            icon: 'fa fa-crop',
+            child: [
+                {
+                    href: '/test_regex',
+                    title: 'PCRE Regex Tester'
+                }
+            ]
+        },
+
+        {
             title: 'HTML parser',
             icon: 'fa fa-crop',
             child: [

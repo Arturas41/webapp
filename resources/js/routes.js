@@ -18,6 +18,8 @@ import GamesReview from './components/pages/games/reviews/View.vue';
 
 import CrawlUrl from './components/pages/html_parser/CrawlUrl.vue';
 
+import TestRegex from './components/pages/test_regex/TestRegex.vue';
+
 import AngleslashPosts from './components/pages/angleslash/AngleslashPosts.vue';
 import AngleslashPostsCreate from './components/pages/angleslash/AngleslashPostsCreate.vue';
 import AngleslashSubsCreate from './components/pages/angleslash/AngleslashSubsCreate.vue';
@@ -55,6 +57,9 @@ import CStudyMaterialsDelete from './components/pages/c_study/materials/Delete.v
      
     //html parser
     {path: '/crawl_url', component: CrawlUrl, name: 'crawl_url'},
+    
+    //test regex
+    {path: '/test_regex', component: TestRegex, name: 'test_regex'},
     
     //anglerslash
     {path: '/angleslash/posts', component: AngleslashPosts, name: 'angleslash_posts'},

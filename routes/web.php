@@ -50,6 +50,12 @@ Route::prefix('html_parser')->group(function () {
     ]);
 });
 
+Route::prefix('test_regex')->group(function () {
+    Route::post('/test_regex', [
+        'uses' => 'TestRegex\TestRegexController@testRegex'
+    ]);
+});
+
 Route::prefix('games')->group(function () {
     Route::get('/games', 'Games\GamesController@index');
     Route::get('/games/create',  'Games\GamesController@create');
