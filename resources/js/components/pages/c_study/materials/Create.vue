@@ -38,6 +38,8 @@
                     this.data.previous_material_id = this.$route.params.id;
                     axios.get('/c_study/materials/' + this.$route.params.id)
                         .then((response) => {
+                            this.data.rating = response.data.rating.value;
+                            this.data.priority = response.data.priority;
                             response.data.tags.forEach((element) => {
                                     this.data.tags.push(element.name)
                                 }
