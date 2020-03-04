@@ -39,7 +39,7 @@
                     axios.get('/c_study/materials/' + this.$route.params.id)
                         .then((response) => {
                             this.data.rating = response.data.rating.value;
-                            this.data.priority = response.data.priority;
+                            this.data.priority = response.data.priority.value;
                             response.data.tags.forEach((element) => {
                                     this.data.tags.push(element.name)
                                 }

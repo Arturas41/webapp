@@ -32,7 +32,8 @@
                 this.nextUrl = this.dataSet.next_page_url;
             },
             page() {
-                this.broadcast().updateUrl();
+                this.updateUrl();
+                this.broadcast();
             }
         },
 
@@ -44,11 +45,13 @@
 
         methods: {
             broadcast() {
-                return this.$emit('changed', this.page);
+                return this.$emit('changed');
             },
  
             updateUrl() {
-                history.pushState(null, null, '?page=' + this.page);
+                let hash = location.hash;
+                hash = hash.substring(1);
+                this.$router.push({ path: hash, query: { page: this.page }}).catch(err => {})
             }
         }
     }

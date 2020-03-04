@@ -16,7 +16,9 @@ class MaterialController extends Controller
     }
 
     public function index(){
-        $materials = CStudyMaterial::with(['tags','priority'])->latest()->get();
+        $per_page = request('per_page') ? request('per_page') : 100;
+        $materials = CStudyMaterial::with(['tags','priority'])->latest()->paginate($per_page);
+        //$materials = CStudyMaterial::with(['tags','priority'])->latest()->get();
 
         return response($materials, 200);
     }

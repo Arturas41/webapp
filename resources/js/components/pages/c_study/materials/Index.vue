@@ -58,7 +58,11 @@
                                 </v-card-actions>
                           </v-expansion-panel-content>
                     </v-expansion-panel>
+                    
               </v-expansion-panels>
+
+                <paginator :dataSet="dataSet" @changed="fetch"></paginator>
+
         </v-row>
   
     </div>
@@ -68,11 +72,27 @@
  
         data() {
             return {
-                materials: []
+                materials: [],
+                dataSet: []
             };
         },
 
         methods: {
+
+            fetch(){
+                axios.get(this.url())
+                    .then((response) => {
+                        this.materials = response.data.data
+                        this.dataSet = response.data;
+                    });
+            },
+
+            url(){
+                let hash = location.hash;
+                hash = hash.substring(1);
+                return hash;
+            },
+
             deleteMaterial: function(material){
                 let index = this.materials.indexOf(material);
                 this.materials.splice(index, 1);
@@ -103,11 +123,9 @@
             }
         },
 
-        beforeMount:function(){
-            axios.get('/c_study/materials')
-                .then((response) => {
-                    this.materials = response.data
-                });
-        }
+        created() {
+            this.fetch();
+        },
+ 
     }
 </script>
