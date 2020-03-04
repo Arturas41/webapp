@@ -55,4 +55,9 @@ class CStudyMaterial extends Model
     public function nextMaterials(){
         return $this->belongsToMany('App\CStudyMaterial', 'c_study_material_previous_current', 'previous_id', 'current_id');
     }
+    
+    public function scopeFilter($query, $filters)
+    {
+        return $filters->apply($query);
+    }
 }

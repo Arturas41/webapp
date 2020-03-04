@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\CStudyMaterial;
 use Alphametric\Validation\Rules\Lowercase;
 use DB;
+use App\Filters\CStudy\MaterialFilters;
 
 class MaterialController extends Controller
 {
@@ -15,9 +16,12 @@ class MaterialController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index(){
+    public function index(MaterialFilters $filters){
+        
+        $materials = CStudyMaterial::with(['tags','priority','rating'])->latest()->filter($filters);
+        
         $per_page = request('per_page') ? request('per_page') : 100;
-        $materials = CStudyMaterial::with(['tags','priority'])->latest()->paginate($per_page);
+        $materials = $materials->paginate($per_page);
         //$materials = CStudyMaterial::with(['tags','priority'])->latest()->get();
 
         return response($materials, 200);
