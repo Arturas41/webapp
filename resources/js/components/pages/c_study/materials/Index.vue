@@ -5,7 +5,7 @@
             <v-col>
                 <v-card class="pa-2" tile outlined >
                     filter: 
-                    #/c_study/materials?tags=ben_eater,youtube&priorities=1,2,3,4,5&page=3&per_page=5&created_at_to=2020-03-01
+                    #/c_study/materials?tags=ben_eater,youtube&priorities=1,2,3,4,5&page=3&per_page=5&created_at_to=2020-03-01&created_at_from=2020-02-01
                 </v-card>
             </v-col>
         </v-row>

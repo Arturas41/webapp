@@ -9,6 +9,7 @@ homestead.sql
 _ide_helper.php
 listing.txt
 liveoverflow
+node
 node_modules
 package.json
 package-lock.json
