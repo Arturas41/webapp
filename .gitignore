@@ -10,3 +10,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/node/node_modules
+/node/npm-tutorial/node_modules
+/node/expressjs-tutorial/node_modules
