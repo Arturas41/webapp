@@ -14,3 +14,4 @@ yarn-error.log
 /node/npm-tutorial/node_modules
 /node/expressjs-tutorial/node_modules
 /node/express-rest/node_modules
+/node/mongo-crud/node_modules
