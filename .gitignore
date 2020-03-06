@@ -17,3 +17,5 @@ yarn-error.log
 /node/mongo-crud/node_modules
 /node/javascript-testing/node_modules
 /node/stock-app/node_modules
+/node/nodejs-blog-tutorial/node_modules
+

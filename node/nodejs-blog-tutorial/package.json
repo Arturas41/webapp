@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-blog-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-edge": "^2.0.2",
+    "express-fileupload": "^1.1.6",
+    "mongoose": "^5.9.3",
+    "nodemon": "^2.0.2",
+    "startbootstrap-clean-blog": "^5.0.8"
+  }
+}
