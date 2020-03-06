@@ -5,35 +5,58 @@ mongoose.connect('mongodb://127.0.0.1:27017/mongo-games', {useNewUrlParser: true
     .catch(err => console.error('Something went wrong', err))
     
 const gameSchema = new mongoose.Schema({
-    title: String,
+    title: {
+        type: String, 
+        required: true,
+        minlength: 5,
+        maxlength:10
+    },
     publisher: String,
-    tags: [String],
+    tags: {
+        type: [String],
+        require: true,
+        enum: ['rpg', 'action'],
+        validate:{
+            validator:function(v){
+                return v.lenght > 1
+            },
+            message: 'lenght must be more then 1'
+        }
+    },
     date: {
         type: Date,
         default: Date.now
     },
     onSale: Boolean,
-    price: Number
+    price: {
+        type: Number,
+        required: function(){return this.onSale}
+    }
 });
 	
 const Game = mongoose.model('Game', gameSchema);//Game - collection name
 
-/*
+
 async function saveGame() {
     const game = new Game({
-        title: "The Legend of Zelda: Breath of the Wild",
+        title: "asdf",
         publisher: "Nintendo",
         tags: ["adventure", "action"],
-        onSale: false,
-        price: 59.99,
+        onSale: true,
+        //price: 59.99,
     });
- 
-    const result = await game.save();
-    console.log(result);
+    try{
+        const result = await game.save();
+        console.log(result);
+    }catch(err){
+        console.log(err.message)
+    }
+    
+    
 }
  
 saveGame();
-*/
+
 /*
 async function getGames() {
     const games = await Game.find();
@@ -62,6 +85,7 @@ async function getGames() {
  
 getGames();
 */
+/*
 async function updateGame(id) {
     const result = await Game.updateOne({ _id: id }, {
         $set: {
@@ -73,7 +97,7 @@ async function updateGame(id) {
 }
  
 updateGame('5e623ed1bed04f05100772da');
-
+*/
 /*
 async function deleteGame(id) {
     const result = await Game.deleteOne({ _id: id })
