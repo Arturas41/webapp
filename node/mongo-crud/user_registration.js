@@ -2,6 +2,7 @@ const config = require('config');
 const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
 const mongoose = require('mongoose');
+const platforms = require('./routes/platforms');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const express = require('express');
@@ -17,6 +18,7 @@ mongoose.connect('mongodb://localhost/mongo-games', {useNewUrlParser: true,  use
     .catch(err => console.error('Something went wrong', err));
     
 app.use(express.json());
+app.use('/api/platforms', platforms);
 app.use('/api/users', users);
 app.use('/api/auth', auth);
  
