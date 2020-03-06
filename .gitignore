@@ -15,3 +15,4 @@ yarn-error.log
 /node/expressjs-tutorial/node_modules
 /node/express-rest/node_modules
 /node/mongo-crud/node_modules
+/node/javascript-testing/node_modules
