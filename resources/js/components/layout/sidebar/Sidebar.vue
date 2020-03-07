@@ -97,6 +97,17 @@ export default {
         },
 
         {
+            title: 'MENV',
+            icon: 'fa fa-crop',
+            child: [
+                {
+                    href: '/MEVN_stack/MEVN_stack',
+                    title: 'Mongo Express Node Vue'
+                }
+            ]
+        },
+
+        {
             title: 'Test Regex',
             icon: 'fa fa-crop',
             child: [

@@ -32,6 +32,8 @@ import CStudyMaterialsRead from './components/pages/c_study/materials/Read.vue';
 import CStudyMaterialsUpdate from './components/pages/c_study/materials/Update.vue';
 import CStudyMaterialsDelete from './components/pages/c_study/materials/Delete.vue';
 
+import MEVN_stack from './components/pages/MEVN_stack/MEVN_stack.vue';
+
  export const routes = [
      
     //auth
@@ -76,5 +78,6 @@ import CStudyMaterialsDelete from './components/pages/c_study/materials/Delete.v
     {path: '/c_study/materials/update/:id', component: CStudyMaterialsUpdate, name: 'c_study_materials_update'},
     {path: '/c_study/materials/delete/:id', component: CStudyMaterialsDelete, name: 'c_study_materials_delete'},
      
+    {path: '/MEVN_stack/MEVN_stack', component: MEVN_stack, name: 'MEVN_stack'},
 ];
 
