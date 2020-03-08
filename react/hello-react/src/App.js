@@ -29,17 +29,53 @@ class Form extends React.Component {
   }
 }
 
+class CompanyList extends React.Component {
+    render() {
+        const p = this.props;
+        return (
+            <div className="companylist">
+            <span className="companylisttext">&#x3C;CompanyList /&#x3E;</span>
+            {p.companyinfoarray.map(companyinfo => <Company key={companyinfo.id} {...companyinfo}/>)}
+            </div>
+        );
+    }
+}
+
+class Company extends React.Component {
+	render() {
+  	const p = this.props;
+  	return (
+    	<div className="company">
+        <span className="companytext">Company </span>
+    	  <img src={p.avatar_url} />
+        <div className="companyinfo">
+          <div>Name: {p.name}</div>
+          <div>Email: {p.email}</div>
+          <div>Bio: {p.bio}</div>
+          <div>Repos: {p.public_repos}</div>
+        </div>
+    	</div>
+    );
+  }
+}
 
 class App extends React.Component {
- 
-  doSomething = (companyinfo) => {
-    console.log(companyinfo);
+  state = {
+    companyinfoarray: [],
   };
-  
+ 
+  addCompany = (companyinfo) => {
+  	this.setState(prevState => ({
+    	companyinfoarray: [...prevState.companyinfoarray, companyinfo],
+    }));
+  };
+ 
 	render() {
   	return (
     	<div>
-        <Form onSubmit={this.doSomething} />
+        <Form onSubmit={this.addCompany} />
+        <CompanyList companyinfoarray={this.state.companyinfoarray} />
+        
     	</div>
     );
   }	
