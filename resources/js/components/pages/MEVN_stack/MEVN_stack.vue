@@ -1,6 +1,18 @@
 <template>
     <div>
-        client page => new tab
+        Mongo DB:
+        </br>
+        "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath="c:\data\db"
+        </br>
+        Server side:
+        </br>
+        ....\MEVN-Tutorial>node index.js
+        </br>
+        Client side:
+        </br>
+        ....\MEVN-Tutorial>cd client
+        </br>
+        ....\MEVN-Tutorial\client>npm run serve
     </div>
 </template>
 <script>

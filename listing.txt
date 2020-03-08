@@ -17,6 +17,7 @@ phpunit.xml
 pid
 public
 rabbit
+react
 README.md
 RES
 resources
