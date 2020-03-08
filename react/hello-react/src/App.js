@@ -1,34 +1,47 @@
 import ReactDOM from 'react-dom'
 import React, { useState } from 'react';
+import axios from 'axios';
  
-function Button(props) {
-	return (
-  	<button onClick={props.onClickFunction}>
-      "Click To Increment!"
-    </button>
-  );
+class Form extends React.Component {
+    state = { companyName: 'Microsoft' };
+    
+      handleSubmit = async (event) => {
+        event.preventDefault();
+        const resp = await axios.get(`https://api.github.com/users/${this.state.companyName}`);
+        this.props.onSubmit(resp.data);
+        this.setState({ companyName: '' });
+      };
+    
+	render() {
+  	return (
+    	<form onSubmit={this.handleSubmit}>
+            <span className="formtext">Form </span>
+              <input 
+              type="text" 
+              value={this.state.companyName}
+              onChange={event => this.setState({ companyName: event.target.value })}
+              placeholder="Enter Company Name" 
+              required 
+            />
+            <button>Go!</button>
+    	</form>
+    );
+  }
 }
+
+
+class App extends React.Component {
  
-function Presentation(props) {
-	return (
-  	<li>{props.message}</li>
-  );
+  doSomething = (companyinfo) => {
+    console.log(companyinfo);
+  };
+  
+	render() {
+  	return (
+    	<div>
+        <Form onSubmit={this.doSomething} />
+    	</div>
+    );
+  }	
 }
- 
-function App() {
-	const [counter, setCounter] = useState(0);
-        const incrementCounter = () => setCounter(counter+1);
-	return (
-    <div>
-      <Button onClickFunction={incrementCounter} increment={1} />
-      <Presentation message={counter}/>
-    </div>  
-  );
-}
- 
-ReactDOM.render(
-  <App />, 
-  document.getElementById('root'),
-);
- 
 export default App;
