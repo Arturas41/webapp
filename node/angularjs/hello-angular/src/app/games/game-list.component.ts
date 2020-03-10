@@ -12,6 +12,15 @@ export class GameListComponent {
     imageMargin = 1;
     showImage = true;
     listItem = 'Mario';
+    _listFilter = '';
+    get listFilter(): string {
+        return this._listFilter;
+    }
+    set listFilter(value: string) {
+        this._listFilter = value;
+        this.filteredGames = this.listFilter ? this.doFilter(this.listFilter) : this.games;
+    }
+    filteredGames: IGame[] = [];
     games: IGame[] = [
         {
             "gameId": 1,
@@ -64,7 +73,20 @@ export class GameListComponent {
             "imageUrl": "./assets/images/supermariobros.png"
         }
     ];
+    
+    
+    constructor() {
+        this.filteredGames = this.games;
+        this.listFilter = '';
+    }
+    
     toggleImage(): void {
         this.showImage = !this.showImage;
+    }
+    
+    doFilter(filterBy: string): IGame[] {
+        filterBy = filterBy.toLocaleLowerCase();
+        return this.games.filter((game: IGame) =>
+            game.gameName.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
 }

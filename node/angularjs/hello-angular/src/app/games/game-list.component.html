@@ -5,12 +5,10 @@
     <div class='card-body'>
         <div class="row">
             <div class="col-3">
-                <input [(ngModel)]="listItem" type="text" class="form-control" id="filterInput" placeholder="Type to filter">
+                <input [(ngModel)]="listFilter" type="text" class="form-control" id="filterInput" placeholder="Type to filter">
             </div>
             <div class="col">
-                <div class="form-text text-muted">
-                    {{listItem ? 'Filtered By:' : 'Not Filtered'}} {{listItem}}
-                </div>
+                <div *ngIf='listFilter' class="form-text text-muted">Filtered by: {{listFilter}}</div>
             </div>
         </div>
         <div class='table-responsive'>
@@ -31,7 +29,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor='let game of games'>
+                <tr *ngFor='let game of filteredGames'>
                     <td>
                         <img *ngIf='showImage'
                              [src]='game.imageUrl'
