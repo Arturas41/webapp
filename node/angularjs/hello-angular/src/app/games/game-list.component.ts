@@ -6,6 +6,8 @@ import {Component} from '@angular/core';
 })
 export class GameListComponent {
     pageTitle = 'Dynamic! Game List';
+    imageWidth = 45;
+    imageMargin = 1;
     games = [
         {
             "gameId": 1,
