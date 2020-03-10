@@ -3,7 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-virtual-machines',
   templateUrl: './virtual-machines.component.html',
-  styleUrls: ['./virtual-machines.component.css']
+  //styleUrls: ['./virtual-machines.component.css']
+    styles: [
+    `* {
+      color: darkgray;
+     }`
+  ]
 })
 export class VirtualMachinesComponent implements OnInit {
 
