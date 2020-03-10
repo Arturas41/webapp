@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<car>
+    <make>Tesla</make>
+    <model>Model S</model>
+    <color>Red</color>
+    <option name="Autopilot"/>
+    <option name="Extended Range"/>
+    <option name="Clear Coat"/>
+</car>
