@@ -32,8 +32,13 @@ export class GameListComponent implements OnInit {
     }
     
     ngOnInit(): void {
-        this.games = this.gameService.getGames();
-        this.filteredGames = this.games;
+        this.gameService.getGames().subscribe(
+            games => {
+                this.games = games;
+                this.filteredGames = this.games;
+            },
+            error => this.errorMessage = <any>error
+        );
     }
     
     onRatingClicked(message: string): void {

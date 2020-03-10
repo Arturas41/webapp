@@ -1,5 +1,8 @@
 <?php
 
+header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Methods: GET');
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
