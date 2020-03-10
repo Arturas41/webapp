@@ -3,7 +3,8 @@ import { IGame } from './game.component';
  
 @Component({
     selector: 'game-list',
-    templateUrl: './game-list.component.html'
+    templateUrl: './game-list.component.html',
+    styles: ['th:nth-child(3) {color:deepskyblue}']
 })
 export class GameListComponent {
     pageTitle = 'Dynamic! Game List';
