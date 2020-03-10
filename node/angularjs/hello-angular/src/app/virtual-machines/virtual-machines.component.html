@@ -1,4 +1,21 @@
-<button [disabled]="!allowNewVm" class="btn btn-lg">Add a VM</button>
+<form>
+  <div class="form-group">
+    <label for="vmname">VM Name</label>
+    <input 
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="vmName" 
+        name="vmName"
+        id="vmname" 
+    >
+    <small class="form-text text-muted">Enter the name for a new VM.</small>
+  </div>
+</form>
+ 
+<p>Add the <b>{{ vmName }}</b> virtual machine?</p>
+<button [disabled]="!allowNewVm" class="btn btn-lg" (click)="onCreateVM()">Add a VM</button>
+ 
 the allowNewVm variable is currently <b [innerText]="allowNewVm"></b>
 <hr>
+<h5>{{ vmCreated }}</h5>
 <app-virtual-machine></app-virtual-machine>
