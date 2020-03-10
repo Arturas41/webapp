@@ -18,7 +18,6 @@ pid
 public
 python
 rabbit
-react
 README.md
 RES
 resources
