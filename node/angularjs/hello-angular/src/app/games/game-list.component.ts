@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { IGame } from './game.component';
  
 @Component({
     selector: 'game-list',
@@ -10,7 +11,7 @@ export class GameListComponent {
     imageMargin = 1;
     showImage = true;
     listItem = 'Mario';
-    games = [
+    games: IGame[] = [
         {
             "gameId": 1,
             "gameName": "Castlevania",
