@@ -5,10 +5,12 @@
     <div class='card-body'>
         <div class="row">
             <div class="col-3">
-                <input type="text" class="form-control" id="filterInput" placeholder="Type to filter">
+                <input [(ngModel)]="listItem" type="text" class="form-control" id="filterInput" placeholder="Type to filter">
             </div>
             <div class="col">
-                <div class="form-text text-muted">Filtered by:</div>
+                <div class="form-text text-muted">
+                    {{listItem ? 'Filtered By:' : 'Not Filtered'}} {{listItem}}
+                </div>
             </div>
         </div>
         <div class='table-responsive'>
@@ -16,8 +18,9 @@
                 <thead>
                 <tr>
                     <th>
-                        <button class='btn btn-primary'>
-                            Hide Image
+                        <button class='btn btn-primary'
+                                (click)='toggleImage()'>
+                            {{showImage ? 'Hide&nbsp;' : 'Show'}} Image
                         </button>
                     </th>
                     <th>Game</th>
@@ -29,11 +32,17 @@
                 </thead>
                 <tbody>
                 <tr *ngFor='let game of games'>
-                    <td></td>
+                    <td>
+                        <img *ngIf='showImage'
+                             [src]='game.imageUrl'
+                             [title]='game.gameName'
+                             [style.width.px]='imageWidth'
+                             [style.margin.px]='imageMargin'>
+                    </td>
                     <td>{{ game.gameName }}</td>
-                    <td>{{ game.gameCode }}</td>
+                    <td>{{ game.gameCode | lowercase }}</td>
                     <td>{{ game.releaseDate }}</td>
-                    <td>{{ game.price }}</td>
+                    <td>{{ game.price | currency:'USD':'symbol':'1.2-2' }}</td>
                     <td>{{ game.thumbRating }}</td>
                 </tr>
                 </tbody>
