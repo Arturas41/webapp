@@ -32,7 +32,7 @@
  
         data() {
             return {
-                subject: 'Do you know what 1 + 1 equal to? {we will soon find out}[haha].',
+                subject: '\{we will soon find out}.',
                 pattern: '(?<={)[a-z]{2}',
                 matches: [],
                 form_errors: []
