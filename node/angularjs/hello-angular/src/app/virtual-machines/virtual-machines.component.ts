@@ -6,15 +6,21 @@ import { Component, OnInit } from '@angular/core';
   //styleUrls: ['./virtual-machines.component.css']
     styles: [
     `* {
-      color: darkgray;
      }`
   ]
 })
 export class VirtualMachinesComponent implements OnInit {
 
-  constructor() { }
+    allowNewVm = false;
 
-  ngOnInit(): void {
-  }
+    constructor() { 
+
+    setTimeout(() => {
+        this.allowNewVm = true
+    }, 1500);
+    }
+
+    ngOnInit(): void {
+    }
 
 }

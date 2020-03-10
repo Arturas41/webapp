@@ -4,4 +4,8 @@ import { Component } from "@angular/core";
     selector: 'app-virtual-machine',
     templateUrl: './virtual-machine.component.html'
 })
-export class VirtualMachineComponent {}
+export class VirtualMachineComponent {
+    vmName = 'Melvin';
+    vmStatus = 'online';
+    vmUptime = 225;
+}
