@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
  
 import { AppComponent } from './app.component';
 import { VirtualMachineComponent } from './virtual-machine/virtual-machine.component';
+import { VirtualMachinesComponent } from './virtual-machines/virtual-machines.component';
  
 @NgModule({
   declarations: [
     AppComponent,
-    VirtualMachineComponent
+    VirtualMachineComponent,
+    VirtualMachinesComponent
   ],
   imports: [
     BrowserModule
