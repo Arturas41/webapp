@@ -6,14 +6,15 @@ import { AppComponent } from './app.component';
 import { VirtualMachineComponent } from './virtual-machine/virtual-machine.component';
 import { VirtualMachinesComponent } from './virtual-machines/virtual-machines.component';
 import {GameListComponent} from './games/game-list.component';
-
+import {ThumbComponent} from './shared/thumb.component';
  
 @NgModule({
   declarations: [
     AppComponent,
     VirtualMachineComponent,
     VirtualMachinesComponent,
-    GameListComponent
+    GameListComponent,
+    ThumbComponent
     
   ],
   imports: [

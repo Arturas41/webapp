@@ -42,6 +42,11 @@
                     <td>{{ game.releaseDate }}</td>
                     <td>{{ game.price | currency:'USD':'symbol':'1.2-2' }}</td>
                     <td>{{ game.thumbRating }}</td>
+                    <td>
+                        <game-thumb [rating]='game.thumbRating'
+                                    (ratingClicked)='onRatingClicked($event)'>
+                        </game-thumb>
+                    </td>
                 </tr>
                 </tbody>
             </table>

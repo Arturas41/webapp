@@ -80,6 +80,10 @@ export class GameListComponent {
         this.listFilter = '';
     }
     
+    onRatingClicked(message: string): void {
+        this.pageTitle = 'Game List: ' + message;
+    }
+    
     toggleImage(): void {
         this.showImage = !this.showImage;
     }
