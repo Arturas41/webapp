@@ -173,3 +173,15 @@ Route::get('/angular_local_api', function () {
             "thumbRating" => 5,
             "imageUrl" => "./assets/images/supermariobros.png"]];
 });
+
+Route::get('/angular_local_api/1', function () {
+    return ["gameId" => 1,
+        "gameName" => "Castlevania",
+        "gameCode" => "AAA-0101",
+        "releaseDate" => "September 26, 1986",
+        "description" => "Action-adventure game series created and developed by Konami.",
+        "price" => 19.99,
+        "thumbRating" => 5.0,
+        "imageUrl" => "./assets/images/castlevania.png"
+    ];
+});

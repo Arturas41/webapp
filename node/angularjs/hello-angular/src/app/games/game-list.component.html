@@ -37,7 +37,11 @@
                              [style.width.px]='imageWidth'
                              [style.margin.px]='imageMargin'>
                     </td>
-                    <td>{{ game.gameName }}</td>
+                    <td>
+                        <a [routerLink]="['/games', game.gameId]">
+                            {{ game.gameName }}
+                        </a>
+                    </td>
                     <td>{{ game.gameCode | lowercase }}</td>
                     <td>{{ game.releaseDate }}</td>
                     <td>{{ game.price | currency:'USD':'symbol':'1.2-2' }}</td>

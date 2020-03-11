@@ -20,6 +20,13 @@ export class GameService {
             catchError(this.handleError)
         );
     }
+    
+    getGame(id : number): Observable<IGame> {
+        return this.http.get<IGame>(this.gameUrl + '/1').pipe(
+            tap(data => console.log('All: ' + JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+    }
  
     private handleError(err: HttpErrorResponse) {
  
