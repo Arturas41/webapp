@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
  
-import {IGame} from './game';
+import {IGame} from './game.component';
 import {GameService} from './game.service';
  
 @Component({

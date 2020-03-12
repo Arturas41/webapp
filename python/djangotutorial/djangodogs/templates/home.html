@@ -1,0 +1,12 @@
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Django!</title>
+</head>
+<body>
+    {% for dog in dogs%}
+        <a href="{% url 'dog_detail' dog.id %}">
+            <h1>{{ dog.name|capfirst }}</h1>
+        </a>
+    {% endfor %}
+</body>
