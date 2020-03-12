@@ -1,11 +1,11 @@
-<html lang="en-US">
-<head>
-    <meta charset="UTF-8">
-    <title>Dog Detail!</title>
-</head>
-<body>
-<h1>Dog with id of {{ dog.id }}</h1>
-<h2>This dogs name is {{ dog.name }}</h2>
-<h2>The breed of this dog is {{ dog.breed }}</h2>
-<h2>Description: {{ dog.description }}</h2>
-</body>
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    <img class="img-custom" src="{% static "images/dog.png" %}" alt="My image">
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, {{ dog.name }}!</h1>
+        <p class="lead">The breed of this dog is {{ dog.breed }}</p>
+        <p>Description: {{ dog.description }}</p>
+    </div>
+{% endblock content %}
