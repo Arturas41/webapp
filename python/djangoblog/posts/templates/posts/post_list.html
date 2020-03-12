@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Posts</title>
-</head>
-<body>
-<h1>Posts List</h1>
+{% extends "./layout/base.html" %}
+{% load static %}
 
-{% for post in posts %}
-    <h2>{{ post.title }}</h2>
-    <h3>{{ post.snippet }}...</h3>
-    <h4>{{ post.slug }}</h4>
-    <hr>
-{% endfor %}
-
-</body>
-</html>
+{% block content %}
+    {% for post in posts %}
+        <div class="card mb-4" style="width: 40rem">
+            <div class="card-body">
+                <h3 class="card-title">{{ post.title }}</h3>
+                <h6 class="card-subtitle mb-2 text-muted">{{ post.slug }}</h6>
+                <p class="card-text">{{ post.snippet }}...</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}
