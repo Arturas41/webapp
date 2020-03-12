@@ -10,6 +10,21 @@
     <title>Django Blog</title>
 </head>
 <body class="container mt-5">
+<nav class="mb-3">
+    {% if user.is_authenticated %}
+        <form action="{% url 'accounts:logout' %}" method="post">
+            {% csrf_token %}
+            <button class="btn btn-primary btn-sm" type="submit">Log Out</button>
+        </form>
+    {% else %}
+    <a href="{% url 'accounts:login' %}">
+       <button>Login</button>
+    </a>
+    <a href="{% url 'accounts:signup' %}">
+       <button>Signup</button>
+    </a>
+    {% endif %}
+</nav>
 {% block content %}
 
 {% endblock content %}
