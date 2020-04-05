@@ -725,6 +725,30 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@fortawesome/fontawesome-common-types@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.1.7.tgz#4336c4b06d0b5608ff1215464b66fcf9f4795284"
+  integrity sha512-ego8jRVSHfq/iq4KRZJKQeUAdi3ZjGNrqw4oPN3fNdvTBnLCSntwVCnc37bsAJP9UB8MhrTfPnZYxkv2vpS4pg==
+
+"@fortawesome/fontawesome-free-solid@^5.0.13":
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.0.13.tgz#24b61aaf471a9d34a5364b052d64a516285ba894"
+  integrity sha512-b+krVnqkdDt52Yfev0x0ZZgtxBQsLw00Zfa3uaVWIDzpNZVtrEXuxldUSUaN/ihgGhSNi8VpvDAdNPVgCKOSxw==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.7"
+
+"@fortawesome/fontawesome@^1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.1.8.tgz#75fe66a60f95508160bb16bd781ad7d89b280f5b"
+  integrity sha512-c0/MtkPVT0fmiFcCyYoPjkG9PkMOvfrZw2+0BaJ+Rh6UEcK1AR/LaRgrHHjUkbAbs9LXxQJhFS8CJ4uSnK2+JA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.1.7"
+
+"@mdi/font@^4.8.95":
+  version "4.9.95"
+  resolved "https://registry.yarnpkg.com/@mdi/font/-/font-4.9.95.tgz#00ed2ffe289c9230f146e74559c07542d3f4475a"
+  integrity sha512-m2sbAs+SMwRnWpkMriBxEulwuhmqRyh6X+hdOZlqSxYZUM2C2TaDnQ4gcilzdoAgru2XYnWViZ/xPuSDGgRXVw==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -947,9 +971,9 @@ accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.7:
     negotiator "0.6.2"
 
 acorn@^6.2.1:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.0.tgz#b659d2ffbafa24baf5db1cdbb2c94a983ecd2784"
-  integrity sha512-gac8OEcQ2Li1dxIEWGZzsp2BitJxwkwcOm0zHAJLcPJaVvm58FRnk6RkuLRpU1EujipU2ZFODv2P9DLMfnV8mw==
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.1.tgz#531e58ba3f51b9dacb9a6646ca4debf5b14ca474"
+  integrity sha512-ZVA9k326Nwrj3Cj9jlh3wGFutC2ZornPNARZwsNYqQYgN0EsV2d53w5RN/co65Ohn4sUAUtb1rSUAOD6XN9idA==
 
 adjust-sourcemap-loader@^1.1.0:
   version "1.2.0"
@@ -1412,6 +1436,13 @@ browserslist@^4.0.0, browserslist@^4.8.0, browserslist@^4.8.2, browserslist@^4.8
     electron-to-chromium "^1.3.322"
     node-releases "^1.1.44"
 
+buefy@^0.8.9:
+  version "0.8.15"
+  resolved "https://registry.yarnpkg.com/buefy/-/buefy-0.8.15.tgz#88fae2d3b3b7646abb92f23e89a2e176f2a05f7f"
+  integrity sha512-rDTtLNIip+uFpB1Z9E9YllLPYUkJUIFsf7tBhutNfP9SYGrcDhXnUsIEhPHSxGEeddPlX9YT98Mx1zhOz622vg==
+  dependencies:
+    bulma "0.7.5"
+
 buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
@@ -1440,6 +1471,11 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
+
+bulma@0.7.5:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.5.tgz#35066c37f82c088b68f94450be758fc00a967208"
+  integrity sha512-cX98TIn0I6sKba/DhW0FBjtaDpxTelU166pf7ICXpCCuplHWyu6C9LYZmL5PEsnePIeJaiorsTEzzNk3Tsm1hw==
 
 bytes@3.0.0:
   version "3.0.0"
@@ -2843,6 +2879,11 @@ follow-redirects@^1.0.0:
   dependencies:
     debug "^3.0.0"
 
+font-awesome@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
+  integrity sha1-j6jPBBGhoxr9B7BtKQK7n8gVoTM=
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -3711,6 +3752,11 @@ is-wsl@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
   integrity sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
+
+isarray@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
+  integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
 
 isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
@@ -4772,6 +4818,13 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+
+path-to-regexp@^1.7.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-1.8.0.tgz#887b3ba9d84393e87a0a0b9f4cb756198b53548a"
+  integrity sha512-n43JRhlUKUAlibEJhPeir1ncUID16QnEjNpwzNdO3Lm4ywrBpBZ5oLD0I6br9evr1Y9JTqwRtAh7JLoOzAQdVA==
+  dependencies:
+    isarray "0.0.1"
 
 path-type@^3.0.0:
   version "3.0.0"
@@ -6548,6 +6601,19 @@ vue-loader@^15.4.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-router@^3.1.5:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.1.6.tgz#45f5a3a3843e31702c061dd829393554e4328f89"
+  integrity sha512-GYhn2ynaZlysZMkFE5oCHRUTqE8BWs/a9YbKpNLi0i7xD6KG1EzDqpHQmv1F5gXjr8kL5iIVS8EOtRaVUEXTqA==
+
+vue-sidebar-menu@^4.4.7:
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/vue-sidebar-menu/-/vue-sidebar-menu-4.5.3.tgz#b3b6d4a37ce3f32027c1f3763c18de6df0c17e1c"
+  integrity sha512-NijPJvUmMNmkMzUHEBYpSdlyhJnhfXefgMEK+D89mdFkZI2mRWnEo5sRlkNoYw7HHoyB0ObPfAyKstNX8pBFmg==
+  dependencies:
+    path-to-regexp "^1.7.0"
+    vue "^2.5.21"
+
 vue-style-loader@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
@@ -6569,10 +6635,15 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.5.17:
+vue@^2.5.17, vue@^2.5.21:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
+
+vuetify@^2.2.6:
+  version "2.2.20"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.2.20.tgz#8cb042f7274f39130f8d40d85d23d62d1c33cae4"
+  integrity sha512-tiij3ammBiG7QrdwRBJxW917AyDLcMekRtLosdyVshDKHA5CpKrru8Ljn1gAmeUyhYZyUw4gz3XbrrIJ++TP7w==
 
 watchpack@^1.6.0:
   version "1.6.0"
